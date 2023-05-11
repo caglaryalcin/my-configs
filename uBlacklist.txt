@@ -1,3 +1,4 @@
+/medya\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /happycenter\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /haber24\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /sorularlaislamiyet\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
@@ -5,7 +6,7 @@
 /haberdairesi\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /emlakkulisi\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /islamansiklopedisi\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
-/diyanet\.(com|org|com.tr|net|gov|gov.tr)/
+/diyanet\.(tv|com|org|com.tr|net|gov|gov.tr)/
 /microsoft\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /zapier\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /haberoloji\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
