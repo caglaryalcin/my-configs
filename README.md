@@ -16,5 +16,5 @@ curl -o $env:userprofile\Desktop\dark-reader_backup.json https://raw.githubuserc
 ```
 ### My bookmarks
 ```
-curl -o $env:userprofile\Desktop\dark-reader_backup.json https://raw.githubusercontent.com/caglaryalcin/browser-config/main/Dark-Reader-Settings.json
+curl -o $env:userprofile\Desktop\dark-reader_backup.json https://raw.githubusercontent.com/caglaryalcin/browser-config/main/bookmarks.json
 ```
