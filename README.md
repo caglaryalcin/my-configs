@@ -2,7 +2,7 @@
 
 ### uBlock
 ```
-curl -o $env:userprofile\Desktop\uBlock_backup.txt https://raw.githubusercontent.com/caglaryalcin/browser-config/main/my-ublock-backup.txt
+curl -o $env:userprofile\Desktop\uBlock_backup.txt https://raw.githubusercontent.com/caglaryalcin/browser-config/main/ublock.txt
 ```
 
 ### uBlacklist
