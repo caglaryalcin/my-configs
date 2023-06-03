@@ -7,7 +7,7 @@ curl -o $env:userprofile\Desktop\uBlock_backup.txt https://raw.githubusercontent
 
 ### uBlacklist
 ```
-curl -o $env:userprofile\Desktop\uBlacklist_backup.txt https://raw.githubusercontent.com/caglaryalcin/browser-extensions-config/main/uBlacklist.txt
+https://raw.githubusercontent.com/caglaryalcin/browser-extensions-config/main/uBlacklist.txt
 ```
 
 ### Dark Reader
