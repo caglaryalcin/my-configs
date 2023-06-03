@@ -12,7 +12,7 @@ https://raw.githubusercontent.com/caglaryalcin/browser-config/main/uBlacklist.tx
 
 ### Dark Reader
 ```
-curl -o $env:userprofile\Desktop\dark-reader_backup.json https://raw.githubusercontent.com/caglaryalcin/browser-config/main/Dark-Reader-Settings.json
+curl -o $env:userprofile\Desktop\dark-reader_backup.json https://raw.githubusercontent.com/caglaryalcin/browser-config/main/darkreader.json
 ```
 ### My bookmarks
 ```
