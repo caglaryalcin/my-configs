@@ -1,6 +1,6 @@
 {
     "enabled": false,
-    "fetchNews": true,
+    "fetchNews": false,
     "theme": {
         "mode": 1,
         "brightness": 100,
@@ -31,15 +31,18 @@
         "mail.google.com",
         "mail.tutanota.com",
         "www.inoreader.com",
-        "twitter.com"
+        "twitter.com",
+        "www.trendyol.com",
+        "keenetic.com.tr",
+        "photos.caglaryalcin.com"
     ],
     "siteListEnabled": [],
     "applyToListedOnly": false,
     "changeBrowserTheme": false,
     "syncSettings": true,
-    "syncSitesFixes": false,
+    "syncSitesFixes": true,
     "automation": {
-        "enabled": true,
+        "enabled": false,
         "mode": "system",
         "behavior": "OnOff"
     },
@@ -55,5 +58,5 @@
     "enableForPDF": true,
     "enableForProtectedPages": false,
     "enableContextMenus": false,
-    "detectDarkTheme": false
+    "detectDarkTheme": true
 }
