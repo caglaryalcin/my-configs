@@ -110,3 +110,6 @@ user_pref("privacy.userContext.enabled", false);
 
 //disable search tabs button
 user_pref("browser.tabs.tabmanager.enabled", false);
+
+//disable spell Check
+user_pref("layout.spellcheckDefault", 0);
