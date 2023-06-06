@@ -113,3 +113,7 @@ user_pref("browser.tabs.tabmanager.enabled", false);
 
 //disable spell Check
 user_pref("layout.spellcheckDefault", 0);
+
+//Open previous windows and tabs
+user_pref("browser.sessionstore.resume_from_crash", false);
+user_pref("browser.startup.page", 3);
