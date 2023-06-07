@@ -53,6 +53,10 @@ www.bing.com##.pagereco_TCntr
 www.bing.com##.spl_ugcpoll
 www.bing.com##.slide-in.b_widgetContainer
 www.bing.com##li.b_ans:nth-of-type(13)
+www.bing.com##.b_mop.b_ans
+www.bing.com##.cdxAcrylicContents
+www.bing.com##li.b_ans:nth-of-type(11)
+www.bing.com##.b_nwsAnsTopItem.b_top.b_ans
 
 ! 2022-12-31 https://duckduckgo.com
 duckduckgo.com##.footer
