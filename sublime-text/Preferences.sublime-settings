@@ -1,0 +1,23 @@
+{
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"color_scheme": "cy.sublime-color-scheme",
+	"theme": "Default Dark.sublime-theme",
+	"word_wrap": "true",
+	"scroll_speed": 0,
+	"tree_animation_enabled": false,
+	"animation_enabled": false,
+	"highlight_modified_tabs": true,
+	"tab_size": 2,
+	"highlight_line": true,
+	"highlight_line_number": true,
+	/*"highlight_modified_tabs": true,*/
+	"line_padding_bottom": 0,
+	"default_encoding": "UTF-8",
+	"drag_text": false,
+	"remember_full_screen": true,
+	"remember_layout": true,
+	"show_navigation_bar": false,
+}
