@@ -117,3 +117,6 @@ user_pref("layout.spellcheckDefault", 0);
 //Open previous windows and tabs
 user_pref("browser.sessionstore.resume_from_crash", false);
 user_pref("browser.startup.page", 3);
+
+// find highlight all setting
+user_pref("findbar.highlightAll", true);
