@@ -47,7 +47,6 @@ user_pref("toolkit.cosmeticAnimations.enabled", false);
 
 //disable picture in picture-pop up
 user_pref("extensions.pictureinpicture.enable_picture_in_picture_overrides", false);
-user_pref("browser.download.alwaysOpenPanel", false);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", false);
 
 //Close All Tabs But Do Not Close Firefox
@@ -120,3 +119,6 @@ user_pref("browser.startup.page", 3);
 
 // find highlight all setting
 user_pref("findbar.highlightAll", true);
+
+// download to desktop
+user_pref("browser.download.lastDir", "$env:userprofile\\Desktop");
