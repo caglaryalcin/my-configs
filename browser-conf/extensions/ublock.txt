@@ -1,0 +1,122 @@
+! 2022-10-09 https://www.google.com
+||encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMEapz8Gg8zeMOxEKoz9ZGkCohg6hswyS9zLZ9q573&s$image
+||encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW-uxPovKZl07nGM6xyWUjUSk_hyy6F5orzf6N9jx76Q&s$image
+||encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMEapz8Gg8zeMOxEKoz9ZGkCohg6hswyS9zLZ9q573&s$image
+www.google.com##.uU7dJb
+www.google.com##.SSwjIe.KxwPGc
+www.google.com###rso > div.ULSxyf > .MjjYud > .cUnQKe.AuVD > .Wt5Tfe > .adDDi.kfsfbe
+www.google.com###t-dCY8-mOJaExc8PmdSYqA0__18 > .related-question-pair.wQiwMc > .SVyP1c.z9gcx > .wWOJcd > .r21Kzd
+www.google.com###t-dCY8-mOJaExc8PmdSYqA0__18 > .related-question-pair.wQiwMc > .SVyP1c.z9gcx > .wWOJcd
+www.google.com###rso > div.ULSxyf > .MjjYud > .cUnQKe.AuVD > .Wt5Tfe > .xKf9F.KFFQ0c.E9iWlb
+www.google.com###t-dCY8-mOJaExc8PmdSYqA0__27 > .related-question-pair.wQiwMc > .SVyP1c.z9gcx > .wWOJcd > .r21Kzd
+www.google.com###t-dCY8-mOJaExc8PmdSYqA0__27 > .related-question-pair.wQiwMc > .SVyP1c.z9gcx > .wWOJcd
+www.google.com##.DAVP1.EDblX
+www.google.com##.d3zsgb > .yuRUbf
+www.google.com##.tHT0l.ESkzqb.OZ5bRd.k2Oeod.Lu0opc > .LhCR5d.OvQkSb.CNf3nf
+www.google.com##.tHT0l.ESkzqb.OZ5bRd.k2Oeod.Lu0opc
+www.google.com##.EQdXxd.hWIMdd.U7izfe.e2BEnf
+www.google.com##.dGWpb.OSrXXb.mIKy0c.GTERze
+www.google.com###_ZYZFY8nHIrOCxc8PwK6a-A8_83 > span > div
+www.google.com###_ZYZFY8nHIrOCxc8PwK6a-A8_80 > div
+www.google.com##.GTERze.EIqaib
+www.google.com##.Kq2KUc
+www.google.com##.y6Uyqe
+www.google.com##.adDDi.kfsfbe
+www.google.com##.aUSklf
+www.google.com##.adDDi.Kcn6oc
+www.google.com##.jRKCUd
+www.google.com##.U48fD.TOQyFc
+www.google.com###rso > div.MjjYud > .cUnQKe > .Wt5Tfe > .adDDi.eJH8qe
+www.google.com###cLOpZP3JMb2Exc8PjoyY6AM__12 > .related-question-pair.wQiwMc > .h373nd.g7pt6d.oST1qe.roMIYb.ilulF.HYvwY > div > .dnXCYb > .L3Ezfd
+www.google.com###cLOpZP3JMb2Exc8PjoyY6AM__12 > .related-question-pair.wQiwMc > .h373nd.g7pt6d.oST1qe.roMIYb.ilulF.HYvwY > div > .dnXCYb
+www.google.com###cLOpZP3JMb2Exc8PjoyY6AM__18 > .related-question-pair.wQiwMc > .h373nd.g7pt6d.oST1qe.roMIYb.ilulF.HYvwY > div > .dnXCYb > .L3Ezfd
+www.google.com###cLOpZP3JMb2Exc8PjoyY6AM__18 > .related-question-pair.wQiwMc > .h373nd.g7pt6d.oST1qe.roMIYb.ilulF.HYvwY > div > .dnXCYb
+www.google.com###rso > div.MjjYud > .cUnQKe > .Wt5Tfe > .xKf9F.KFFQ0c.XVdSCb
+mail.google.com##.ZY
+
+! 2022-10-09 https://www.youtube.com
+www.youtube.com###scroll-container > .ytd-feed-filter-chip-bar-renderer.style-scope
+www.youtube.com##.ytd-rich-section-renderer.style-scope > .ytd-rich-shelf-renderer.style-scope
+www.youtube.com###right-arrow-button > .size-default.style-default.ytd-feed-filter-chip-bar-renderer.style-scope > .ytd-button-renderer.style-scope.yt-simple-endpoint > .size-default.style-default.ytd-button-renderer.style-scope
+www.youtube.com###header > .ytd-rich-grid-renderer.style-scope
+www.youtube.com##ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(4)
+www.youtube.com##ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(3)
+www.youtube.com###guide-links-primary
+www.youtube.com###guide-links-secondary
+www.youtube.com###copyright
+www.youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope
+www.youtube.com##ytd-popup-container.ytd-app.style-scope
+youtube.com##+js(set, yt.config_.openPopupConfig.supportedPopups.adBlockMessageViewModel, false)
+youtube.com##+js(set, Object.prototype.adBlocksFound, 0)
+youtube.com##+js(set, ytplayer.config.args.raw_player_response.adPlacements, [])
+youtube.com##+js(set, Object.prototype.hasAllowedInstreamAd, true)
+
+! 2023-04-17 https://www.bing.com
+www.bing.com##.richrswrapper
+www.bing.com##.tdw_ttline
+www.bing.com##.exp-rs.lite-entcard-exp
+www.bing.com##.tr_nh.va_tt.vsb_tr_c
+www.bing.com##li.b_ans:nth-of-type(14)
+www.bing.com##.b_imgsmall.b_imgans.b_mopb.b_mop.b_ans > .slide-in.b_widgetContainer
+www.bing.com###lgVidAnsContainer > .rel_ent_scr.rel_ent_w
+www.bing.com##li.b_ans:nth-of-type(2)
+www.bing.com##.pagereco_TCntr
+www.bing.com##.spl_ugcpoll
+www.bing.com##.slide-in.b_widgetContainer
+www.bing.com##li.b_ans:nth-of-type(13)
+www.bing.com##.b_mop.b_ans
+www.bing.com##.cdxAcrylicContents
+www.bing.com##li.b_ans:nth-of-type(11)
+www.bing.com##.b_nwsAnsTopItem.b_top.b_ans
+
+! 2022-10-09 https://www.linkedin.com
+www.linkedin.com##.global-footer-compact__links.global-footer-compact__content
+www.linkedin.com##.clear-both.text-align-center.t-normal.t-12.global-footer-compact__content
+www.linkedin.com###ember1048 > div > .pvs-list__outer-container > .pvs-list > li.pvs-list__item--one-column.pvs-list__item--line-separated.artdeco-list__item > .pvs-list__item--no-padding-in-columns.pvs-entity--padded.pvs-entity
+www.linkedin.com###ember1048 > .pvs-header__container
+www.linkedin.com###ember1275 > .pvs-header__container
+www.linkedin.com###ember1275 > div > .pvs-list__outer-container > .pvs-list__footer-wrapper > div > div > .artdeco-button--fluid.align-items-center.full-width.justify-center.inline-flex.artdeco-button--muted.artdeco-button--2.artdeco-button--standard.artdeco-button--tertiary.artdeco-button.optional-action-target-wrapper
+www.linkedin.com###ember1275 > div > .pvs-list__outer-container > .pvs-list > li.pvs-list__item--one-column.pvs-list__item--line-separated.artdeco-list__item > .pvs-list__item--no-padding-in-columns.pvs-entity--padded.pvs-entity
+
+! 2022-12-31 https://duckduckgo.com
+duckduckgo.com##.footer
+duckduckgo.com##.at-bottom.t-m.related-searches
+duckduckgo.com##.js-tagline.tag-home__item
+||duckduckgo.com/assets/onboarding/bathroomguy/teaser-2@2x.png$image
+
+! 2022-10-09 https://ceviri.yandex.com.tr
+ceviri.yandex.com.tr##.footer-content
+ceviri.yandex.com.tr##.sticky-header
+ceviri.yandex.com.tr##.history_records
+
+! 2022-10-09 https://translate.google.com.tr
+translate.google.com.tr##.jq8G6c.mqNsCe
+translate.google.com.tr##a.mqNsCe:nth-of-type(3)
+
+! 2022-10-22 https://mail.yandex.com.tr
+mail.yandex.com.tr###dafDBzKnQp7i0184 > div
+mail.yandex.com.tr##.DisableAdsButton__button--kP1ry.Button2_size_xs.Button2_view_default.Button2
+mail.yandex.com.tr###dafDBzK3KuvShxtaNIUY6wysh > div
+
+! 2022-10-28 https://www.lcwaikiki.com
+www.lcwaikiki.com###cookieseal-banner
+
+! 2022-10-30 https://www.chess.com
+www.chess.com##.modal-trial-modal
+www.chess.com##.diamond-top.sprite.nav-link-top-level.trial.nav-link-main-design.nav-link-component
+
+! 2023-04-19 https://www.amazon.com.tr
+www.amazon.com.tr##.widgetId\=loom-desktop-bottom-slot_rsps-related-searches.pd_rd_r-e92d45ee-ba06-43e8-b013-bfafe4d3fd5a.content-id\=amzn1\.sym\.bb205055-b0b0-42c9-bab9-f92dfe2b2d12\:amzn1\.sym\.bb205055-b0b0-42c9-bab9-f92dfe2b2d12.pd_rd_w-fKQLF.pd_rd_wg-JNd9s.pf_rd_r\=NDHWZPN5HDJXKGATJF3H.pf_rd_p\=bb205055-b0b0-42c9-bab9-f92dfe2b2d12.widget\=loom-desktop-bottom-slot_rsps-related-searches.template\=TEXT_REFORMULATION.slot\=MAIN.celwidget.s-widget-container-height-medium.s-spacing-medium.s-widget-container > .sg-row > .sg-col-12-of-16.sg-col-8-of-12.sg-col.sg-col-16-of-20.sg-col-20-of-24 > .sg-col-inner
+
+! 2022-10-01 https://www.hellotech.com
+www.hellotech.com##.site-skin-3.content-subscribe-2.content-subscribe-style.content-subscribe.subscribe-content > .clearfix.bg-area.tipi-modal-bg
+
+! 2023-06-09 https://twitter.com
+twitter.com##.r-1f1sjgu.r-ymttw5.r-uaa2di.r-eqz5dr.r-1habvwh.css-1dbjc4n
+twitter.com##div.r-cpa5s6.r-6b64d0.r-16y2uox.css-1dbjc4n:nth-of-type(1) > .r-6416eg.r-o7ynqc.r-i023vh.r-1qhn6m8.r-1ny4l3l.r-s8bhmr.r-1777fci.r-1h3ijdo.r-16y2uox.r-eqz5dr.r-6koalj.r-1loqt21.r-1awozwy.css-1dbjc4n.css-18t94o4.css-4rbku5
+twitter.com##div.r-cpa5s6.r-6b64d0.r-16y2uox.css-1dbjc4n:nth-of-type(1)
+twitter.com##div.r-1udh08x.r-1ifxtd0.r-rs99b7.r-1phboty.r-1867qdf.r-14wv3jr.r-g2wdr4.css-1dbjc4n:nth-of-type(4)
+
+! 2023-06-14 https://www.instagram.com
+www.instagram.com##._ab23._ab22._ab21
+
