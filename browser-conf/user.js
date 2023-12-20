@@ -49,9 +49,10 @@ user_pref("toolkit.cosmeticAnimations.enabled", false);
 user_pref("extensions.pictureinpicture.enable_picture_in_picture_overrides", false);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", false);
 
-//enable pop up
-user_pref("dom.popup_allowed_events", "");
+//allow pop-up
 user_pref("dom.disable_open_during_load", "false");
+user_pref("privacy.popups.disable_from_plugins", "false");
+user_pref("dom.popup_allowed_events", "");
 
 //Close All Tabs But Do Not Close Firefox
 user_pref("string.showQuitwarning", true);
@@ -137,7 +138,11 @@ user_pref("network.dns.echconfig.enabled", true);
 user_pref("network.security.esni.enabled", true);
 user_pref("network.dns.use_https_rr_as_altsvc", true);
 
+// allow OCSP
+user_pref("security.OCSP.enabled", 0);
+
 // download path
+//0 Ask
 //1 Desktop
 //2 Downloads
-user_pref("browser.download.folderList", 0);
+user_pref("browser.download.folderList", 1);
