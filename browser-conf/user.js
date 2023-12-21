@@ -138,9 +138,6 @@ user_pref("network.dns.echconfig.enabled", true);
 user_pref("network.security.esni.enabled", true);
 user_pref("network.dns.use_https_rr_as_altsvc", true);
 
-// allow OCSP
-user_pref("security.OCSP.enabled", 0);
-
 // download path
 //0 Asks and chooses Desktop
 //1 Desktop
