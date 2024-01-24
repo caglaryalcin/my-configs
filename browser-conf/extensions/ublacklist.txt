@@ -6,7 +6,6 @@
 /bing\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /youtube\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /uptodown\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
-/medya\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /happycenter\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /haber24\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /sorularlaislamiyet\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
