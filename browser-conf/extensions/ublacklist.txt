@@ -1,4 +1,4 @@
-sonsoz\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
+/sonsoz\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /renault-blekerautomobile-bremen\.(de|com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /mansetaydin\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /gazeteyenigun\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
@@ -482,7 +482,6 @@ sonsoz\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /ortadogugazetesi\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /ozgurhabergazetesi\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /pamukkalehaber\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
-/paramedya\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /patronlardunyasi\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /pictame\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
 /picuki\.(com|org|com.tr|net|gov|gov.tr|org|org.tr)/
