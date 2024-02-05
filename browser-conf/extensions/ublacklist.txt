@@ -493,6 +493,7 @@
 /yerelguc\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /yerelingundemi\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /yorumguncel\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
+/yozgatcamlik\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /yurtgazetesi\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /zimbagazetesi\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 
