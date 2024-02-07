@@ -88,15 +88,13 @@ duckduckgo.com##.js-tagline.tag-home__item
 ceviri.yandex.com.tr##.footer-content
 ceviri.yandex.com.tr##.sticky-header
 ceviri.yandex.com.tr##.history_records
+mail.yandex.com.tr###dafDBzKnQp7i0184 > div
+mail.yandex.com.tr##.DisableAdsButton__button--kP1ry.Button2_size_xs.Button2_view_default.Button2
+mail.yandex.com.tr###dafDBzK3KuvShxtaNIUY6wysh > div
 
 ! 2022-10-09 https://translate.google.com.tr
 translate.google.com.tr##.jq8G6c.mqNsCe
 translate.google.com.tr##a.mqNsCe:nth-of-type(3)
-
-! 2022-10-22 https://mail.yandex.com.tr
-mail.yandex.com.tr###dafDBzKnQp7i0184 > div
-mail.yandex.com.tr##.DisableAdsButton__button--kP1ry.Button2_size_xs.Button2_view_default.Button2
-mail.yandex.com.tr###dafDBzK3KuvShxtaNIUY6wysh > div
 
 ! 2022-10-28 https://www.lcwaikiki.com
 www.lcwaikiki.com###cookieseal-banner
@@ -116,10 +114,28 @@ twitter.com##.r-1f1sjgu.r-ymttw5.r-uaa2di.r-eqz5dr.r-1habvwh.css-1dbjc4n
 twitter.com##div.r-cpa5s6.r-6b64d0.r-16y2uox.css-1dbjc4n:nth-of-type(1) > .r-6416eg.r-o7ynqc.r-i023vh.r-1qhn6m8.r-1ny4l3l.r-s8bhmr.r-1777fci.r-1h3ijdo.r-16y2uox.r-eqz5dr.r-6koalj.r-1loqt21.r-1awozwy.css-1dbjc4n.css-18t94o4.css-4rbku5
 twitter.com##div.r-cpa5s6.r-6b64d0.r-16y2uox.css-1dbjc4n:nth-of-type(1)
 twitter.com##div.r-1udh08x.r-1ifxtd0.r-rs99b7.r-1phboty.r-1867qdf.r-14wv3jr.r-g2wdr4.css-1dbjc4n:nth-of-type(4)
+twitter.com##.r-494qqr.css-175oi2r
+twitter.com##.r-1f1sjgu.r-ymttw5.r-uaa2di.r-eqz5dr.r-1habvwh.css-175oi2r
 
 ! 2023-06-14 https://www.instagram.com
 www.instagram.com##._ab23._ab22._ab21
 
-! 2023-12-21 https://twitter.com
-twitter.com##.r-1f1sjgu.r-ymttw5.r-uaa2di.r-eqz5dr.r-1habvwh.css-175oi2r
+! 2024-02-07 https://aosogrenci.anadolu.edu.tr
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(2)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(4)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(5)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(6)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(8)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(9)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(11)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(12)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(13)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(14)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(15)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(19)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(22)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(24)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.DonemliktenGecti.line:nth-of-type(25)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.Muaf.line:nth-of-type(26)
+aosogrenci.anadolu.edu.tr##div.ng-star-inserted.Muaf.line:nth-of-type(1)
 
