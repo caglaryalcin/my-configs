@@ -153,6 +153,7 @@
 /beyazgazete\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /beykozguncel\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /bgazete\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
+/biblog\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /birgun\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /bizimsakarya\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /bloomberght\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
