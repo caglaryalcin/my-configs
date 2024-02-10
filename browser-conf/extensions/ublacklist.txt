@@ -584,3 +584,26 @@
 /yirmidort\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /zanka\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /zapier\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
+
+# spam domain extensions
+/\.(fr)/
+/\.(fr)/
+/\.(es)/
+/\.(fi)/
+/\.(pt)/
+/\.(nl)/
+/\.(uk)/
+/\.(it)/
+/\.(ru)/
+/\.(pl)/
+/\.(de)/
+/\.(cz)/
+/\.(sy)/
+/\.(pk)/
+/\.(gr)/
+/\.(tn)/
+/\.(ar)/
+/\.(nu)/
+/\.(si)/
+/\.(be)/
+/\.(ch)/
