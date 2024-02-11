@@ -16,7 +16,7 @@ user_pref("signon.rememberSignons", false);
 //show http:// - https://
 user_pref("browser.urlbar.trimURLs", false);
 
-// sync firefox account
+//sync firefox account
 user_pref("identity.fxaccounts.enabled", true); 
 
 //disable history cache
@@ -30,7 +30,7 @@ user_pref("privacy.clearOnShutdown.siteSettings", false);
 user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
 user_pref("browser.safebrowsing.provider.mozilla.gethashURL", "");
 
-//bitwarden size fix
+//bitwarden size fix (netflix f7121-1331)
 user_pref("privacy.resistFingerprinting", false);
 
 //disable notifications
@@ -123,17 +123,17 @@ user_pref("browser.sessionstore.resume_from_crash", false);
 user_pref("browser.startup.page", 3);
 user_pref("browser.newtabpage.enabled", false);
 
-// find highlight all setting
+//find highlight all setting
 user_pref("findbar.highlightAll", true);
 
-// download to desktop
+//download to desktop
 user_pref("browser.download.lastDir", "$env:userprofile\\Desktop");
 
 // enable webgl
 user_pref("webgl.force-enabled", true);
 user_pref("webgl.disabled", false);
 
-// enable sni-doh
+//enable sni-doh
 user_pref("network.dns.echconfig.enabled", true);
 user_pref("network.security.esni.enabled", true);
 user_pref("network.dns.use_https_rr_as_altsvc", true);
