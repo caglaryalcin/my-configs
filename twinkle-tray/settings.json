@@ -10,28 +10,31 @@
 	"remaps": {},
 	"hotkeys": {},
 	"hotkeyPercent": 50,
-	"adjustmentTimes": [
-		{
-			"brightness": 3,
-			"time": "16:30",
-			"monitors": {
-				"\\\\?\\DISPLAY#AUS27AF#5&2dc81628&0&UID4353": 22,
-				"\\\\?\\DISPLAY#AUS2782#5&2dc81628&0&UID4355": 30
-			}
-		}
-	],
+	"adjustmentTimes": [],
 	"adjustmentTimeIndividualDisplays": true,
 	"adjustmentTimeSpeed": "normal",
 	"adjustmentTimeAnimate": false,
 	"checkTimeAtStartup": true,
-	"order": [],
+	"order": [
+		{
+			"id": "\\\\?\\DISPLAY#AUS2782#5&2dc81628&0&UID4355",
+			"order": 0
+		},
+		{
+			"id": "\\\\?\\DISPLAY#AUS27AF#5&2dc81628&0&UID4353",
+			"order": 1
+		}
+	],
 	"monitorFeatures": {},
 	"hideDisplays": {},
 	"checkForUpdates": true,
 	"dismissedUpdate": "",
 	"language": "system",
 	"settingsVer": "v1.15.4",
-	"names": {},
+	"names": {
+		"\\\\?\\DISPLAY#AUS2782#5&2dc81628&0&UID4355": "VG279",
+		"\\\\?\\DISPLAY#AUS27AF#5&2dc81628&0&UID4353": "VG278"
+	},
 	"analytics": true,
 	"scrollShortcut": true,
 	"useAcrylic": false,
@@ -48,9 +51,9 @@
 	"detectIdleTimeMinutes": 5,
 	"overrideTaskbarPosition": false,
 	"overrideTaskbarGap": false,
-	"disableWMIC": false,
-	"disableWMI": false,
-	"disableWin32": false,
+	"disableWMIC": true,
+	"disableWMI": true,
+	"disableWin32": true,
 	"autoDisabledWMI": false,
 	"disableOverlay": false,
 	"disableMouseEvents": false,
