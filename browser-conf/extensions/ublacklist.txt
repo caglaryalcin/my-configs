@@ -586,7 +586,8 @@
 /zapier\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 
 # spam domain extensions
-/\.(fr)/
+/\.(xz)/
+/\.(online)/
 /\.(fr)/
 /\.(es)/
 /\.(fi)/
