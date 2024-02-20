@@ -83,7 +83,7 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\StartPage]
 "MonitorOverride"=dword:00000001
 [HKEY_CURRENT_USER\Software\ExplorerPatcher]
-;"Virtualized_{D17F1E1A-5919-4427-8F89-A1A8503CA3EB}_StartDocked_DisableRecommendedSection"=dword:00000001
+;"Virtualized_{D17F1E1A-5919-4427-8F89-A1A8503CA3EB}_StartDocked_DisableRecommendedSection"=dword:00000000
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\StartPage]
 "MakeAllAppsDefault"=dword:00000000
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
@@ -141,7 +141,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_CURRENT_USER\Software\Classes\CLSID\{1eeb5b5a-06fb-4732-96b3-975c0194eb39}\InprocServer32]
 @=""
 [HKEY_CURRENT_USER\Software\ExplorerPatcher]
-"NoPropertiesInContextMenu"=dword:00000000
+"NoPropertiesInContextMenu"=dword:00000001
 [HKEY_CURRENT_USER\Software\ExplorerPatcher]
 "EnableSymbolDownload"=dword:00000000
 [HKEY_CURRENT_USER\Software\ExplorerPatcher]
