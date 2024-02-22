@@ -1,0 +1,944 @@
+-- +goose Up
+-- 20160413103644_AddDtsToAE2Headset.sql
+
+UPDATE devices
+SET full_name="Dell Performance USB Headset - AE2", settings = '{"led_color": {"red": 255, "green": 255, "blue": 255}, "ae2_150_color_sequence": {"repeat": "", "data": []}, "eq_band_1":{ "settings": {"band_register":64, "gain":24}}, "eq_band_2":{ "settings": {"band_register":65, "gain":24}}, "eq_band_3":{"settings": {"band_register":66, "gain":24}}, "eq_band_4":{"settings":{"band_register":67, "gain":24}}, "eq_band_5":{"settings":{"band_register":68, "gain":24}}, "agc_on_off":{"state":0}, "dts_hpx_surround_on_off": {"state": 0}, "dts_hpx_surround_mode": {"mode": 3} }'
+WHERE id = 74;
+UPDATE configurations
+SET settings = '{"led_color": {"red": 255, "green": 255, "blue": 255}, "ae2_150_color_sequence": {"repeat": "", "data": []}, "eq_band_1":{ "settings": {"band_register":64, "gain":24}}, "eq_band_2":{ "settings": {"band_register":65, "gain":24}}, "eq_band_3":{"settings": {"band_register":66, "gain":24}}, "eq_band_4":{"settings":{"band_register":67, "gain":24}}, "eq_band_5":{"settings":{"band_register":68, "gain":24}}, "agc_on_off":{"state":0}, "dts_hpx_surround_on_off": {"state": 0}, "dts_hpx_surround_mode": {"mode": 3} }'
+WHERE device_id = 74;
+
+-- 20160414112100_AddHPOmen.sql
+
+-- Add HP Omen mouse
+INSERT INTO devices(id, product_id, name, full_name, type, settings, undeployedsettings) VALUES (75, 272111384, 'hp_omen_rival_300', 'SteelSeries Rival 300 HP Omen', 1,
+'{"logo_color":{"red":255,"green":24,"blue":0},"wheel_color":{"red":255,"green":24,"blue":0},"resolution_1":{"resolution":16,"dcpi":0},"resolution_2":{"resolution":32,"dcpi":0},"raw_cpi":{"level1":800,"level2":1600},"logo_pulsation":{"mode":1},"wheel_pulsation":{"mode":1},"polling_rate":{"level":1},"exact_accel":{"level":0},"exact_aim":{"level":0},"button_mappings":{"buttons":[{"function":1,"key_codes":[0,0,0,0]},{"function":2,"key_codes":[0,0,0,0]},{"function":3,"key_codes":[0,0,0,0]},{"function":4,"key_codes":[0,0,0,0]},{"function":5,"key_codes":[0,0,0,0]},{"function":48,"key_codes":[0,0,0,0]}],"no_live_deploy":1},"wheel_mappings":{"wheels":[{"function":49,"key_codes":[0,0,0,0]},{"function":50,"key_codes":[0,0,0,0]}],"no_live_deploy":1},"rival_logo_color_sequence":{"repeat":"","data":[]},"rival_wheel_color_sequence":{"repeat":"","data":[]},"free_move":{"level":0}}',
+'{
+    "wheel_led_disabled":0,
+    "logo_led_disabled":0,
+    "logo_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "wheel_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    }
+}');
+INSERT INTO physical_devices(product_id, bootloader_product_id, name, full_name) values(272111384, 272111385, 'hp_omen_rival_300', 'SteelSeries Rival 300 HP Omen');
+INSERT INTO devices_to_physical_devices(physical_device_product_id, main_device_product_id) values(272111384, 272111384);
+-- Add HP Omen Keyboard
+INSERT INTO devices(id, product_id, name, full_name, type, settings, undeployedsettings) VALUES (76, 272110090, 'hp_omen_apex-350', 'SteelSeries Apex 350 HP Omen', 0,
+'{"button_mappings":{"buttons":[{"function":999,"key_codes":[4]},{"function":999,"key_codes":[5]},{"function":999,"key_codes":[6]},{"function":999,"key_codes":[7]},{"function":999,"key_codes":[8]},{"function":999,"key_codes":[9]},{"function":999,"key_codes":[10]},{"function":999,"key_codes":[11]},{"function":999,"key_codes":[12]},{"function":999,"key_codes":[13]},{"function":999,"key_codes":[14]},{"function":999,"key_codes":[15]},{"function":999,"key_codes":[16]},{"function":999,"key_codes":[17]},{"function":999,"key_codes":[18]},{"function":999,"key_codes":[19]},{"function":999,"key_codes":[20]},{"function":999,"key_codes":[21]},{"function":999,"key_codes":[22]},{"function":999,"key_codes":[23]},{"function":999,"key_codes":[24]},{"function":999,"key_codes":[25]},{"function":999,"key_codes":[26]},{"function":999,"key_codes":[27]},{"function":999,"key_codes":[28]},{"function":999,"key_codes":[29]},{"function":999,"key_codes":[30]},{"function":999,"key_codes":[31]},{"function":999,"key_codes":[32]},{"function":999,"key_codes":[33]},{"function":999,"key_codes":[34]},{"function":999,"key_codes":[35]},{"function":999,"key_codes":[36]},{"function":999,"key_codes":[37]},{"function":999,"key_codes":[38]},{"function":999,"key_codes":[39]},{"function":999,"key_codes":[40]},{"function":999,"key_codes":[41]},{"function":999,"key_codes":[42]},{"function":999,"key_codes":[43]},{"function":999,"key_codes":[44]},{"function":999,"key_codes":[45]},{"function":999,"key_codes":[46]},{"function":999,"key_codes":[47]},{"function":999,"key_codes":[48]},{"function":999,"key_codes":[49]},{"function":999,"key_codes":[50]},{"function":999,"key_codes":[51]},{"function":999,"key_codes":[52]},{"function":999,"key_codes":[53]},{"function":999,"key_codes":[54]},{"function":999,"key_codes":[55]},{"function":999,"key_codes":[56]},{"function":999,"key_codes":[57]},{"function":999,"key_codes":[58]},{"function":999,"key_codes":[59]},{"function":999,"key_codes":[60]},{"function":999,"key_codes":[61]},{"function":999,"key_codes":[62]},{"function":999,"key_codes":[63]},{"function":999,"key_codes":[64]},{"function":999,"key_codes":[65]},{"function":999,"key_codes":[66]},{"function":999,"key_codes":[67]},{"function":999,"key_codes":[68]},{"function":999,"key_codes":[69]},{"function":999,"key_codes":[70]},{"function":999,"key_codes":[71]},{"function":999,"key_codes":[72]},{"function":999,"key_codes":[73]},{"function":999,"key_codes":[74]},{"function":999,"key_codes":[75]},{"function":999,"key_codes":[76]},{"function":999,"key_codes":[77]},{"function":999,"key_codes":[78]},{"function":999,"key_codes":[79]},{"function":999,"key_codes":[80]},{"function":999,"key_codes":[81]},{"function":999,"key_codes":[82]},{"function":999,"key_codes":[83]},{"function":999,"key_codes":[84]},{"function":999,"key_codes":[85]},{"function":999,"key_codes":[86]},{"function":999,"key_codes":[87]},{"function":999,"key_codes":[88]},{"function":999,"key_codes":[89]},{"function":999,"key_codes":[90]},{"function":999,"key_codes":[91]},{"function":999,"key_codes":[92]},{"function":999,"key_codes":[93]},{"function":999,"key_codes":[94]},{"function":999,"key_codes":[95]},{"function":999,"key_codes":[96]},{"function":999,"key_codes":[97]},{"function":999,"key_codes":[98]},{"function":999,"key_codes":[99]},{"function":999,"key_codes":[100]},{"function":999,"key_codes":[101]},{"function":999,"key_codes":[135]},{"function":999,"key_codes":[136]},{"function":999,"key_codes":[137]},{"function":999,"key_codes":[138]},{"function":999,"key_codes":[139]},{"function":999,"key_codes":[144]},{"function":999,"key_codes":[145]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[172]},{"function":0,"key_codes":[173]},{"function":999,"key_codes":[224]},{"function":999,"key_codes":[225]},{"function":999,"key_codes":[226]},{"function":999,"key_codes":[227]},{"function":999,"key_codes":[228]},{"function":999,"key_codes":[229]},{"function":999,"key_codes":[230]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]}],"no_live_deploy":1},"region_layout_id":{"id":1},"z1_color":{"red":255,"green":0,"blue":0},"apex_350_z1_color_sequence":{"repeat":"","data":[]},"z2_color":{"red":0,"green":255,"blue":0},"apex_350_z2_color_sequence":{"repeat":"","data":[]},"z3_color":{"red":0,"green":0,"blue":255},"apex_350_z3_color_sequence":{"repeat":"","data":[]},"z4_color":{"red":255,"green":100,"blue":0},"apex_350_z4_color_sequence":{"repeat":"","data":[]},"z5_color":{"red":255,"green":0,"blue":255},"apex_350_z5_color_sequence":{"repeat":"","data":[]},"global_brightness":{"level":8},"polling_rate":{"level":1}}',
+'{
+    "z1_illumination_disabled":0,
+    "z2_illumination_disabled":0,
+    "z3_illumination_disabled":0,
+    "z4_illumination_disabled":0,
+    "z5_illumination_disabled":0,
+    "z1_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z2_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z3_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z4_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z5_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    }
+}');
+INSERT INTO physical_devices(product_id, bootloader_product_id, name, full_name) values(272110090, 272110091, 'hp_omen_apex-350', 'SteelSeries Apex 350 HP Omen');
+INSERT INTO devices_to_physical_devices(physical_device_product_id, main_device_product_id) values(272110090, 272110090);
+-- Apex 350 Layer Configs
+INSERT INTO initial_configurations (id, device_id, name, settings, undeployedsettings) VALUES (
+39, 76, 'Layer 2',
+'{"button_mappings":{"buttons":[{"function":999,"key_codes":[4]},{"function":999,"key_codes":[5]},{"function":999,"key_codes":[6]},{"function":999,"key_codes":[7]},{"function":999,"key_codes":[8]},{"function":999,"key_codes":[9]},{"function":999,"key_codes":[10]},{"function":999,"key_codes":[11]},{"function":999,"key_codes":[12]},{"function":999,"key_codes":[13]},{"function":999,"key_codes":[14]},{"function":999,"key_codes":[15]},{"function":999,"key_codes":[16]},{"function":999,"key_codes":[17]},{"function":999,"key_codes":[18]},{"function":999,"key_codes":[19]},{"function":999,"key_codes":[20]},{"function":999,"key_codes":[21]},{"function":999,"key_codes":[22]},{"function":999,"key_codes":[23]},{"function":999,"key_codes":[24]},{"function":999,"key_codes":[25]},{"function":999,"key_codes":[26]},{"function":999,"key_codes":[27]},{"function":999,"key_codes":[28]},{"function":999,"key_codes":[29]},{"function":999,"key_codes":[30]},{"function":999,"key_codes":[31]},{"function":999,"key_codes":[32]},{"function":999,"key_codes":[33]},{"function":999,"key_codes":[34]},{"function":999,"key_codes":[35]},{"function":999,"key_codes":[36]},{"function":999,"key_codes":[37]},{"function":999,"key_codes":[38]},{"function":999,"key_codes":[39]},{"function":999,"key_codes":[40]},{"function":999,"key_codes":[41]},{"function":999,"key_codes":[42]},{"function":999,"key_codes":[43]},{"function":999,"key_codes":[44]},{"function":999,"key_codes":[45]},{"function":999,"key_codes":[46]},{"function":999,"key_codes":[47]},{"function":999,"key_codes":[48]},{"function":999,"key_codes":[49]},{"function":999,"key_codes":[50]},{"function":999,"key_codes":[51]},{"function":999,"key_codes":[52]},{"function":999,"key_codes":[53]},{"function":999,"key_codes":[54]},{"function":999,"key_codes":[55]},{"function":999,"key_codes":[56]},{"function":999,"key_codes":[57]},{"function":999,"key_codes":[58]},{"function":999,"key_codes":[59]},{"function":999,"key_codes":[60]},{"function":999,"key_codes":[61]},{"function":999,"key_codes":[62]},{"function":999,"key_codes":[63]},{"function":999,"key_codes":[64]},{"function":999,"key_codes":[65]},{"function":999,"key_codes":[66]},{"function":999,"key_codes":[67]},{"function":999,"key_codes":[68]},{"function":999,"key_codes":[69]},{"function":999,"key_codes":[70]},{"function":999,"key_codes":[71]},{"function":999,"key_codes":[72]},{"function":999,"key_codes":[73]},{"function":999,"key_codes":[74]},{"function":999,"key_codes":[75]},{"function":999,"key_codes":[76]},{"function":999,"key_codes":[77]},{"function":999,"key_codes":[78]},{"function":999,"key_codes":[79]},{"function":999,"key_codes":[80]},{"function":999,"key_codes":[81]},{"function":999,"key_codes":[82]},{"function":999,"key_codes":[83]},{"function":999,"key_codes":[84]},{"function":999,"key_codes":[85]},{"function":999,"key_codes":[86]},{"function":999,"key_codes":[87]},{"function":999,"key_codes":[88]},{"function":999,"key_codes":[89]},{"function":999,"key_codes":[90]},{"function":999,"key_codes":[91]},{"function":999,"key_codes":[92]},{"function":999,"key_codes":[93]},{"function":999,"key_codes":[94]},{"function":999,"key_codes":[95]},{"function":999,"key_codes":[96]},{"function":999,"key_codes":[97]},{"function":999,"key_codes":[98]},{"function":999,"key_codes":[99]},{"function":999,"key_codes":[100]},{"function":999,"key_codes":[101]},{"function":999,"key_codes":[135]},{"function":999,"key_codes":[136]},{"function":999,"key_codes":[137]},{"function":999,"key_codes":[138]},{"function":999,"key_codes":[139]},{"function":999,"key_codes":[144]},{"function":999,"key_codes":[145]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[172]},{"function":0,"key_codes":[173]},{"function":999,"key_codes":[224]},{"function":999,"key_codes":[225]},{"function":999,"key_codes":[226]},{"function":999,"key_codes":[227]},{"function":999,"key_codes":[228]},{"function":999,"key_codes":[229]},{"function":999,"key_codes":[230]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]}],"no_live_deploy":1},"region_layout_id":{"id":1},"z1_color":{"red":255,"green":0,"blue":0},"apex_350_z1_color_sequence":{"repeat":"","data":[]},"z2_color":{"red":0,"green":255,"blue":0},"apex_350_z2_color_sequence":{"repeat":"","data":[]},"z3_color":{"red":0,"green":0,"blue":255},"apex_350_z3_color_sequence":{"repeat":"","data":[]},"z4_color":{"red":255,"green":100,"blue":0},"apex_350_z4_color_sequence":{"repeat":"","data":[]},"z5_color":{"red":255,"green":0,"blue":255},"apex_350_z5_color_sequence":{"repeat":"","data":[]},"global_brightness":{"level":8},"polling_rate":{"level":1}}',
+'{
+    "z1_illumination_disabled":0,
+    "z2_illumination_disabled":0,
+    "z3_illumination_disabled":0,
+    "z4_illumination_disabled":0,
+    "z5_illumination_disabled":0,
+    "z1_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z2_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z3_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z4_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z5_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    }
+}');
+INSERT INTO initial_configurations (id, device_id, name, settings, undeployedsettings) VALUES (
+40, 76, 'Layer 3',
+'{"button_mappings":{"buttons":[{"function":999,"key_codes":[4]},{"function":999,"key_codes":[5]},{"function":999,"key_codes":[6]},{"function":999,"key_codes":[7]},{"function":999,"key_codes":[8]},{"function":999,"key_codes":[9]},{"function":999,"key_codes":[10]},{"function":999,"key_codes":[11]},{"function":999,"key_codes":[12]},{"function":999,"key_codes":[13]},{"function":999,"key_codes":[14]},{"function":999,"key_codes":[15]},{"function":999,"key_codes":[16]},{"function":999,"key_codes":[17]},{"function":999,"key_codes":[18]},{"function":999,"key_codes":[19]},{"function":999,"key_codes":[20]},{"function":999,"key_codes":[21]},{"function":999,"key_codes":[22]},{"function":999,"key_codes":[23]},{"function":999,"key_codes":[24]},{"function":999,"key_codes":[25]},{"function":999,"key_codes":[26]},{"function":999,"key_codes":[27]},{"function":999,"key_codes":[28]},{"function":999,"key_codes":[29]},{"function":999,"key_codes":[30]},{"function":999,"key_codes":[31]},{"function":999,"key_codes":[32]},{"function":999,"key_codes":[33]},{"function":999,"key_codes":[34]},{"function":999,"key_codes":[35]},{"function":999,"key_codes":[36]},{"function":999,"key_codes":[37]},{"function":999,"key_codes":[38]},{"function":999,"key_codes":[39]},{"function":999,"key_codes":[40]},{"function":999,"key_codes":[41]},{"function":999,"key_codes":[42]},{"function":999,"key_codes":[43]},{"function":999,"key_codes":[44]},{"function":999,"key_codes":[45]},{"function":999,"key_codes":[46]},{"function":999,"key_codes":[47]},{"function":999,"key_codes":[48]},{"function":999,"key_codes":[49]},{"function":999,"key_codes":[50]},{"function":999,"key_codes":[51]},{"function":999,"key_codes":[52]},{"function":999,"key_codes":[53]},{"function":999,"key_codes":[54]},{"function":999,"key_codes":[55]},{"function":999,"key_codes":[56]},{"function":999,"key_codes":[57]},{"function":999,"key_codes":[58]},{"function":999,"key_codes":[59]},{"function":999,"key_codes":[60]},{"function":999,"key_codes":[61]},{"function":999,"key_codes":[62]},{"function":999,"key_codes":[63]},{"function":999,"key_codes":[64]},{"function":999,"key_codes":[65]},{"function":999,"key_codes":[66]},{"function":999,"key_codes":[67]},{"function":999,"key_codes":[68]},{"function":999,"key_codes":[69]},{"function":999,"key_codes":[70]},{"function":999,"key_codes":[71]},{"function":999,"key_codes":[72]},{"function":999,"key_codes":[73]},{"function":999,"key_codes":[74]},{"function":999,"key_codes":[75]},{"function":999,"key_codes":[76]},{"function":999,"key_codes":[77]},{"function":999,"key_codes":[78]},{"function":999,"key_codes":[79]},{"function":999,"key_codes":[80]},{"function":999,"key_codes":[81]},{"function":999,"key_codes":[82]},{"function":999,"key_codes":[83]},{"function":999,"key_codes":[84]},{"function":999,"key_codes":[85]},{"function":999,"key_codes":[86]},{"function":999,"key_codes":[87]},{"function":999,"key_codes":[88]},{"function":999,"key_codes":[89]},{"function":999,"key_codes":[90]},{"function":999,"key_codes":[91]},{"function":999,"key_codes":[92]},{"function":999,"key_codes":[93]},{"function":999,"key_codes":[94]},{"function":999,"key_codes":[95]},{"function":999,"key_codes":[96]},{"function":999,"key_codes":[97]},{"function":999,"key_codes":[98]},{"function":999,"key_codes":[99]},{"function":999,"key_codes":[100]},{"function":999,"key_codes":[101]},{"function":999,"key_codes":[135]},{"function":999,"key_codes":[136]},{"function":999,"key_codes":[137]},{"function":999,"key_codes":[138]},{"function":999,"key_codes":[139]},{"function":999,"key_codes":[144]},{"function":999,"key_codes":[145]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[172]},{"function":0,"key_codes":[173]},{"function":999,"key_codes":[224]},{"function":999,"key_codes":[225]},{"function":999,"key_codes":[226]},{"function":999,"key_codes":[227]},{"function":999,"key_codes":[228]},{"function":999,"key_codes":[229]},{"function":999,"key_codes":[230]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]}],"no_live_deploy":1},"region_layout_id":{"id":1},"z1_color":{"red":255,"green":0,"blue":0},"apex_350_z1_color_sequence":{"repeat":"","data":[]},"z2_color":{"red":0,"green":255,"blue":0},"apex_350_z2_color_sequence":{"repeat":"","data":[]},"z3_color":{"red":0,"green":0,"blue":255},"apex_350_z3_color_sequence":{"repeat":"","data":[]},"z4_color":{"red":255,"green":100,"blue":0},"apex_350_z4_color_sequence":{"repeat":"","data":[]},"z5_color":{"red":255,"green":0,"blue":255},"apex_350_z5_color_sequence":{"repeat":"","data":[]},"global_brightness":{"level":8},"polling_rate":{"level":1}}',
+'{
+    "z1_illumination_disabled":0,
+    "z2_illumination_disabled":0,
+    "z3_illumination_disabled":0,
+    "z4_illumination_disabled":0,
+    "z5_illumination_disabled":0,
+    "z1_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z2_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z3_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z4_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z5_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    }
+}');
+INSERT INTO initial_configurations (id, device_id, name, settings, undeployedsettings) VALUES (
+41, 76, 'Layer 4',
+'{"button_mappings":{"buttons":[{"function":999,"key_codes":[4]},{"function":999,"key_codes":[5]},{"function":999,"key_codes":[6]},{"function":999,"key_codes":[7]},{"function":999,"key_codes":[8]},{"function":999,"key_codes":[9]},{"function":999,"key_codes":[10]},{"function":999,"key_codes":[11]},{"function":999,"key_codes":[12]},{"function":999,"key_codes":[13]},{"function":999,"key_codes":[14]},{"function":999,"key_codes":[15]},{"function":999,"key_codes":[16]},{"function":999,"key_codes":[17]},{"function":999,"key_codes":[18]},{"function":999,"key_codes":[19]},{"function":999,"key_codes":[20]},{"function":999,"key_codes":[21]},{"function":999,"key_codes":[22]},{"function":999,"key_codes":[23]},{"function":999,"key_codes":[24]},{"function":999,"key_codes":[25]},{"function":999,"key_codes":[26]},{"function":999,"key_codes":[27]},{"function":999,"key_codes":[28]},{"function":999,"key_codes":[29]},{"function":999,"key_codes":[30]},{"function":999,"key_codes":[31]},{"function":999,"key_codes":[32]},{"function":999,"key_codes":[33]},{"function":999,"key_codes":[34]},{"function":999,"key_codes":[35]},{"function":999,"key_codes":[36]},{"function":999,"key_codes":[37]},{"function":999,"key_codes":[38]},{"function":999,"key_codes":[39]},{"function":999,"key_codes":[40]},{"function":999,"key_codes":[41]},{"function":999,"key_codes":[42]},{"function":999,"key_codes":[43]},{"function":999,"key_codes":[44]},{"function":999,"key_codes":[45]},{"function":999,"key_codes":[46]},{"function":999,"key_codes":[47]},{"function":999,"key_codes":[48]},{"function":999,"key_codes":[49]},{"function":999,"key_codes":[50]},{"function":999,"key_codes":[51]},{"function":999,"key_codes":[52]},{"function":999,"key_codes":[53]},{"function":999,"key_codes":[54]},{"function":999,"key_codes":[55]},{"function":999,"key_codes":[56]},{"function":999,"key_codes":[57]},{"function":999,"key_codes":[58]},{"function":999,"key_codes":[59]},{"function":999,"key_codes":[60]},{"function":999,"key_codes":[61]},{"function":999,"key_codes":[62]},{"function":999,"key_codes":[63]},{"function":999,"key_codes":[64]},{"function":999,"key_codes":[65]},{"function":999,"key_codes":[66]},{"function":999,"key_codes":[67]},{"function":999,"key_codes":[68]},{"function":999,"key_codes":[69]},{"function":999,"key_codes":[70]},{"function":999,"key_codes":[71]},{"function":999,"key_codes":[72]},{"function":999,"key_codes":[73]},{"function":999,"key_codes":[74]},{"function":999,"key_codes":[75]},{"function":999,"key_codes":[76]},{"function":999,"key_codes":[77]},{"function":999,"key_codes":[78]},{"function":999,"key_codes":[79]},{"function":999,"key_codes":[80]},{"function":999,"key_codes":[81]},{"function":999,"key_codes":[82]},{"function":999,"key_codes":[83]},{"function":999,"key_codes":[84]},{"function":999,"key_codes":[85]},{"function":999,"key_codes":[86]},{"function":999,"key_codes":[87]},{"function":999,"key_codes":[88]},{"function":999,"key_codes":[89]},{"function":999,"key_codes":[90]},{"function":999,"key_codes":[91]},{"function":999,"key_codes":[92]},{"function":999,"key_codes":[93]},{"function":999,"key_codes":[94]},{"function":999,"key_codes":[95]},{"function":999,"key_codes":[96]},{"function":999,"key_codes":[97]},{"function":999,"key_codes":[98]},{"function":999,"key_codes":[99]},{"function":999,"key_codes":[100]},{"function":999,"key_codes":[101]},{"function":999,"key_codes":[135]},{"function":999,"key_codes":[136]},{"function":999,"key_codes":[137]},{"function":999,"key_codes":[138]},{"function":999,"key_codes":[139]},{"function":999,"key_codes":[144]},{"function":999,"key_codes":[145]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[172]},{"function":0,"key_codes":[173]},{"function":999,"key_codes":[224]},{"function":999,"key_codes":[225]},{"function":999,"key_codes":[226]},{"function":999,"key_codes":[227]},{"function":999,"key_codes":[228]},{"function":999,"key_codes":[229]},{"function":999,"key_codes":[230]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]},{"function":0,"key_codes":[0]}],"no_live_deploy":1},"region_layout_id":{"id":1},"z1_color":{"red":255,"green":0,"blue":0},"apex_350_z1_color_sequence":{"repeat":"","data":[]},"z2_color":{"red":0,"green":255,"blue":0},"apex_350_z2_color_sequence":{"repeat":"","data":[]},"z3_color":{"red":0,"green":0,"blue":255},"apex_350_z3_color_sequence":{"repeat":"","data":[]},"z4_color":{"red":255,"green":100,"blue":0},"apex_350_z4_color_sequence":{"repeat":"","data":[]},"z5_color":{"red":255,"green":0,"blue":255},"apex_350_z5_color_sequence":{"repeat":"","data":[]},"global_brightness":{"level":8},"polling_rate":{"level":1}}',
+'{
+    "z1_illumination_disabled":0,
+    "z2_illumination_disabled":0,
+    "z3_illumination_disabled":0,
+    "z4_illumination_disabled":0,
+    "z5_illumination_disabled":0,
+    "z1_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z2_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z3_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z4_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    },
+    "z5_lighting_effect":{
+        "type":0,
+        "colors":[
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0},
+            {"r":0,"g":0,"b":0}
+        ],
+        "positions":[
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0},
+            {"pos":0}
+        ],
+        "speed":0,
+        "num_colors":0
+    }
+}');
+-- Apex 350 Deploy Layer Configs Commands
+INSERT INTO initial_sse_commands (id, command_type, display_name, params) VALUES
+(118, 'deploy_configs', 'SteelSeries HP Omen Apex 350 Default', '{"configIds":["#DEFAULTCONFIG_DEVICE_76"]}');
+INSERT INTO initial_sse_commands (id, command_type, display_name, params) VALUES
+(119, 'deploy_configs', 'SteelSeries HP Omen Apex 350 Default', '{"configIds":["#DEFAULTCONFIG_DEVICE_76"]}');
+INSERT INTO initial_sse_commands (id, command_type, display_name, params) VALUES
+(120, 'deploy_configs', 'SteelSeries HP Omen Apex 350 Default', '{"configIds":["#DEFAULTCONFIG_DEVICE_76"]}');
+INSERT INTO initial_sse_commands(id,command_type,display_name, params) VALUES
+(121,'deploy_configs','SteelSeries HP Omen Apex 350 Layer 2', '{"configIds":["#INITIALCONFIG_39"]}');
+INSERT INTO initial_sse_commands(id,command_type,display_name, params) VALUES
+(122,'deploy_configs','SteelSeries HP Omen Apex 350 Layer 2', '{"configIds":["#INITIALCONFIG_39"]}');
+INSERT INTO initial_sse_commands(id,command_type,display_name, params) VALUES
+(123,'deploy_configs','SteelSeries HP Omen Apex 350 Layer 2', '{"configIds":["#INITIALCONFIG_39"]}');
+INSERT INTO initial_sse_commands(id,command_type,display_name, params) VALUES
+(124,'deploy_configs','SteelSeries HP Omen Apex 350 Layer 3', '{"configIds":["#INITIALCONFIG_40"]}');
+INSERT INTO initial_sse_commands(id,command_type,display_name, params) VALUES
+(125,'deploy_configs','SteelSeries HP Omen Apex 350 Layer 3', '{"configIds":["#INITIALCONFIG_40"]}');
+INSERT INTO initial_sse_commands(id,command_type,display_name, params) VALUES
+(126,'deploy_configs','SteelSeries HP Omen Apex 350 Layer 3', '{"configIds":["#INITIALCONFIG_40"]}');
+INSERT INTO initial_sse_commands(id,command_type,display_name, params) VALUES
+(127,'deploy_configs','SteelSeries HP Omen Apex 350 Layer 4', '{"configIds":["#INITIALCONFIG_41"]}');
+INSERT INTO initial_sse_commands(id,command_type,display_name, params) VALUES
+(128,'deploy_configs','SteelSeries HP Omen Apex 350 Layer 4', '{"configIds":["#INITIALCONFIG_41"]}');
+INSERT INTO initial_sse_commands(id,command_type,display_name, params) VALUES
+(129,'deploy_configs','SteelSeries HP Omen Apex 350 Layer 4', '{"configIds":["#INITIALCONFIG_41"]}');
+-- Apex 350 Layer 1 Config Bindings
+INSERT INTO initial_bindings (id, type, default_config_device_id, trigger_data, initial_sse_command_id, playback_options_data, initial_config_id) VALUES
+(184, 'sse_command', 76, '{"hidCode":169,"page":1,"type":2,"direction":1}', 121, '{ "type": 0, "num_repeat": 1, "repeat_delay": 15}', 0);
+INSERT INTO initial_bindings (id, type, default_config_device_id, trigger_data, initial_sse_command_id, playback_options_data, initial_config_id) VALUES
+(185, 'sse_command', 76, '{"hidCode":170,"page":1,"type":2,"direction":1}', 124, '{ "type": 0, "num_repeat": 1, "repeat_delay": 15}', 0);
+INSERT INTO initial_bindings (id, type, default_config_device_id, trigger_data, initial_sse_command_id, playback_options_data, initial_config_id) VALUES
+(186, 'sse_command', 76, '{"hidCode":171,"page":1,"type":2,"direction":1}', 127, '{ "type": 0, "num_repeat": 1, "repeat_delay": 15}', 0);
+-- Apex 350 Layer 2 Config Bindings
+INSERT INTO initial_bindings (id, type, default_config_device_id, trigger_data, initial_sse_command_id, playback_options_data, initial_config_id) VALUES
+(187, 'sse_command', 0, '{"hidCode":168,"page":1,"type":2,"direction":1}', 118, '{ "type": 0, "num_repeat": 1, "repeat_delay": 15}', 39);
+INSERT INTO initial_bindings (id, type, default_config_device_id, trigger_data, initial_sse_command_id, playback_options_data, initial_config_id) VALUES
+(188, 'sse_command', 0, '{"hidCode":170,"page":1,"type":2,"direction":1}', 125, '{ "type": 0, "num_repeat": 1, "repeat_delay": 15}', 39);
+INSERT INTO initial_bindings (id, type, default_config_device_id, trigger_data, initial_sse_command_id, playback_options_data, initial_config_id) VALUES
+(189, 'sse_command', 0, '{"hidCode":171,"page":1,"type":2,"direction":1}', 128, '{ "type": 0, "num_repeat": 1, "repeat_delay": 15}', 39);
+-- Apex 350 Layer 3 Config Bindings
+INSERT INTO initial_bindings (id, type, default_config_device_id, trigger_data, initial_sse_command_id, playback_options_data, initial_config_id) VALUES
+(190, 'sse_command', 0, '{"hidCode":168,"page":1,"type":2,"direction":1}', 119, '{ "type": 0, "num_repeat": 1, "repeat_delay": 15}', 40);
+INSERT INTO initial_bindings (id, type, default_config_device_id, trigger_data, initial_sse_command_id, playback_options_data, initial_config_id) VALUES
+(191, 'sse_command', 0, '{"hidCode":169,"page":1,"type":2,"direction":1}', 122, '{ "type": 0, "num_repeat": 1, "repeat_delay": 15}', 40);
+INSERT INTO initial_bindings (id, type, default_config_device_id, trigger_data, initial_sse_command_id, playback_options_data, initial_config_id) VALUES
+(192, 'sse_command', 0, '{"hidCode":171,"page":1,"type":2,"direction":1}', 129, '{ "type": 0, "num_repeat": 1, "repeat_delay": 15}', 40);
+-- Apex 350 Layer 4 Config Bindings
+INSERT INTO initial_bindings (id, type, default_config_device_id, trigger_data, initial_sse_command_id, playback_options_data, initial_config_id) VALUES
+(193, 'sse_command', 0, '{"hidCode":168,"page":1,"type":2,"direction":1}', 120, '{ "type": 0, "num_repeat": 1, "repeat_delay": 15}', 41);
+INSERT INTO initial_bindings (id, type, default_config_device_id, trigger_data, initial_sse_command_id, playback_options_data, initial_config_id) VALUES
+(194, 'sse_command', 0, '{"hidCode":169,"page":1,"type":2,"direction":1}', 123, '{ "type": 0, "num_repeat": 1, "repeat_delay": 15}', 41);
+INSERT INTO initial_bindings (id, type, default_config_device_id, trigger_data, initial_sse_command_id, playback_options_data, initial_config_id) VALUES
+(195, 'sse_command', 0, '{"hidCode":170,"page":1,"type":2,"direction":1}', 126, '{ "type": 0, "num_repeat": 1, "repeat_delay": 15}', 41);
+
+-- 20160425165800_RemoveShouldAutoStartDefaultValue.sql
+
+-- Remove existing entries of the shouldAutoStart parameter that are set to "true". 
+-- This is to allow setting it to false in the installer if the proper parameter is used (which can only be done if it does not already exist)
+-- But since this is also the default value it will not actually interfere with any operations
+DELETE FROM application_settings WHERE key='shouldAutoStart' AND value='true';
+
+-- Update Schema Version
+
+UPDATE application_metadata SET value = value + 1 where key = 'SCHEMA_VERSION_MINOR';
+
+-- +goose Down

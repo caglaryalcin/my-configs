@@ -1,0 +1,4 @@
+production:
+    driver: sqlite3
+    open: C:\ProgramData\SteelSeries\GG\apps\moments\db/database.db
+    

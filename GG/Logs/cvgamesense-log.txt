@@ -1,0 +1,177 @@
+2024-02-23 01:18:34,399 [INFO] cvevent: Game Package for 'apex_legends' is loaded.
+2024-02-23 01:18:34,400 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:34,402 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'APEX_LEGENDS', 'event': 'KNOCKDOWN', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,440 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'APEX_LEGENDS', 'event': 'ELIM', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,444 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'APEX_LEGENDS', 'event': 'ASSIST', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,449 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'APEX_LEGENDS', 'event': 'VICTORY', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,453 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'APEX_LEGENDS', 'event': 'BECAME_KILL_LEADER', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,457 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'APEX_LEGENDS', 'event': 'PLAYER_DEAD', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,461 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'APEX_LEGENDS', 'event': 'BLEEDING_OUT', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,465 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'APEX_LEGENDS', 'events': [{'event': 'VICTORY', 'icon_id': 'WIN', 'previewable': 1}, {'event': 'KNOCKDOWN', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'ELIM', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'ASSIST', 'icon_id': 'DEFAULT', 'previewable': 1}, {'event': 'BECAME_KILL_LEADER', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'BLEEDING_OUT', 'icon_id': 'DEATH', 'previewable': 1}, {'event': 'PLAYER_DEAD', 'icon_id': 'DEATH', 'previewable': 1}]}
+2024-02-23 01:18:34,471 [INFO] cvevent: Registering autoclip rules for apex_legends on http://127.0.0.1:57503
+2024-02-23 01:18:34,473 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'APEX_LEGENDS', 'game_display_name': 'Apex Legends', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.apex_legends_onlySupported', 'options': {}}
+2024-02-23 01:18:34,477 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:34,478 [INFO] cvevent: apex_legends has been registered in SteelSeries GameSense
+2024-02-23 01:18:34,502 [INFO] cvevent: Game Package for 'brawlhalla' is loaded.
+2024-02-23 01:18:34,503 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:34,503 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'BRAWLHALLA', 'event': 'DOMINATING', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,510 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'BRAWLHALLA', 'event': 'BERSERK', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,514 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'BRAWLHALLA', 'event': 'DOUBLE_KO', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,520 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'BRAWLHALLA', 'event': 'TRIPLE_KO', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,524 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'BRAWLHALLA', 'event': 'GAME_OVER', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,528 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'BRAWLHALLA', 'events': [{'event': 'DOMINATING', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'BERSERK', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'DOUBLE_KO', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'TRIPLE_KO', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'GAME_OVER', 'icon_id': 'WIN', 'previewable': 1}]}
+2024-02-23 01:18:34,532 [INFO] cvevent: Registering autoclip rules for brawlhalla on http://127.0.0.1:57503
+2024-02-23 01:18:34,535 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'BRAWLHALLA', 'game_display_name': 'Brawlhalla', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.brawlhalla_onlySupported', 'options': {}}
+2024-02-23 01:18:34,538 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:34,539 [INFO] cvevent: brawlhalla has been registered in SteelSeries GameSense
+2024-02-23 01:18:34,574 [INFO] cvevent: Game Package for 'call_of_duty' is loaded.
+2024-02-23 01:18:34,574 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:34,575 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'WZ_KILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,582 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'WZ_DOUBLE_KILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,586 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'WZ_TRIPLE_KILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,590 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'WZ_GULAG_WIN', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,594 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'WZ_PLACE', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,599 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'WZ_VICTORY', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,603 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'MWII_KILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,607 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'MWII_HEADSHOT', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,611 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'MWII_DOUBLE_KILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,616 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'MWII_TRIPLE_KILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,620 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'MWII_KINGSLAYER', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,624 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'MWII_VICTORY', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,629 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'MWIII_DOUBLE_KILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,633 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'MWIII_TRIPLE_KILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,638 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'MWIII_KINGSLAYER', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,643 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'MWIII_VICTORY', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,647 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'event': 'MWIII_HEADSHOT', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,651 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'CALL_OF_DUTY', 'events': [{'event': 'WZ_KILL', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'WZ_DOUBLE_KILL', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'WZ_TRIPLE_KILL', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'WZ_GULAG_WIN', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'WZ_PLACE', 'icon_id': 'WIN', 'previewable': 1}, {'event': 'WZ_VICTORY', 'icon_id': 'WIN', 'previewable': 1}, {'event': 'MWII_KILL', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'MWII_HEADSHOT', 'icon_id': 'HEADSHOT', 'previewable': 1}, {'event': 'MWII_DOUBLE_KILL', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'MWII_TRIPLE_KILL', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'MWII_KINGSLAYER', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'MWII_VICTORY', 'icon_id': 'WIN', 'previewable': 1}, {'event': 'MWIII_DOUBLE_KILL', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'MWIII_TRIPLE_KILL', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'MWIII_KINGSLAYER', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'MWIII_VICTORY', 'icon_id': 'WIN', 'previewable': 1}, {'event': 'MWIII_HEADSHOT', 'icon_id': 'HEADSHOT', 'previewable': 1}]}
+2024-02-23 01:18:34,658 [INFO] cvevent: Registering autoclip rules for call_of_duty on http://127.0.0.1:57503
+2024-02-23 01:18:34,662 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'CALL_OF_DUTY', 'game_display_name': 'Call of Duty', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.call_of_duty_onlySupported', 'options': {}}
+2024-02-23 01:18:34,666 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:34,666 [INFO] cvevent: call_of_duty has been registered in SteelSeries GameSense
+2024-02-23 01:18:34,692 [INFO] cvevent: Game Package for 'destiny_2' is loaded.
+2024-02-23 01:18:34,692 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:34,692 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'DESTINY_2', 'event': 'VICTORY', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,698 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'DESTINY_2', 'event': 'WRECKING_CREW', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,703 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'DESTINY_2', 'event': 'DOUBLE_PLAY', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,707 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'DESTINY_2', 'event': 'TRIPLE_PLAY', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,712 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'DESTINY_2', 'event': 'SLAYER', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,719 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'DESTINY_2', 'event': 'REAPER', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,723 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'DESTINY_2', 'events': [{'event': 'VICTORY', 'icon_id': 'WIN', 'previewable': 1}, {'event': 'WRECKING_CREW', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'DOUBLE_PLAY', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'TRIPLE_PLAY', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'REAPER', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'SLAYER', 'icon_id': 'STAR', 'previewable': 1}]}
+2024-02-23 01:18:34,727 [INFO] cvevent: Registering autoclip rules for destiny_2 on http://127.0.0.1:57503
+2024-02-23 01:18:34,730 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'DESTINY_2', 'game_display_name': 'Destiny 2', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.destiny_2_onlySupported', 'options': {}}
+2024-02-23 01:18:34,734 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:34,734 [INFO] cvevent: destiny_2 has been registered in SteelSeries GameSense
+2024-02-23 01:18:34,759 [INFO] cvevent: Game Package for 'diablo_iv' is loaded.
+2024-02-23 01:18:34,759 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:34,759 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'DIABLO_IV', 'event': 'DUNGEON', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,766 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'DIABLO_IV', 'event': 'WORLD_BOSS', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,770 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'DIABLO_IV', 'event': 'REWARD', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,774 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'DIABLO_IV', 'events': [{'event': 'DUNGEON', 'icon_id': 'WIN', 'previewable': 1}, {'event': 'WORLD_BOSS', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'REWARD', 'icon_id': 'STAR', 'previewable': 1}]}
+2024-02-23 01:18:34,778 [INFO] cvevent: Registering autoclip rules for diablo_iv on http://127.0.0.1:57503
+2024-02-23 01:18:34,781 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'DIABLO_IV', 'game_display_name': 'Diablo IV', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.diablo_iv_onlySupported', 'options': {}}
+2024-02-23 01:18:34,785 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:34,785 [INFO] cvevent: diablo_iv has been registered in SteelSeries GameSense
+2024-02-23 01:18:34,809 [INFO] cvevent: Game Package for 'escape_from_tarkov' is loaded.
+2024-02-23 01:18:34,809 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:34,809 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'ESCAPE_FROM_TARKOV', 'event': 'DEATH', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,816 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'ESCAPE_FROM_TARKOV', 'events': [{'event': 'DEATH', 'icon_id': 'DEATH', 'previewable': 1}]}
+2024-02-23 01:18:34,819 [INFO] cvevent: Registering autoclip rules for escape_from_tarkov on http://127.0.0.1:57503
+2024-02-23 01:18:34,821 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'ESCAPE_FROM_TARKOV', 'game_display_name': 'Escape From Tarkov', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.escape_from_tarkov_onlySupported', 'options': {}}
+2024-02-23 01:18:34,825 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:34,825 [INFO] cvevent: escape_from_tarkov has been registered in SteelSeries GameSense
+2024-02-23 01:18:34,851 [INFO] cvevent: Game Package for 'fall_guys' is loaded.
+2024-02-23 01:18:34,851 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:34,851 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FALL_GUYS', 'event': 'QUALIFIED', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,858 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FALL_GUYS', 'event': 'ELIMINATED', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,862 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FALL_GUYS', 'event': 'ROUNDOVER', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,867 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FALL_GUYS', 'event': 'WINNER', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,871 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'FALL_GUYS', 'events': [{'event': 'QUALIFIED', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'ELIMINATED', 'icon_id': 'DEATH', 'previewable': 1}, {'event': 'ROUNDOVER', 'icon_id': 'DEFAULT', 'previewable': 1}, {'event': 'WINNER', 'icon_id': 'WIN', 'previewable': 1}]}
+2024-02-23 01:18:34,874 [INFO] cvevent: Registering autoclip rules for fall_guys on http://127.0.0.1:57503
+2024-02-23 01:18:34,877 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'FALL_GUYS', 'game_display_name': 'Fall Guys', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.fall_guys_onlySupported', 'options': {}}
+2024-02-23 01:18:34,880 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:34,880 [INFO] cvevent: fall_guys has been registered in SteelSeries GameSense
+2024-02-23 01:18:34,909 [INFO] cvevent: Game Package for 'fortnite' is loaded.
+2024-02-23 01:18:34,909 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:34,909 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FORTNITE', 'event': 'KNOCKDOWN', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,916 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FORTNITE', 'event': 'ELIM', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,920 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FORTNITE', 'event': 'HEADSHOT', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,925 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FORTNITE', 'event': 'VICTORY_ROYALE', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,929 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FORTNITE', 'event': 'DOUBLE_KILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,933 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FORTNITE', 'event': 'MULTIKILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,938 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FORTNITE', 'event': 'BOUNTY_KILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,943 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FORTNITE', 'event': 'DEATH', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,947 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FORTNITE', 'event': 'FINAL_DEATH', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,951 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FORTNITE', 'event': 'DISTANCE_SHOT', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,956 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'FORTNITE', 'event': 'QUEST_COMPLETE', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:34,960 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'FORTNITE', 'events': [{'event': 'VICTORY_ROYALE', 'icon_id': 'WIN', 'previewable': 1}, {'event': 'KNOCKDOWN', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'ELIM', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'MULTIKILL', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'DOUBLE_KILL', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'HEADSHOT', 'icon_id': 'HEADSHOT', 'previewable': 1}, {'event': 'FINAL_DEATH', 'icon_id': 'DEATH', 'previewable': 1}, {'event': 'BOUNTY', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'DISTANCE_SHOT', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'QUEST_COMPLETE', 'icon_id': 'WIN', 'previewable': 1}]}
+2024-02-23 01:18:34,965 [INFO] cvevent: Registering autoclip rules for fortnite on http://127.0.0.1:57503
+2024-02-23 01:18:34,968 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'FORTNITE', 'game_display_name': 'Fortnite', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.fortnite_onlySupported', 'options': {}}
+2024-02-23 01:18:34,972 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:34,973 [INFO] cvevent: fortnite has been registered in SteelSeries GameSense
+2024-02-23 01:18:35,000 [INFO] cvevent: Game Package for 'genshin_impact' is loaded.
+2024-02-23 01:18:35,000 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:35,001 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'GENSHIN_IMPACT', 'event': 'WISH_10X', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,007 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'GENSHIN_IMPACT', 'events': [{'event': 'WISH_10X', 'icon_id': 'STAR', 'previewable': 1}]}
+2024-02-23 01:18:35,010 [INFO] cvevent: Registering autoclip rules for genshin_impact on http://127.0.0.1:57503
+2024-02-23 01:18:35,012 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'GENSHIN_IMPACT', 'game_display_name': 'Genshin Impact', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.genshin_onlySupported', 'options': {}}
+2024-02-23 01:18:35,015 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:35,015 [INFO] cvevent: genshin_impact has been registered in SteelSeries GameSense
+2024-02-23 01:18:35,042 [INFO] cvevent: Game Package for 'overwatch' is loaded.
+2024-02-23 01:18:35,042 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:35,042 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'OVERWATCH', 'event': 'KILLCAM', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,049 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'OVERWATCH', 'event': 'TEAMKILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,053 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'OVERWATCH', 'event': 'IGNORABLE', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,057 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'OVERWATCH', 'event': 'TWO_IGNORABLE', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,062 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'OVERWATCH', 'event': 'THREE_IGNORABLE', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,067 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'OVERWATCH', 'event': 'MULTIKILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,074 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'OVERWATCH', 'event': 'ELIMINATION', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,079 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'OVERWATCH', 'event': 'DOUBLE_ELIMINATION', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,083 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'OVERWATCH', 'event': 'TRIPLE_ELIMINATION', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,088 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'OVERWATCH', 'events': [{'event': 'TEAMKILL', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'MULTIKILL', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'ELIMINATION', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'DOUBLE_ELIMINATION', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'TRIPLE_ELIMINATION', 'icon_id': 'KILL', 'previewable': 1}]}
+2024-02-23 01:18:35,092 [INFO] cvevent: Registering autoclip rules for overwatch on http://127.0.0.1:57503
+2024-02-23 01:18:35,095 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'OVERWATCH', 'game_display_name': 'Overwatch 2', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.overwatch_onlySupported', 'options': {}}
+2024-02-23 01:18:35,100 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:35,100 [INFO] cvevent: overwatch has been registered in SteelSeries GameSense
+2024-02-23 01:18:35,124 [INFO] cvevent: Game Package for 'rainbow_six_siege' is loaded.
+2024-02-23 01:18:35,125 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:35,125 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'RAINBOW_SIX_SIEGE', 'event': 'KILL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,131 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'RAINBOW_SIX_SIEGE', 'event': 'HEADSHOT', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,135 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'RAINBOW_SIX_SIEGE', 'event': 'VICTORY', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,140 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'RAINBOW_SIX_SIEGE', 'event': 'DEFEAT', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,145 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'RAINBOW_SIX_SIEGE', 'events': [{'event': 'KILL', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'HEADSHOT', 'icon_id': 'HEADSHOT', 'previewable': 1}, {'event': 'VICTORY', 'icon_id': 'WIN', 'previewable': 1}, {'event': 'DEFEAT', 'icon_id': 'DEATH', 'previewable': 1}]}
+2024-02-23 01:18:35,150 [INFO] cvevent: Registering autoclip rules for rainbow_six_siege on http://127.0.0.1:57503
+2024-02-23 01:18:35,153 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'RAINBOW_SIX_SIEGE', 'game_display_name': 'Rainbow Six Siege', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.rainbow_six_siege_onlySupported', 'options': {}}
+2024-02-23 01:18:35,159 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:35,159 [INFO] cvevent: rainbow_six_siege has been registered in SteelSeries GameSense
+2024-02-23 01:18:35,192 [INFO] cvevent: Game Package for 'rocket_league' is loaded.
+2024-02-23 01:18:35,193 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:35,193 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'ROCKET_LEAGUE', 'event': 'GOAL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,200 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'ROCKET_LEAGUE', 'event': 'SHOT_ON_GOAL', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,206 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'ROCKET_LEAGUE', 'event': 'DEMOLITION', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,211 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'ROCKET_LEAGUE', 'event': 'ASSIST', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,216 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'ROCKET_LEAGUE', 'event': 'EPIC_SAVE', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,221 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'ROCKET_LEAGUE', 'events': [{'event': 'GOAL', 'icon_id': 'WIN', 'previewable': 1}, {'event': 'SHOT_ON_GOAL', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'DEMOLITION', 'icon_id': 'DEATH', 'previewable': 1}, {'event': 'ASSIST', 'icon_id': 'DEFAULT', 'previewable': 1}, {'event': 'EPIC_SAVE', 'icon_id': 'STAR', 'previewable': 1}]}
+2024-02-23 01:18:35,225 [INFO] cvevent: Registering autoclip rules for rocket_league on http://127.0.0.1:57503
+2024-02-23 01:18:35,229 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'ROCKET_LEAGUE', 'game_display_name': 'Rocket League', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.rocket_league_onlySupported', 'options': {}}
+2024-02-23 01:18:35,233 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:35,233 [INFO] cvevent: rocket_league has been registered in SteelSeries GameSense
+2024-02-23 01:18:35,269 [INFO] cvevent: Game Package for 'valorant' is loaded.
+2024-02-23 01:18:35,269 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:35,269 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'VALORANT', 'event': 'KILL', 'min_value': 0, 'max_value': 0, 'icon_id': 6}
+2024-02-23 01:18:35,289 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'VALORANT', 'event': 'HEADSHOT', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,295 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'VALORANT', 'event': 'CLUTCH', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,300 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'VALORANT', 'event': 'ACE', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,309 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'VALORANT', 'events': [{'event': 'KILL', 'icon_id': 'KILL', 'previewable': 1}, {'event': 'HEADSHOT', 'icon_id': 'HEADSHOT', 'previewable': 1}, {'event': 'CLUTCH', 'icon_id': 'STAR', 'previewable': 1}, {'event': 'ACE', 'icon_id': 'WIN', 'previewable': 1}]}
+2024-02-23 01:18:35,319 [INFO] cvevent: Registering autoclip rules for valorant on http://127.0.0.1:57503
+2024-02-23 01:18:35,326 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'VALORANT', 'game_display_name': 'Valorant', 'developer': '', 'autoclip_helper_text': 'moments.settings.autocapture.valorant_onlySupported', 'options': {}}
+2024-02-23 01:18:35,335 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:35,335 [INFO] cvevent: valorant has been registered in SteelSeries GameSense
+2024-02-23 01:18:35,366 [INFO] cvevent: Game Package for 'voice_detect' is loaded.
+2024-02-23 01:18:35,366 [INFO] cvevent: Try to register game events...
+2024-02-23 01:18:35,366 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'VOICE_DETECT', 'event': 'LAUGH', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,378 [INFO] cvevent: Registering game event on https://127.0.0.1:57504: {'game': 'VOICE_DETECT', 'event': 'TALK', 'min_value': 0, 'max_value': 0, 'icon_id': 0}
+2024-02-23 01:18:35,387 [INFO] cvevent: Registering timeline events on http://127.0.0.1:57503: {'game': 'VOICE_DETECT', 'events': [{'event': 'LAUGH', 'icon_id': 'LAUGH', 'previewable': 1}]}
+2024-02-23 01:18:35,391 [INFO] cvevent: Registering autoclip rules for voice_detect on http://127.0.0.1:57503
+2024-02-23 01:18:35,395 [INFO] cvevent: Registering game metadata on https://127.0.0.1:57504: {'game': 'VOICE_DETECT', 'game_display_name': 'Voice Detect', 'developer': '', 'autoclip_helper_text': 'Autoclip support depends on the resolution.', 'options': {'enabled': True, 'default_laugh_duration': 6}}
+2024-02-23 01:18:35,401 [INFO] cvevent: Game events fully registered
+2024-02-23 01:18:35,401 [INFO] cvevent: voice_detect has been registered in SteelSeries GameSense
