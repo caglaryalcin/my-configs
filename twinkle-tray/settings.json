@@ -15,7 +15,16 @@
 	"adjustmentTimeSpeed": "normal",
 	"adjustmentTimeAnimate": false,
 	"checkTimeAtStartup": true,
-	"order": [],
+	"order": [
+		{
+			"id": "\\\\?\\DISPLAY#AUS27AF#5&2dc81628&0&UID4353",
+			"order": 0
+		},
+		{
+			"id": "\\\\?\\DISPLAY#AUS2782#5&2dc81628&0&UID4355",
+			"order": 1
+		}
+	],
 	"monitorFeatures": {},
 	"hideDisplays": {},
 	"checkForUpdates": true,
