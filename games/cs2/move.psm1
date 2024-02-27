@@ -1,8 +1,5 @@
-﻿$cscfgurl = "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/cs2/cs.cfg"
-$csvideo = "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/cs2/cs2_video.txt"
-
-Invoke-WebRequest -Uri $cscfgurl -Outfile "$env:userprofile\Desktop\cs.cfg"
-Invoke-WebRequest -Uri $csvideo -Outfile "$env:userprofile\Desktop\cs2_video.txt"
+﻿Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/cs2/cs.cfg" -Outfile "$env:userprofile\Desktop\cs.cfg"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/cs2/cs2_video.txt" -Outfile "$env:userprofile\Desktop\cs2_video.txt"
 
 
 $destpath = "C:\Program Files (x86)\Steam\userdata\"
