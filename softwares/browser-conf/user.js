@@ -143,3 +143,7 @@ user_pref("network.dns.use_https_rr_as_altsvc", true);
 //1 Desktop
 //2 Downloads
 user_pref("browser.download.folderList", 0);
+
+//disable tabs warn on Close
+user_pref("browser.tabs.warnOnClose", false);
+user_pref("browser.aboutConfig.showWarning", false);
