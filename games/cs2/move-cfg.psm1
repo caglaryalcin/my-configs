@@ -1,4 +1,4 @@
-﻿Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/cs2/cs.cfg" -Outfile "$env:userprofile\Desktop\cs.cfg"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/cs2/cs.cfg" -Outfile "$env:userprofile\Desktop\cs.cfg"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/cs2/cs2_video.txt" -Outfile "$env:userprofile\Desktop\cs2_video.txt"
 
 
