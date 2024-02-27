@@ -1,0 +1,23 @@
+{
+  "directories" : [ ],
+  "writtenByVersion" : "1.12.3-msi-5219",
+  "askedForUpdateCheck" : false,
+  "autoCloseVaults" : false,
+  "checkForUpdatesEnabled" : true,
+  "debugMode" : false,
+  "theme" : "LIGHT",
+  "keychainProvider" : "org.cryptomator.windows.keychain.WindowsProtectedKeychainAccess",
+  "mountService" : "org.cryptomator.frontend.fuse.mount.WinFspNetworkMountProvider",
+  "numTrayNotifications" : 3,
+  "port" : 42427,
+  "showMinimizeButton" : false,
+  "showTrayIcon" : true,
+  "startHidden" : false,
+  "uiOrientation" : "LEFT_TO_RIGHT",
+  "useKeychain" : true,
+  "windowHeight" : 440,
+  "windowWidth" : 650,
+  "windowXPosition" : 635,
+  "windowYPosition" : 320,
+  "lastUpdateCheck" : "2024-02-27"
+}
