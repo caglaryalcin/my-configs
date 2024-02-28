@@ -415,7 +415,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             # If the device is not found, output a warning
             if ($audioDevices.Count -eq 0) {
                 Write-Host " [WARNING]: Failed. $deviceName not found." -ForegroundColor Red
-              }
+            }
             else {
                 #  Disable the audio device
                 foreach ($device in $audioDevices) {
@@ -495,9 +495,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 
                 # some configs
                 "$env:userprofile\Desktop"                                                                   = @(
-                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/cs2/cs.cfg",
-                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/cs2/cs2_video.txt",
-                    #"https://raw.githubusercontent.com/caglaryalcin/my-configs/main/softwares/browser-conf/extensions/ublock.txt", #in cloud
                     #"https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/ExplorerPatcher.reg",#not used yet
                     "https://github.com/caglaryalcin/my-configs/raw/main/hardware/nvidia/Base-Profile.nip",
                     "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/display/display-layout.reg"
@@ -550,40 +547,17 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             # Download ublacklist config file to desktop
             "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/softwares/browser-conf/extensions/ublacklist.txt" | Out-File -FilePath "$env:userprofile\Desktop\ublacklist.txt"
 
-            # Create a batch file to move the cs2 video and cs.cfg files to the correct directories
-            $filecontent = @'
-$soru = "CS2 kuruldu mu? (E/H)"
-$cevap = Read-Host -Prompt $soru
+            # Steam config
+            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/steam/localconfig.vdf" -Outfile "$env:userprofile\Desktop\localconfig.vdf"
 
-if ($cevap -eq "E" -or $cevap -eq "e") {
-    Write-Host "CS konfigleri gonderiliyor.." -NoNewline
-    $destpath = "C:\Program Files (x86)\Steam\userdata\"
-    Set-Location -Path $destpath
-    Get-ChildItem -Directory | ForEach-Object {
-        Push-Location $_.FullName
-    }
-    Set-Location -Path ".\730"
-    $localFolderPath = Join-Path -Path (Get-Location) -ChildPath "local"
-    if (-not (Test-Path -Path $localFolderPath)) {
-        New-Item -Name "local\cfg" -ItemType Directory | Out-Null
-    }
-    Set-Location -Path ".\local\cfg"
-    $cs2configpath = "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg"
-    Move-Item -Path $env:userprofile\Desktop\cs.cfg -Destination $cs2configpath -Force
-    Move-Item -Path $env:userprofile\Desktop\cs2_video.txt -Destination (Get-Location) -Force
-    cd c:\
-    Remove-Item "$env:userprofile\Desktop\cs-script.ps1" -Force -ErrorAction Stop
-    Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
-}
-elseif ($cevap -eq "H" -or $cevap -eq "h") {
-    Write-Host "Once CS2 kurulumu yapin."
-}
-else {
-    Write-Host "Gecersiz cevap. Sadece Evet (E) veya Hayir (H) yazin."
-}
-'@
-
-            $filecontent | Out-File -FilePath "$env:userprofile\Desktop\cs-script.ps1" -Encoding UTF8
+            $destpath = "C:\Program Files (x86)\Steam\userdata\"
+            Set-Location -Path $destpath
+            Get-ChildItem -Directory | ForEach-Object {
+                Push-Location $_.FullName
+            }
+            Set-Location -Path ".\config"
+            Move-Item -Path $env:userprofile\Desktop\localconfig.vdf -Destination (Get-Location) -Force
+            cd c:\
 
             # Restore SteelSeries keyboard settings
             try {
