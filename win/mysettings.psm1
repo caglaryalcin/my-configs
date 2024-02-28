@@ -149,7 +149,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                         "Arguments"        = "--processStart Teams.exe";
                         "WorkingDirectory" = "$env:USERPROFILE\AppData\Local\Microsoft\Teams\";
                     };
-                    "Google Play Games" = @{
+                    "Google Play Games"       = @{
                         "Path"             = "C:\Program Files\Google\Play Games\current\client\client.exe";
                         "WorkingDirectory" = "C:\Program Files\Google\Play Games\current\client";
                     };
@@ -402,6 +402,32 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 
         Drivers
 
+        # Set Audio Device
+        Function AudioDevice {
+            Write-Host "Disabling High Definition Audio Device..." -NoNewline
+
+            # Define the device name
+            $deviceName = "High Definition Audio Device"
+
+            # Get the audio devices
+            $audioDevices = Get-PnpDevice -Class "Media" | Where-Object { $_.FriendlyName -eq $deviceName }
+
+            # If the device is not found, output a warning
+            if ($audioDevices.Count -eq 0) {
+                Write-Host " [WARNING]: Failed. $deviceName not found." -ForegroundColor Red
+              }
+            else {
+                #  Disable the audio device
+                foreach ($device in $audioDevices) {
+                    Disable-PnpDevice -InstanceId $device.InstanceId -Confirm:$false
+                    Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+                }
+            }
+
+        }
+
+        AudioDevice
+
         # MyConfigs
         Function Set-Configs {
             Write-Host "Setting my configs..." -NoNewline
@@ -478,7 +504,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 )
 
                 # Total Commander
-                "$env:userprofile\AppData\Roaming\GHISLER"                                              = @(
+                "$env:userprofile\AppData\Roaming\GHISLER"                                                   = @(
                     "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/softwares/total-comm/wincmd.ini"
                 )
 
@@ -488,12 +514,12 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 )
 
                 # cryptomator
-                "$env:userprofile\AppData\Roaming\Cryptomator"                                              = @(
+                "$env:userprofile\AppData\Roaming\Cryptomator"                                               = @(
                     "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/softwares/cryptomator/settings.json"
                 )
 
                 # speedtest
-                "$env:userprofile\AppData\Roaming\Ookla\Speedtest CLI"                                              = @(
+                "$env:userprofile\AppData\Roaming\Ookla\Speedtest CLI"                                       = @(
                     "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/softwares/speedtest/speedtest-cli.ini"
                 )
             }
@@ -600,7 +626,7 @@ else {
             # ExplorerPatcher //not used yet
             # # Exclude the WinGet directory from Windows Defender
             # Add-MpPreference -ExclusionPath "$env:USERPROFILE\AppData\Local\Temp\WinGet\"
-			# $OriginalProgressPreference = $Global:ProgressPreference
+            # $OriginalProgressPreference = $Global:ProgressPreference
             # $Global:ProgressPreference = 'SilentlyContinue'
             # try {
             #     $osName = (systeminfo.exe | Select-String "OS Name").ToString() 2>$null
@@ -923,7 +949,7 @@ namespace KeyboardSend
                 Start-Sleep 2
                 taskkill /f /im explorer.exe *>$null
                 Start-Process explorer.exe *>$null
-				Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
                 Write-Host "[WARNING]: Failed to set wallpaper: $_" -ForegroundColor Yellow
