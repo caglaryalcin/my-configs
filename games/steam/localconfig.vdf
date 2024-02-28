@@ -1,0 +1,562 @@
+"UserLocalConfigStore"
+{
+	"Broadcast"
+	{
+		"Permissions"		"1"
+	}
+	"streaming_v2"
+	{
+		"EnableStreaming"		"0"
+		"DefaultAudioDevice"		"{0.0.0.00000000}.{a5195b51-21ed-4f37-8cb4-ae78769352d3}"
+		"DefaultAudioDeviceName"		"Headphones (Arctis 7+)"
+		"DefaultMicrophone"		"{0.0.1.00000000}.{3dc2db7b-9ee0-4fdf-91e6-3d76eff57527}"
+		"DefaultMicrophoneName"		"Microphone (Arctis 7+)"
+	}
+	"friends"
+	{
+		"200058026"
+		{
+			"NameHistory"
+			{
+				"0"		"epoChs"
+			}
+			"avatar"		"e3b24feed9ebeb4b5449bfed561fe69056ce5668"
+			"name"		"epoChs"
+		}
+		"PersonaName"		"epoChs"
+		"communitypreferences"		"1889f7dbe1052001280130013800"
+		"contentdescriptorpreferences"		"0a0208010a0208030a020804"
+		"119189553"
+		{
+			"name"		"30"
+			"NameHistory"
+			{
+				"0"		"30"
+			}
+			"avatar"		"a04fdbbe7c8518fa838bbd402ec02af08b83a6d6"
+		}
+		"138140775"
+		{
+			"name"		"hkNE*"
+			"NameHistory"
+			{
+				"0"		"hkNE*"
+			}
+			"avatar"		"df77a3cee288a0c1ccfd1f9c882161a1cca968e8"
+		}
+		"112626689"
+		{
+			"name"		"n00neimportant ~ froD[A]"
+			"NameHistory"
+			{
+				"0"		"n00neimportant ~ froD[A]"
+			}
+			"avatar"		"e7d73b4ca576e39e36f2fdce154abcb4fb581de0"
+		}
+		"128137361"
+		{
+			"name"		"o/"
+			"NameHistory"
+			{
+				"0"		"o/"
+			}
+			"avatar"		"572ce4ecb7a4b1e699a1f6b1a63e4a83423d29c7"
+		}
+		"316581714"
+		{
+			"name"		"SHZM red person"
+			"NameHistory"
+			{
+				"0"		"SHZM red person"
+				"1"		"t.tv/redpersonFPS"
+			}
+			"avatar"		"7b64b6d68b73b56d9068c14483305b26db2eb2fc"
+		}
+		"103582791467619819"
+		{
+			"name"		"EA SPORTS™ FIFA 21 "
+			"avatar"		"6f8d384b395d64b39f6f0f6569a393fc856ce263"
+		}
+		"884591772"
+		{
+			"name"		"✈WizzY✈ DA BOSS"
+			"NameHistory"
+			{
+				"0"		"✈WizzY✈ DA BOSS"
+			}
+			"avatar"		"bad69c0a0071759731ca40458b1c32f989a7a8fe"
+		}
+		"321904841"
+		{
+			"name"		"meemeli"
+			"NameHistory"
+			{
+				"0"		"meemeli"
+			}
+			"avatar"		"665cf7086c25655ea159177cca905c4379699951"
+		}
+		"317091352"
+		{
+			"name"		"Don Jon"
+			"NameHistory"
+			{
+				"0"		"Don Jon"
+			}
+			"avatar"		"f96f583dd9592e5e3cc53a683fb88cf26cdd9a07"
+		}
+		"8548760"
+		{
+			"name"		"GoLiBey"
+			"NameHistory"
+			{
+				"0"		"GoLiBey"
+			}
+			"avatar"		"ce24551cd3804534cb2dc36655b64d39c92121f2"
+		}
+		"232871893"
+		{
+			"name"		"Dou5"
+			"NameHistory"
+			{
+				"0"		"Dou5"
+			}
+			"avatar"		"f8a893bb428bae233f52f90d42f5928fea6f9f9a"
+		}
+		"962388670"
+		{
+			"name"		"hsyn_cnbz"
+			"NameHistory"
+			{
+				"0"		"hsyn_cnbz"
+			}
+		}
+		"147988930"
+		{
+			"name"		"macobey"
+			"NameHistory"
+			{
+				"0"		"macobey"
+			}
+		}
+		"325703148"
+		{
+			"name"		"✪flasha"
+			"NameHistory"
+			{
+				"0"		"✪flasha"
+			}
+			"avatar"		"ed3cc8a616b999e2eecc2ac49c92e3bcbcad188e"
+		}
+		"107426666"
+		{
+			"name"		"KWANCR"
+			"NameHistory"
+			{
+				"0"		"KWANCR"
+			}
+			"avatar"		"89ebe1eb751aaf2242c388b8d11ba4bdecf4d17c"
+		}
+		"151431618"
+		{
+			"name"		"LSD"
+			"NameHistory"
+			{
+				"0"		"LSD"
+			}
+			"avatar"		"1707de4c8086cb6ef93bee90f982f5fdc2e8a9fe"
+		}
+		"459069893"
+		{
+			"name"		"_El Patroné.ツ"
+			"NameHistory"
+			{
+				"0"		"_El Patroné.ツ"
+			}
+			"avatar"		"66d8f780b4345cd5695f5f08f4ade086ba2dfa55"
+		}
+		"166870236"
+		{
+			"name"		"paiN"
+			"NameHistory"
+			{
+				"0"		"paiN"
+			}
+			"avatar"		"e110e38b835f2d06d7cc4a034bb6b033f2bc8362"
+		}
+		"235033109"
+		{
+			"name"		"kadobasgan"
+			"NameHistory"
+			{
+				"0"		"kadobasgan"
+			}
+			"avatar"		"848bbe2aa03291e179872d9cb6499b665f168b4f"
+		}
+		"354714877"
+		{
+			"name"		"☞❶☜ Protector"
+			"NameHistory"
+			{
+				"0"		"☞❶☜ Protector"
+			}
+			"avatar"		"b0172b0a96a070578eb25451e6a0d9f19113638f"
+		}
+		"235426810"
+		{
+			"name"		"♠ Maça ♠"
+			"NameHistory"
+			{
+				"0"		"♠ Maça ♠"
+			}
+			"avatar"		"dd4ca53881a7636f26a4b2802936e72ea26e4ab3"
+		}
+		"51520400"
+		{
+			"name"		"Afrikakorps"
+			"NameHistory"
+			{
+				"0"		"Afrikakorps"
+			}
+			"avatar"		"fe225d8a719fea9795bad1cf4dfa82b0cd731d00"
+		}
+		"396096710"
+		{
+			"name"		"44bandit"
+			"NameHistory"
+			{
+				"0"		"44bandit"
+			}
+			"avatar"		"95be00802f198a3feadf0966fb1c3fd43e043512"
+		}
+		"914985588"
+		{
+			"name"		"Hazelpick"
+			"NameHistory"
+			{
+				"0"		"Hazelpick"
+			}
+			"avatar"		"5e4b76f2c39f463220a82be46b07519bf8c0815c"
+		}
+		"106734024"
+		{
+			"name"		"maXXum"
+			"NameHistory"
+			{
+				"0"		"maXXum"
+			}
+			"avatar"		"e45aa0486bdda9cf198f19e54d5b433aa70171e5"
+		}
+		"61732199"
+		{
+			"name"		"Xxbom"
+			"NameHistory"
+			{
+				"0"		"Xxbom"
+			}
+			"avatar"		"bc7d08561f80e1812e8a9e8a8e98664b36fd4891"
+		}
+		"1529605468"
+		{
+			"name"		"Melo"
+			"NameHistory"
+			{
+				"0"		"Melo"
+			}
+			"avatar"		"b8d90f357b5a0de73c59427587d382ff1a1b2fe5"
+		}
+		"33840179"
+		{
+			"name"		"H2oxygen"
+			"NameHistory"
+			{
+				"0"		"H2oxygen"
+			}
+			"avatar"		"0b52113b4473e3a499beb6187e39d83c72eaf6b3"
+		}
+		"364734392"
+		{
+			"name"		"Cobas"
+			"NameHistory"
+			{
+				"0"		"Cobas"
+			}
+			"avatar"		"54ce36d86bcacdf20274d65e8331042e97bfa077"
+		}
+		"133421669"
+		{
+			"name"		"tanjumurad"
+			"NameHistory"
+			{
+				"0"		"tanjumurad"
+			}
+		}
+		"107389483"
+		{
+			"name"		"ruphee"
+			"NameHistory"
+			{
+				"0"		"ruphee"
+			}
+			"avatar"		"5e37ee45f7ccc50e09cdeb7af9b0bfb70cc4d23e"
+		}
+		"1086264636"
+		{
+			"name"		"pipsoN"
+			"NameHistory"
+			{
+				"0"		"pipsoN"
+			}
+			"avatar"		"14c94ace391b90e2c5c3e07e44f518f25a3d4376"
+		}
+		"442615305"
+		{
+			"name"		"Mumyaci"
+			"NameHistory"
+			{
+				"0"		"Mumyaci"
+			}
+			"avatar"		"69869ff3f3b666dd0855071b08f77741296128e6"
+		}
+		"313348652"
+		{
+			"name"		"BCAhr"
+			"NameHistory"
+			{
+				"0"		"BCAhr"
+			}
+			"avatar"		"b3169961a56e6814d5b8be9389c6b8663ed91180"
+		}
+		"Notifications_ShowIngame"		"1"
+		"Notifications_ShowOnline"		"0"
+		"Notifications_ShowMessage"		"1"
+		"Notifications_EventsAndAnnouncements"		"1"
+		"Sounds_PlayIngame"		"0"
+		"Sounds_PlayOnline"		"0"
+		"Sounds_PlayMessage"		"1"
+		"Sounds_EventsAndAnnouncements"		"0"
+		"ChatFlashMode"		"0"
+		"DoNotDisturb"		"0"
+		"SignIntoFriends"		"1"
+	}
+	"ParentalSettings"
+	{
+		"settings"		"09aaa4ec0b000000004800"
+		"Signature"		"6f9c48a559fd1e3de9e6c73e34066a56ce826552b61c5ad89b2b978266010b3a1a658341b96440cf5c40648a0924c31564e8a6ee4fa5ef5203e02e4cc608526d7259d92f1c11412dc653d25b50e62c4cf1bcf9031b27151d6fa1f40f9c49b762f288e35f289410e9b30e4c1c073e7ca7a17f0b547e04619c7d2f6ccbaf4967a73c422dc814b5af8200f5654fce79a43114781814fbc8eb4b240b8d5d8a30ae756fefbd095d8ca91824242dee5ebf2b38b20fbc2df4802b02c344f3fc5b792833ed452fb02f55afc9a0f3646590a647bbdd0e09c336265c7d89fab6e57bc7d430df032aa00a0e1e82c720366199d7198c059040531a848690fd0204b7dffba9e8"
+	}
+	"SharedAuth"
+	{
+		"id"		"1038533901"
+		"AuthData"		"20e406d819e861f652943dd7493f5358131295fac06a4a9596bf2dba6f357404"
+	}
+	"Offline"
+	{
+		"Ticket"		"08aac9b25f15584fdf65"
+		"Signature"		"2056ab8dcf9b85717df6515ac6ef6b4ce824622ae11402565b78fe0a52411de2f96c08f64bb7b14ffb7e540b6a4079f6b60fa8c38c048cf94324f7c0237d1bea195bc50e511c3baeb9fad3bb8c3122b2709512f2425c614ae15a0ef07d0af4c7975cd1213b3266385d854e03e7c54b0868ecc35460bc9128d21b8e5f22071137dafb4f155c685cd4466018267457dd29a45fe5c56999186a46c8510089a3b9e736aa7ecc2c66495944f5f957c92250b653ff04de75092df815362873d5c8a7c01163b60b9da7660eb99573493a9efc2d46931b3ac44bf3fb6c4d9624f98723f8e3c0ce1b20fd25f9c4219ef693c405167386f15d1c1be874fdcbe4d950db9354"
+		"EncryptedTicket"		"0a2040e081cf3903f4808a4010b25d73c6e935f11aec0bf0bd4d33c6b903b27d6f7e1280022056ab8dcf9b85717df6515ac6ef6b4ce824622ae11402565b78fe0a52411de2f96c08f64bb7b14ffb7e540b6a4079f6b60fa8c38c048cf94324f7c0237d1bea195bc50e511c3baeb9fad3bb8c3122b2709512f2425c614ae15a0ef07d0af4c7975cd1213b3266385d854e03e7c54b0868ecc35460bc9128d21b8e5f22071137dafb4f155c685cd4466018267457dd29a45fe5c56999186a46c8510089a3b9e736aa7ecc2c66495944f5f957c92250b653ff04de75092df815362873d5c8a7c01163b60b9da7660eb99573493a9efc2d46931b3ac44bf3fb6c4d9624f98723f8e3c0ce1b20fd25f9c4219ef693c405167386f15d1c1be874fdcbe4d950db935418062208481deb210ca9e770280432085dd4f15fe6817397"
+		"EncryptedSignature"		"2056ab8dcf9b85717df6515ac6ef6b4ce824622ae11402565b78fe0a52411de2f96c08f64bb7b14ffb7e540b6a4079f6b60fa8c38c048cf94324f7c0237d1bea195bc50e511c3baeb9fad3bb8c3122b2709512f2425c614ae15a0ef07d0af4c7975cd1213b3266385d854e03e7c54b0868ecc35460bc9128d21b8e5f22071137dafb4f155c685cd4466018267457dd29a45fe5c56999186a46c8510089a3b9e736aa7ecc2c66495944f5f957c92250b653ff04de75092df815362873d5c8a7c01163b60b9da7660eb99573493a9efc2d46931b3ac44bf3fb6c4d9624f98723f8e3c0ce1b20fd25f9c4219ef693c405167386f15d1c1be874fdcbe4d950db9354"
+	}
+	"apptickets"
+	{
+		"7"		"3200000004000000aaa4ec0b0100100107000000f3e9465f020010ac00000000584fdf65d8fefa6501000000000000000000b2bb20383f0f00b8328163c8bd01ba223a702d918e9ff8d7a1066a4a7c64c2acd0765ee7e35f503d5e17a31fae54cbcd7a68c35b9d1a1961db26a98c02ded7fb95b3d7b53e0126cc64bf982e64f2c8808359c16dd15253a64dcc46add3d084b9962510debf5a18f5dfdd28a08c121a8fe75d78393549ed097862e18d13523efd"
+		"730"		"4400000004000000aaa4ec0b01001001da020000f3e9465f8e01a8c000000000fd32de657de2f96501000dd300000300b4880900000028c92200000029c92200000000000cfe9b1c80643480e83b534c09fc6127ffe29a3f25ab00f3c2bc7d313d9a8a8734daa1ebb3a67e4728dfaea4d1d63ea1bef24adf98d56362ae97cc86cae00d2c2eca5c090d5c5c450234efc41a4a7df62919ff5862953e6562a341d5558faeb5b064f7ed935a17d39b038b30484de95031c24218d9a85cb555182a3baac7606b"
+		"2279720"		"3200000004000000aaa4ec0b0100100128c92200f3e9465f8e01a8c0000000004836de65c8e5f96501000dd30000000000006f2d6d8f59fb12af7b0a0e739e9bc003539d23017b1b04eeb06ecdc5b485b1d38d2900de64a949afca0be5a44330182cce36176753e94af87491aa94b560390c9bde7b5591e9bb8f9ac50f8e347826b06081d0f1a269f4f325b78cb81e234efe2e0833cb488643e9edc090c9ee833ed6bc03e2e97e286e350f8735a571991b79"
+		"2279721"		"3200000004000000aaa4ec0b0100100129c92200f3e9465f8e01a8c0000000004836de65c8e5f96501000dd3000000000000bfa11acb5bf47da27671ce836513bb96465b05f87aa4fa397c516a9d7340f4fd0b5327eed91338e11add6ffed1cf81adc8e79b778f7038ee173a6344b689550f461a1f28be13fb2107b323e17599fbee85438919e318b65498188ff53d4edf8549b9af2109b11380f981fdcdb96bbc861177898623024e1fac83b98148aa8807"
+		"228980"		"3200000004000000aaa4ec0b01001001747e0300f3e9465f8e01a8c0000000004836de65c8e5f965010000000000000000003f19beb80a59e9bc5b3f22a4c931307e750a5a7fc4dec58aeebad80e17e74b1c9e753f2ebe88437d713c3a301076406756f1d346d671c60b49b017c3b02a725a0a9a1b37fd17c741525c4b162e5ab6c439ba9848bdba3c4ae066bc80158d7360ed2b08218b3a12c2513b889532a9e5f119108317f07604154f9a705eee1087b8"
+	}
+	"AppInfoChangeNumber"		"22544842"
+	"Software"
+	{
+		"Valve"
+		{
+			"Steam"
+			{
+				"apps"
+				{
+					"7"
+					{
+						"cloud"
+						{
+							"last_sync_state"		"changeslocally"
+						}
+					}
+					"760"
+					{
+						"cloud"
+						{
+							"quota_bytes"		"20000000000"
+							"quota_files"		"50000"
+							"used_bytes"		"0"
+							"used_files"		"0"
+						}
+					}
+					"10"
+					{
+						"LastPlayed"		"1577633075"
+						"Playtime"		"6292"
+					}
+					"70"
+					{
+						"LastPlayed"		"1611257883"
+						"Playtime"		"159"
+					}
+					"440"
+					{
+						"LastPlayed"		"1580397228"
+						"Playtime"		"46"
+					}
+					"730"
+					{
+						"LastPlayed"		"1709133453"
+						"Playtime2wks"		"674"
+						"Playtime"		"37800"
+						"cloud"
+						{
+							"last_sync_state"		"synchronized"
+						}
+						"autocloud"
+						{
+							"lastlaunch"		"1709133284"
+							"lastexit"		"1709133453"
+						}
+						"BadgeData"		"02000000080a"
+						"DisableUpdatesUntil"		"0"
+					}
+					"218620"
+					{
+						"LastPlayed"		"1590190706"
+						"Playtime"		"231"
+					}
+					"221380"
+					{
+						"LastPlayed"		"1554488985"
+						"Playtime"		"452"
+					}
+					"227300"
+					{
+						"LastPlayed"		"1590567344"
+						"Playtime"		"42"
+					}
+					"231430"
+					{
+						"LastPlayed"		"1554922559"
+						"Playtime"		"98"
+					}
+					"314160"
+					{
+						"LastPlayed"		"1571485409"
+						"Playtime"		"1694"
+					}
+					"345260"
+					{
+						"LastPlayed"		"1560014961"
+						"Playtime"		"377"
+					}
+					"578080"
+					{
+						"LastPlayed"		"1700499979"
+						"Playtime"		"43626"
+					}
+					"622590"
+					{
+						"LastPlayed"		"1548593464"
+						"Playtime"		"126"
+					}
+					"645630"
+					{
+						"LastPlayed"		"1625636424"
+						"Playtime"		"1009"
+					}
+					"760160"
+					{
+						"LastPlayed"		"1634248609"
+						"Playtime"		"10"
+					}
+					"1091500"
+					{
+						"LastPlayed"		"1608290705"
+						"Playtime"		"2814"
+					}
+					"1097150"
+					{
+						"LastPlayed"		"1599425968"
+						"Playtime"		"48"
+					}
+					"1172470"
+					{
+						"LastPlayed"		"1618936574"
+						"Playtime"		"22"
+					}
+					"1293830"
+					{
+						"LastPlayed"		"1624521758"
+						"Playtime"		"246"
+					}
+					"1313860"
+					{
+						"LastPlayed"		"1619782082"
+						"Playtime"		"81"
+					}
+					"2371090"
+					{
+						"cloud"
+						{
+							"last_sync_state"		"synchronized"
+						}
+					}
+				}
+				"LastPlayedTimesSyncTime"		"1709133453"
+				"PlayerLevel"		"10"
+			}
+		}
+	}
+	"CloudManager"
+	{
+		"HintAppsToPreload"		"2371090"
+	}
+	"WebStorage"
+	{
+		"SteamVoiceSettings_200058026"		"{\"inputGain\":1,\"outputGain\":1,\"noiseGateLevel\":2,\"noiseCancellation\":true,\"echoCancellation\":true,\"autoGainControl\":true,\"selectedMic\":\"default\",\"selectedOutput\":\"default\",\"pttSoundsEnabled\":true,\"hasResetOpenMicHotKey\":true}"
+		"CachedCommunityPreferences"		"{\"bParenthesizeNicknames\":true,\"eTextFilterSetting\":1,\"bTextFilterIgnoreFriends\":true,\"content_descriptor_preferences\":{\"content_descriptors_to_exclude\":[{\"content_descriptorid\":1},{\"content_descriptorid\":3},{\"content_descriptorid\":4}]}}"
+		"CachedStorePreferences"		"{\"eReviewScorePreference\":0,\"content_descriptor_preferences\":{\"content_descriptors_to_exclude\":[{\"content_descriptorid\":3,\"timestamp_added\":1597828498},{\"content_descriptorid\":4,\"timestamp_added\":1597828498}]},\"provide_deck_feedback\":0}"
+		"CachedNotificationPreferences"		"[{\"notification_type\":2,\"notification_targets\":11},{\"notification_type\":3,\"notification_targets\":1},{\"notification_type\":4,\"notification_targets\":1},{\"notification_type\":5,\"notification_targets\":11},{\"notification_type\":6,\"notification_targets\":11},{\"notification_type\":8,\"notification_targets\":3},{\"notification_type\":9,\"notification_targets\":11},{\"notification_type\":11,\"notification_targets\":3},{\"notification_type\":12,\"notification_targets\":11},{\"notification_type\":15,\"notification_targets\":11},{\"notification_type\":16,\"notification_targets\":11},{\"notification_type\":17,\"notification_targets\":11},{\"notification_type\":18,\"notification_targets\":11},{\"notification_type\":19,\"notification_targets\":11},{\"notification_type\":20,\"notification_targets\":11},{\"notification_type\":21,\"notification_targets\":11}]"
+		"UIStoreLocalSteamUIState"		"{\"nVersion\":1,\"eGameListView\":1,\"bGroupedByCollection\":true,\"bSortedByRecent\":false,\"mapCollapsedState\":[[\"hidden\",true]],\"currentSelection\":{\"strCollectionId\":\"uncategorized\",\"nAppId\":730},\"bGroupBySharedLibraries\":false,\"collectionFilter\":{\"nFormatVersion\":2,\"strSearchText\":\"\",\"filterGroups\":[{\"rgOptions\":[1],\"bAcceptUnion\":true},{\"rgOptions\":[],\"bAcceptUnion\":false},{\"rgOptions\":[],\"bAcceptUnion\":false},{\"rgOptions\":[],\"bAcceptUnion\":false},{\"rgOptions\":[],\"bAcceptUnion\":false},{\"rgOptions\":[],\"bAcceptUnion\":false},{\"rgOptions\":[],\"bAcceptUnion\":false}],\"setSuggestions\":{}},\"collectionFilterGamepad\":{\"nFormatVersion\":2,\"strSearchText\":\"\",\"filterGroups\":[{\"rgOptions\":[1,2,8192],\"bAcceptUnion\":true},{\"rgOptions\":[],\"bAcceptUnion\":false},{\"rgOptions\":[],\"bAcceptUnion\":false},{\"rgOptions\":[],\"bAcceptUnion\":false},{\"rgOptions\":[],\"bAcceptUnion\":false},{\"rgOptions\":[],\"bAcceptUnion\":false},{\"rgOptions\":[],\"bAcceptUnion\":false}],\"setSuggestions\":{}}}"
+		"keyboard_haptic_preset"		"2"
+		"keyboard_haptic_custom"		"{\"eHapticType\":2,\"unIntensity\":4,\"ndBGain\":-5}"
+		"keyboard_trackpad_typing_scale"		"1"
+		"keyboard_trackpding_typing_trigger_as_click"		"true"
+		"keyboard_layout"		"{\"currentLayout\":0,\"selectedLayouts\":[0]}"
+		"keyboard_initial_location_desktop"		"\"center-bottom\""
+		"keyboard_initial_location_overlay"		"\"center-bottom\""
+		"CTextFilterStore_strBannedPattern"		"\"\\\\b(﻿(ape|bat|bull?|butt|dip|dog|dumb|ebo|holy|horse|jack|pedo|pig|ubi)\\\\W*sh(it|ti)s?|d[il]+(ck|kc)\\\\W*(ass|bag|breath|eat|face|flip|head|hole|less|suck|weed)\\\\w*|f[chj]?(a|au|aw|e|o+|u|uy)[ch]*k(e?d|e?rs?|[ei]?n+g?|t)|m[aou](d+|t+|th|ht|z)(a|e|er|ir|ur)(c|f)c?[aou]c?k\\\\w*|m[ou]th(a|er)(f|ph)[vue]+c?[gkqx]+(e?d|e?r|[ei]?n+g?)|\\\\w*f[vu]+h*c+[hjvk]*(e?d|e?r|[ei]?n+g?|t)|b+i+a*t+c+h+(e+d|e*r?[sz]+|[ei]?n+g?|y)|\\\\w*f[vu]+c?[xkq]+(e?d|e?r|[ei]?n+g?|t)|p(oo+|u+)s+(a+y+|e+|eh|ey|i+|ie|y+)s*|m[ou]th(a|er)(f|ph)[vue]+c?[gkqx]+|\\\\w*f[vu]+h*q(e?d|e?r|[ei]?n+g?|t)|f[chj]?(a|au|aw|e|o+|u|uy)[ch]*k|f[ck]+(e?d|e?r|[ei]?n+g?|t)|fu󠀡󠀡cki󠀡󠀡ng|dumb(f|ph)[vu]+c?[xkq]|c(oc?|aw)k\\\\W*suc?k\\\\w*|d[il]+(ck|kc)(ed|ing)|ph[vu]+h*c+[hjvk]*\\\\w*|son\\\\W*of\\\\W*a\\\\W*bitch|долбоебизм|\\\\w*who+re(ed|ing|s)|c(o|ah|aw)c?k(s|ed)|s+h+[ily]+t+[ersy]*|a+ss+\\\\W*w?hole?\\\\w*|ph[vu]+c?[xkq]+\\\\w*|говноедов|долбаебов|ебланская|ебланский|заебёшься|захуячили|пидарасов|пидарский|съебаться|уебанский|уебищьное|f[vu]+c?[xkq]+\\\\w*|bull+sh+[ily]+t+|god\\\\W*damn?\\\\W*it|ахуенная|ахуенную|ахуенный|выебаное|ебанному|ебанутые|ебланами|пидарасы|уёбищная|уёбищный|god\\\\W*damn?\\\\w*|въебали|въебать|ебанная|ебанное|ебанных|ебаного|ебаньки|ебонное|заебала|заебало|поебень|хуёвого|a+ss+\\\\W*fu\\\\w*|c(o|ah|aw)c?k|d[il]+(ck|kc)|b+i+a*t+c+h+|butt\\\\W*fu\\\\w*|cumm(er|ing)|f[vu]+h*c\\\\w*|f[vu]+h*q\\\\w*|sh+i+[ae]+t+|ахуели|ебаная|ебаное|ебаной|ебаную|ебаные|ебаный|ебаным|ебаных|ебучий|пиздеж|пиздец|сраная|уёбища|уёбище|хуесос|хуетой|хуйнёй|хуёвая|хуёвый|你妈死了|妈的个逼|我是傻逼|c+u+n+t+\\\\w*|d+i+c+k+s*|fu‎cking|блядь|блять|дохуя|дрочи|ебало|ебать|н4еб4л|нахуй|нахуя|нехуй|нихуя|пизде|пизду|похуй|уебёт|хуета|хуету|хуйни|хуйню|хуйня|шлюхи|ёбаны|a+sholes?|sh+e+i+t+|操你妈|操你妹|肏你妈|ахуе|ебал|ебут|сука|хуям|шлюх|F\\\\.U\\\\.C\\\\.K|chodes?|cumshot|fucking|fu‎ck|shit\\\\w*|shtpost|who+re?|cumbag|jebane|twats?|бля|ебу|хуи|хуй|хуя|傻屄|傻逼|操死|臭逼|cums?|dafuq|diсk|sh it|coq+|hore|kock|nmsl|shat|dik|fck|kys|\\\\w*f+u+c+k+\\\\w*|\\\\w*fцск\\\\w*|\\\\w*shіtty\\\\w*|\\\\w*f_uc_k\\\\w*|\\\\w*pussy\\\\w*|﻿n+([ehiy]+|ay|ey|io|[il]+)[bgq$]+h?(a+|aer|a+h+|a+r+|e+|ea|eoa|e+r+|ie|ier|let|lit|o|or|r+|u|uh|uhr|u+r+|ward|y+)s*|f[ae]y?g+[oeiu]+t+s?|даунская|пидорасы|ching\\\\W*chongs?|n󠀡󠀡iggers|re+t+a?r[dt]+s?|towel\\\\W*heads?|москаль|пидорка|pac?k(i|ie|y)|ting\\\\W*tongs?|trann(ie|y)s?|white\\\\W*trash|ni:gg\\\\w*:\\\\w*|chin(c|k)s?|kaltaklarla|kaltaklarla|n+i+[gq]+s?|yam\\\\W*yams?|\\\\w*niggas?|chinamans?|polacke?s?|кацап|русня|хохлы|хохол|neekeris?|nigfhers?|redskins?|beaners?|coolies?|czarnuch|f+a+g+s*|fenians?|gringos?|newfags?|ni gg er|nigga\\\\w*|niggles?|nignogs?|rus+kis?|wiggers?|Ϝaggоt|gypsies|injuns?|jiggas?|nikkas?|wiggas?|иigger|\\\\w*fag|beaner|coons?|dykes?|fa66ot|fagts?|gooks?|gypos?|homos?|kikes?|kokhol|moskal|reggin|spics?|ywnbaw|黑鬼|abos?|fgts?|fаgs|gypsy|japs?|troon|wops?|fagz|fаg|f@g|\\\\w*N󠀡󠀡IGGE󠀡󠀡R\\\\w*|\\\\w*свинособак\\\\w*|\\\\w*ɴɪɢɢᴇʀ\\\\w*|\\\\w*nіggеr\\\\w*|\\\\w*NÍGGER\\\\w*|\\\\w*n\\\\\\\\\\\\|gger\\\\w*|\\\\w*niggеr\\\\w*|\\\\w*F4GG0T\\\\w*|\\\\w*N1GG3R\\\\w*|\\\\w*nigger\\\\w*|\\\\w*nigg4\\\\w*|\\\\w*niggz\\\\w*)\\\\b\""
+		"CTextFilterStore_strCleanPattern"		"\"^(\\\\b(fak(ed|ers?|ing)|kompetenzteam|派送员|pinegrove|n\\\\.e\\\\.ig\\\\.e\\\\.|fukushima|snigger|nie gee|fukuoka|fuchsia|fuchian|cock\\\\.li|fuxius|fucuro|niego|niebo|neige|neggy|nebby|fuxis|cwfag|pubg|niby|nebu|nebo|fuku|fuki|fakt|g24|fcr|\\\\w*fvchvo\\\\w*)\\\\b)$\""
+		"CTextFilterStore_TextFilterPreferences"		"{\"eTextFilterSetting\":1,\"bIgnoreFriends\":true}"
+		"CTextFilterStore_TextFilterWords"		"{\"text_filter_custom_banned_words\":[],\"text_filter_custom_clean_words\":[]}"
+		"trendingstore_storage"		"{\"version\":2,\"data\":[{\"appid\":17330,\"rgAccountIDs\":[133421669],\"totalFriends\":1},{\"appid\":730,\"rgAccountIDs\":[1529605468,112626689,138140775,1086264636,459069893,354714877,396096710,51520400],\"totalFriends\":8},{\"appid\":236390,\"rgAccountIDs\":[51520400],\"totalFriends\":1},{\"appid\":714210,\"rgAccountIDs\":[442615305],\"totalFriends\":1},{\"appid\":252950,\"rgAccountIDs\":[884591772],\"totalFriends\":1},{\"appid\":234330,\"rgAccountIDs\":[119189553],\"totalFriends\":1},{\"appid\":227300,\"rgAccountIDs\":[354714877],\"totalFriends\":1},{\"appid\":871720,\"rgAccountIDs\":[354714877],\"totalFriends\":1},{\"appid\":250820,\"rgAccountIDs\":[147988930],\"totalFriends\":1},{\"appid\":287390,\"rgAccountIDs\":[133421669],\"totalFriends\":1},{\"appid\":578080,\"rgAccountIDs\":[1086264636,396096710,914985588,138140775,61732199,354714877],\"totalFriends\":6},{\"appid\":1248130,\"rgAccountIDs\":[442615305],\"totalFriends\":1},{\"appid\":2630,\"rgAccountIDs\":[232871893],\"totalFriends\":1},{\"appid\":10,\"rgAccountIDs\":[151431618],\"totalFriends\":1},{\"appid\":813780,\"rgAccountIDs\":[51520400],\"totalFriends\":1},{\"appid\":1238810,\"rgAccountIDs\":[396096710],\"totalFriends\":1},{\"appid\":1623730,\"rgAccountIDs\":[313348652],\"totalFriends\":1},{\"appid\":570,\"rgAccountIDs\":[119189553,106734024,151431618],\"totalFriends\":3},{\"appid\":204100,\"rgAccountIDs\":[133421669],\"totalFriends\":1}],\"lastFetchTimeMS\":1709060830507}"
+		"GetEquippedProfileItemsForUser76561198160323754"		"{\"profile_background\":{\"communityitemid\":\"14254336016\",\"image_large\":\"items/730/ef7cb44d312df5038cba0f69a0901da427900645.jpg\",\"name\":\"Guarded\",\"item_title\":\"Guarded\",\"item_description\":\"\",\"appid\":730,\"item_type\":18,\"item_class\":3,\"equipped_flags\":1,\"profile_colors\":[]},\"mini_profile_background\":{\"profile_colors\":[]},\"avatar_frame\":{\"communityitemid\":\"19317049429\",\"image_small\":\"items/824600/18717998311ff5e68b1246dbdb43cbc0fa00a35d.png\",\"image_large\":\"items/824600/42484660d3f30042176a0930a8ccd6eda62ccdbf.png\",\"name\":\"hrotramec\",\"item_title\":\"VHS TV\",\"item_description\":\"TV screen at grandma's\",\"appid\":824600,\"item_type\":1,\"item_class\":14,\"profile_colors\":[]},\"animated_avatar\":{\"profile_colors\":[]},\"profile_modifier\":{\"profile_colors\":[]},\"steam_deck_keyboard_skin\":{\"profile_colors\":[]}}"
+		"UIDisplayPrefs_200058026"		"{\"nChatRoomListHeightPx\":224,\"bChatRoomListCollapsed\":true,\"bDontShowVoiceAlert\":false,\"nFriendsListSingleWindowWidthPx\":300,\"bFavoritesHintDismissed\":true,\"bRemotePlayLinkHintDismissed\":false,\"nChangeLogDismissed\":0}"
+		"ChatStorePopupState_200058026"		"{\"bFriendsListVisible\":false,\"always_restore\":false,\"bFriendsListCollapsed\":false}"
+		"FriendStoreLocalPrefs_200058026"		"{\"ePersonaState\":1,\"strNonFriendsAllowedToMsg\":\"\"}"
+		"OverlaySavedDataV2_730_windows"		"{\"version\":2,\"data\":[[\"GameOverview\",0],[\"FriendsList\",1],[\"Workshop\",0],[\"Settings\",0]]}"
+	}
+	"system"
+	{
+		"PushToTalkKey"		"0"
+		"InGameOverlayShortcutKey"		"KEY_MINUS"
+		"InGameOverlayShowFPSCorner"		"1"
+		"InGameOverlayShowFPSContrast"		"1"
+		"InGameOverlayScreenshotSaveUncompressedPath"		"C:\\Users\\m4a1\\Desktop"
+		"InGameOverlayRestoreBrowserTabs"		"0"
+	}
+	"UserAppConfig"
+	{
+		"730"		"00696e7465726e616c00016c616e677561676500656e676c697368000808"
+		"228980"		"0055736572436f6e6669670001426574614b6579007075626c6963000808"
+	}
+	"RecentLocalPlayedGameIDs"		"da020000000000008d4edf6508808004"
+	"CloudKey"		"01000000547fc76aca9cd7ed963641f9d70a6b3f954d8fcc1bdb43154f62a1c80f98d95c6bd13584"
+	"CloudKeyCRC"		"-227158384"
+	"nettickets"
+	{
+		"730"		"01000000fdd74ee467ede1b9f16f2814b603b92daadcda111f4571fa6be8e4344ab4a49d6d6638f9e08532226a71c32bcfefd5e1a27bf21cde94578b945d62b66e117dae7da675594596af8739cbe87406c768fb734d0d622ca5a8b70d72a832e4bd33ba41999c12f51b89f3d8d587a2178daf5ef83cb8641bc1c4d46a6a0c7e20f60cdd33da51e6338cee95ded3e505ae9ef61c06ee7b2843ae09e6d6b38fbc6b4d6adfab991d07f99bd12850400bec2f0f78869a79682b626a75ac7deec7ecd9b489a508a57c34267cbe4bd00036520ec283c0fadd7505186f7e1b8df61e81f9453b1a7e6893037af999312290eddc060329d47fe209fb3766f8"
+	}
+}
