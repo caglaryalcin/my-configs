@@ -215,7 +215,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             try {
                 # Download the registry file
                 $progressPreference = 'SilentlyContinue'
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/taskbar_pin.reg" -Outfile "C:\taskbar_pin.reg" -ErrorAction Stop
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/taskbar/taskbar_pin.reg" -Outfile "C:\taskbar_pin.reg" -ErrorAction Stop
                 
                 # Import the registry file
                 reg import "C:\taskbar_pin.reg" *>$null
@@ -237,7 +237,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             # Set taskbar right side layout
             try {
                 $progressPreference = 'SilentlyContinue'
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/taskbar-rightside-layout.reg" -Outfile "C:\taskbar-rightside-layout.reg" -ErrorAction Stop
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/taskbar/taskbar-rightside-layout.reg" -Outfile "C:\taskbar-rightside-layout.reg" -ErrorAction Stop
 
                 # Import the registry file
                 reg import "C:\taskbar-rightside-layout.reg" *>$null
