@@ -234,7 +234,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[WARNING]: Error while importing and setting taskbar icons. $_" -ForegroundColor Red
             }
 
-            # Set taskbar right side layout
+            # Set windows 11 taskbar corner overflow icons
             try {
                 $progressPreference = 'SilentlyContinue'
                 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/taskbar/taskbar-rightside-layout.reg" -Outfile "C:\taskbar-rightside-layout.reg" -ErrorAction Stop
