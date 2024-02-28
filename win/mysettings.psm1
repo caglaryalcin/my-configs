@@ -497,7 +497,8 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 "$env:userprofile\Desktop"                                                                   = @(
                     #"https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/ExplorerPatcher.reg",#not used yet
                     "https://github.com/caglaryalcin/my-configs/raw/main/hardware/nvidia/Base-Profile.nip",
-                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/display/display-layout.reg"
+                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/display/display-layout.reg",
+                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/terminal/Base16_Tomorrow.StorableColorTheme.ps1xml"
                 )
 
                 # Total Commander
