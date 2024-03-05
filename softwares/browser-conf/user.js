@@ -147,3 +147,6 @@ user_pref("browser.download.folderList", 0);
 //disable tabs warn on Close
 user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.aboutConfig.showWarning", false);
+
+// enhanced tracking policy
+user_pref("browser.contentblocking.category", "standart");
