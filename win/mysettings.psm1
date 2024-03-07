@@ -498,7 +498,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     #"https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/ExplorerPatcher.reg",#not used yet
                     "https://github.com/caglaryalcin/my-configs/raw/main/hardware/nvidia/Base-Profile.nip",
                     "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/display/display-layout.reg",
-                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/terminal/VSCode.ps1xml"
+                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/terminal/VScode.ps1xml"
                 )
 
                 # Total Commander
@@ -557,7 +557,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 
             $configFolderPath = Join-Path -Path (Join-Path -Path $destPath -ChildPath $userFolder) -ChildPath $configFolder
 
-            New-Item -Path $configFolderPath -ItemType Directory -Force
+            New-Item -Path $configFolderPath -ItemType Directory -Force *>$null
 
             Set-Location -Path $configFolderPath
 
@@ -566,7 +566,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Move-Item -Path $sourceFile -Destination $configFolderPath -Force
             }
             else {
-                Write-Host "Kaynak dosya bulunamadı: $sourceFile"
+                Write-Host "Source file not found: $sourceFile"
             }
 
             Set-Location -Path C:\
