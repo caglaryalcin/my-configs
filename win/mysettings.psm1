@@ -498,7 +498,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     #"https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/ExplorerPatcher.reg",#not used yet
                     "https://github.com/caglaryalcin/my-configs/raw/main/hardware/nvidia/Base-Profile.nip",
                     "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/display/display-layout.reg",
-                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/terminal/Base16_Tomorrow.StorableColorTheme.ps1xml"
+                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/terminal/VSCode.ps1xml"
                 )
 
                 # Total Commander
@@ -551,14 +551,25 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             # Steam config
             Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/steam/localconfig.vdf" -Outfile "$env:userprofile\Desktop\localconfig.vdf"
 
-            $destpath = "C:\Program Files (x86)\Steam\userdata\"
-            Set-Location -Path $destpath
-            Get-ChildItem -Directory | ForEach-Object {
-                Push-Location $_.FullName
+            $destPath = "C:\Program Files (x86)\Steam\userdata\"
+            $userFolder = "200058026"
+            $configFolder = "config"
+
+            $configFolderPath = Join-Path -Path (Join-Path -Path $destPath -ChildPath $userFolder) -ChildPath $configFolder
+
+            New-Item -Path $configFolderPath -ItemType Directory -Force
+
+            Set-Location -Path $configFolderPath
+
+            $sourceFile = Join-Path $env:USERPROFILE "Desktop\localconfig.vdf"
+            if (Test-Path $sourceFile) {
+                Move-Item -Path $sourceFile -Destination $configFolderPath -Force
             }
-            Set-Location -Path ".\config"
-            Move-Item -Path $env:userprofile\Desktop\localconfig.vdf -Destination (Get-Location) -Force
-            cd c:\
+            else {
+                Write-Host "Kaynak dosya bulunamadı: $sourceFile"
+            }
+
+            Set-Location -Path C:\
 
             # Restore SteelSeries keyboard settings
             try {
@@ -628,10 +639,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 
             # Monitor settings prompt
             try {
-                #usedregistry Start-Process "desk.cpl"; do { Start-Sleep -Milliseconds 500; } while ((Get-Process -Name SystemSettings -ErrorAction SilentlyContinue))
-                #usedregistry SStart-Process "rundll32.exe" -ArgumentList "display.dll, ShowAdapterSettings 0" -NoNewWindow -Wait
-                #usedregistry SStart-Process "rundll32.exe" -ArgumentList "display.dll, ShowAdapterSettings 1" -NoNewWindow -Wait
-                
                 # import monitor conf reg file
                 reg import "$env:USERPROFILE\Desktop\display-layout.reg" *>$null
                 Start-Sleep 1
@@ -752,36 +759,9 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         
         DisableChromeBackgroundRunning        
         
-        # Media Feature Pack
-        Function MediaFeaturePack {
-            try {
-                Write-Host "Installing Media Feature Pack..." -NoNewline
-                # check new version
-                $output = DISM /Online /Get-Capabilities
-                $capabilityLines = $output | Select-String -Pattern "Capability Identity" | Where-Object { $_ -like "*Media.MediaFeaturePack*" }
-                if ($capabilityLines) {
-                    foreach ($line in $capabilityLines) {
-                        if ($line -match 'Capability Identity\s*:\s*(.+)') {
-                            $capabilityIdentity = $matches[1]
-                            DISM /Online /Add-Capability /CapabilityName:$capabilityIdentity *>$null 2>&1
-                            Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black 
-                        }
-                    }
-                }
-                else {
-                    Write-Host "[INFO]: Media Feature Pack capability not found." -ForegroundColor Yellow -BackgroundColor Black
-                }
-            }
-            catch {
-                Write-Host " [WARNING]: Failed. Error: $_" -ForegroundColor Red
-            }
-        }
-
-        #MediaFeaturePack problematic
-
-        # Disable do not disturb mode
-        Function DisableDoNotDisturb {
-            Write-Host "Disabling do not disturb mode..." -NoNewline
+        # Set night light
+        Function SetNightlight {
+            Write-Host "Enabling Night Mode..." -NoNewline
             try {
                 $source = @"
 using System;
@@ -810,54 +790,6 @@ namespace KeyboardSend
     }
 }
 "@
-                Add-Type -TypeDefinition $source -ReferencedAssemblies "System.Windows.Forms"
-                Start-Sleep 2
-                [KeyboardSend.KeyboardSend]::KeyDown("LWin")
-                [KeyboardSend.KeyboardSend]::KeyDown("I")
-                [KeyboardSend.KeyboardSend]::KeyUp("I")
-                [KeyboardSend.KeyboardSend]::KeyUp("LWin")
-                Start-Sleep -Milliseconds 2000
-                [System.Windows.Forms.SendKeys]::SendWait("do not disturb")
-                Start-Sleep -Milliseconds 1500
-                [System.Windows.Forms.SendKeys]::SendWait("{DOWN}")
-                [System.Windows.Forms.SendKeys]::SendWait("{DOWN}")
-                Start-Sleep -Milliseconds 800
-                [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-                Start-Sleep -Milliseconds 1000
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                    
-                Start-Sleep -Milliseconds 100
-                [System.Windows.Forms.SendKeys]::SendWait(" ")
-                    
-                Start-Sleep 2
-
-                taskkill /f /im SystemSettings.exe *>$null
-                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black 
-            }
-            catch {
-                Write-Host " [WARNING]: Error turning off do not disturb mode.. Error: $_" -ForegroundColor Red
-            }
-        }
-
-        DisableDoNotDisturb
-
-        # Set night light
-        Function SetNightlight {
-            Write-Host "Enabling Night Mode..." -NoNewline
-            try {
                 [System.Windows.Forms.SendKeys]::SendWait('^{ESC}') #windows key
                 Start-Sleep -Milliseconds 1500
                 [System.Windows.Forms.SendKeys]::SendWait("Night")
@@ -1001,33 +933,25 @@ namespace KeyboardSend
             $url = "https://ssl.intertech.com.tr/public/download/f5epi_setup.exe"
             $filePath = "$env:TEMP\f5epi_setup.exe"
         
-            # Download and install f5 inspect
             try {
+                # Download the installer
                 $OriginalProgressPreference = $Global:ProgressPreference
                 $Global:ProgressPreference = 'SilentlyContinue'
                 Invoke-WebRequest -Uri $url -OutFile $filePath
-            }
-            catch {
-                Write-Host "[WARNING]: Failed to download f5 inspect file. $_" -ForegroundColor Red
-            }
-            
-            # Install f5 inspect
-            try {
-                Start-Process -FilePath $filePath -ArgumentList "/S" -NoNewWindow -Wait -PassThru *>$null
-            }
-            catch {
-                Write-Host "[WARNING]: Failed to install f5 inspect. $_" -ForegroundColor Red
-            }
         
-            # Delete the installer file
-            try {
+                # Install f5 inspect
+                Start-Process -FilePath $filePath -ArgumentList "/S" -NoNewWindow -Wait -PassThru *>$null
                 Start-Sleep 1
                 Remove-Item -Path $filePath -Force -ErrorAction SilentlyContinue
+        
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host "[WARNING]: Failed to delete f5 inspect installer file. $_" -ForegroundColor Red
+                Write-Host "[WARNING]: Failed f5 installation process. $_" -ForegroundColor Red
             }
-        
+            finally {
+                $Global:ProgressPreference = $OriginalProgressPreference
+            }
         }
         
         f5inspect
