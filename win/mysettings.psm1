@@ -498,7 +498,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     #"https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/ExplorerPatcher.reg",#not used yet
                     "https://github.com/caglaryalcin/my-configs/raw/main/hardware/nvidia/Base-Profile.nip",
                     "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/display/display-layout.reg",
-                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/terminal/VScode.ps1xml"
+                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/terminal/VScode.storableColortheme.ps1xml"
                 )
 
                 # Total Commander
