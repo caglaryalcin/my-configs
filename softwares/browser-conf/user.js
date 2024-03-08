@@ -150,3 +150,6 @@ user_pref("browser.aboutConfig.showWarning", false);
 
 // enhanced tracking policy
 user_pref("browser.contentblocking.category", "standart");
+
+// disable translate pop-up
+user_pref("browser.translations.automaticallyPopup", false);
