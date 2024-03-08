@@ -12,7 +12,7 @@ Write-Host `n$myText -ForegroundColor Red
 Write-Host `n"Do you " -NoNewline
 Write-Host "own this script?" -NoNewline -ForegroundColor Red -BackgroundColor Black
 Write-Host "(Settings, downloads and installations of the script owner will be made):" -NoNewline -ForegroundColor Red -BackgroundColor Black
-Write-Host "(y/n): " -NoNewline
+Write-Host "(y/n): " -ForegroundColor Green -NoNewline
 $response = Read-Host
 
 if ($response -eq 'y' -or $response -eq 'Y') {
@@ -210,7 +210,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[WARNING]: Error removing the registry path of taskbar icons. $_" -ForegroundColor Red
             }
             
-
             # Set taskbar icons and pin to taskbar
             try {
                 # Download the registry file
@@ -236,16 +235,18 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 
             # Set windows 11 taskbar corner overflow icons
             try {
-                $progressPreference = 'SilentlyContinue'
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/taskbar/taskbar-rightside-layout.reg" -Outfile "C:\taskbar-rightside-layout.reg" -ErrorAction Stop
+                $registryPath = "HKCU:\Control Panel\NotifyIconSettings"
 
-                # Import the registry file
-                reg import "C:\taskbar-rightside-layout.reg" *>$null
+                # Get all subkeys
+                $subKeys = Get-ChildItem -Path $registryPath
 
-                Start-Sleep 2
-
-                # Apply the registry file import again
-                reg import "C:\taskbar-rightside-layout.reg" *>$null
+                # Loop through each subkey
+                foreach ($key in $subKeys) {
+                    # Get the full path of the subkey
+                    $fullPath = $registryPath + "\" + $key.PSChildName
+                    # Set the IsPromoted value to 1
+                    Set-ItemProperty -Path $fullPath -Name "IsPromoted" -Value 1 -Type DWord
+                }
 
                 # Restart explorer
                 taskkill /f /im explorer.exe *>$null
@@ -254,10 +255,12 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[WARNING]: Error while importing and setting taskbar icons. $_" -ForegroundColor Red
             }
 
+            # Set VMware Tray icon behavior
+            New-ItemProperty -Path "HKCU:\Software\VMware, Inc.\VMware Tray" -Name "TrayBehavior" -Value 2 -PropertyType DWORD -Force *>$null
+
             # Delete registry file and icons folder
             try {
                 Remove-Item "C:\taskbar_pin.reg" -Recurse -ErrorAction Stop
-                Remove-Item "C:\taskbar-rightside-layout.reg" -Recurse -ErrorAction Stop
                 Start-Sleep 1
 
                 Start-Process "explorer.exe" -ErrorAction Stop
@@ -610,23 +613,25 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             }
             
             # ExplorerPatcher //not used yet
-            # # Exclude the WinGet directory from Windows Defender
-            # Add-MpPreference -ExclusionPath "$env:USERPROFILE\AppData\Local\Temp\WinGet\"
-            # $OriginalProgressPreference = $Global:ProgressPreference
-            # $Global:ProgressPreference = 'SilentlyContinue'
-            # try {
-            #     $osName = (systeminfo.exe | Select-String "OS Name").ToString() 2>$null
-            #     if ($osName -like "*Windows 11*") {
-            #         winget install valinet.ExplorerPatcher -e --silent --accept-source-agreements --accept-package-agreements --force *>$null
-            #     }
-            #     else {
-            #         Write-Host "The OS is not Windows 11."
-            #     }
-            # }
-            # catch {
-            #     Write-Host "[WARNING]: ExplorerPatcher could not to be installed. $_"
-            # }
-
+            # Exclude the WinGet directory from Windows Defender
+            <#
+            Add-MpPreference -ExclusionPath "$env:USERPROFILE\AppData\Local\Temp\WinGet\"
+            $OriginalProgressPreference = $Global:ProgressPreference
+            $Global:ProgressPreference = 'SilentlyContinue'
+            try {
+                $osName = (systeminfo.exe | Select-String "OS Name").ToString() 2>$null
+                if ($osName -like "*Windows 11*") {
+                    winget install valinet.ExplorerPatcher -e --silent --accept-source-agreements --accept-package-agreements --force *>$null
+                }
+                else {
+                    Write-Host "The OS is not Windows 11."
+                }
+            }
+            catch {
+                Write-Host "[WARNING]: ExplorerPatcher could not to be installed. $_"
+            }
+            #>
+            
             # Adobe Creative Cloud
             try {
                 winget install --id XPDLPKWG9SW2WD -e --silent --accept-source-agreements --accept-package-agreements --force *>$null
@@ -959,7 +964,7 @@ namespace KeyboardSend
         # Google Play Games Beta
         Function GooglePlayGamesBeta {
             Write-Host "Installing Google Play Games Beta..." -NoNewline
-            Write-Host "(Kill client in taskbar after installation)" -ForegroundColor Red -BackgroundColor Black -NoNewline
+            Write-Host "(Close the client after installation(including taskbar))" -ForegroundColor Red -BackgroundColor Black -NoNewline
             $url = "https://dl.google.com/tag/s/CiZ7NDdCMDdENzEtNTA1RC00NjY1LUFGRDQtNDk3MkEzMEM2NTMwfRIEYmV0YRo8CjoIAhIZb3JnYW5pYy1taWNyb3NpdGUtd2luZG93cxoWaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbSjhrtMJKisI7gsSJntlZTBkZWVjMC0wMjFkLTRiOGUtYTk0My04Zjk3NmExYzgyNmJ9QAFKAmVuUgViMmkyZQ/play/games/install/10/Install-GooglePlayGames-Beta.exe"
             $filePath = "C:\GPGB.exe"
             
