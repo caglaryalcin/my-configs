@@ -39,18 +39,17 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 taskkill /f /im FanControl.exe *>$null
             }
             catch {
-                Write-Host "[WARNING]:: There was an error loading FanControl. $_" -ForegroundColor Red -BackgroundColor Black
+                Write-Host "[WARNING]:: There was an error installing FanControl. $_" -ForegroundColor Red -BackgroundColor Black
             }
         }
         
         InstallFanControl
 		
         # SetPins
-        Function SetPins {
-            ##Create Icons folder
+        Function TaskbarPins {
+            # Create Icons folder
             New-Item -Path 'C:\icons' -ItemType Directory *>$null
 
-            # CreateShortcut function
             function CreateShortcut([string]$exePath, [string]$shortcutPath, [string]$workingDirectory = $null, [string]$arguments = $null) {
                 $WScriptShell = New-Object -ComObject WScript.Shell
                 $Shortcut = $WScriptShell.CreateShortcut($shortcutPath)
@@ -65,7 +64,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Unblock-File -Path $shortcutPath *>$null
             }
 
-            # CreateShortcuts function
             Function CreateShortcuts {
                 $shortcutPaths = @{
                     "Google Chrome"           = @{
@@ -140,10 +138,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                         "Path"             = "C:\ProgramData\chocolatey\lib\openrgb\tools\OpenRGB Windows 64-bit\OpenRGB.exe";
                         "WorkingDirectory" = "C:\ProgramData\chocolatey\lib\openrgb\tools\OpenRGB Windows 64-bit\";
                     };
-                    "FanControl"              = @{
-                        "Path"             = "C:\fan_control\FanControl.exe";
-                        "WorkingDirectory" = "C:\fan_control\";
-                    };
                     "Microsoft Teams classic" = @{
                         "Path"             = "$env:USERPROFILE\AppData\Local\Microsoft\Teams\Update.exe";
                         "Arguments"        = "--processStart Teams.exe";
@@ -167,41 +161,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 
             CreateShortcuts
 
-            # Copy fan control to startup folder
-            try {
-                Copy-Item "C:\icons\FanControl.lnk" "$env:USERPROFILE\Appdata\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\FanControl.lnk" -Force
-            }
-            catch {
-                Write-Host "[WARNING]: Error copying FanControl to startup folder. $_" -ForegroundColor Red
-            }
-            
-            # Delete all files on desktop
-            try {
-                Get-ChildItem "$env:USERPROFILE\Desktop\*" | ForEach-Object { Remove-Item $_ -ErrorAction Stop }
-                Get-ChildItem "C:\users\Public\Desktop\*.lnk" | ForEach-Object { Remove-Item $_ -ErrorAction Stop }
-            }
-            catch {
-                Write-Host "[WARNING]: Error deleting all files on the desktop. $_" -ForegroundColor Red
-            }
-            
-
-            # Remove Brave and Firefox shortcuts from taskbar
-            $braveShortcut = "$env:USERPROFILE\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Brave.lnk"
-            $firefoxShortcut = "$env:USERPROFILE\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Firefox.lnk"
-
-            try {
-                if (Test-Path $braveShortcut) {
-                    Remove-Item -Path $braveShortcut -ErrorAction Stop
-                }
-            
-                if (Test-Path $firefoxShortcut) {
-                    Remove-Item -Path $firefoxShortcut -ErrorAction Stop
-                }
-            }
-            catch {
-                Write-Host "[WARNING]: Unable to delete Brave and Firefox shortcut from taskbar. $_" -ForegroundColor Red
-            }
-            
             # Remove registry path of all taskbar icons
             try {
                 Remove-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband" -Recurse -Force -ErrorAction Stop
@@ -233,31 +192,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[WARNING]: Error while importing and setting taskbar icons. $_" -ForegroundColor Red
             }
 
-            # Set windows 11 taskbar corner overflow icons
-            try {
-                $registryPath = "HKCU:\Control Panel\NotifyIconSettings"
-
-                # Get all subkeys
-                $subKeys = Get-ChildItem -Path $registryPath
-
-                # Loop through each subkey
-                foreach ($key in $subKeys) {
-                    # Get the full path of the subkey
-                    $fullPath = $registryPath + "\" + $key.PSChildName
-                    # Set the IsPromoted value to 1
-                    Set-ItemProperty -Path $fullPath -Name "IsPromoted" -Value 1 -Type DWord
-                }
-
-                # Restart explorer
-                taskkill /f /im explorer.exe *>$null
-            }
-            catch {
-                Write-Host "[WARNING]: Error while importing and setting taskbar icons. $_" -ForegroundColor Red
-            }
-
-            # Set VMware Tray icon behavior
-            New-ItemProperty -Path "HKCU:\Software\VMware, Inc.\VMware Tray" -Name "TrayBehavior" -Value 2 -PropertyType DWORD -Force *>$null
-
             # Delete registry file and icons folder
             try {
                 Remove-Item "C:\taskbar_pin.reg" -Recurse -ErrorAction Stop
@@ -274,7 +208,35 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             
         }
 
-        SetPins
+        TaskbarPins
+
+        Function Deletelnks {
+            Write-Host "Deleting unnecessary lnk files on desktop and taskbar......" -NoNewline
+            try {
+                # Delete the lnk files on the desktop
+                Get-ChildItem "$env:USERPROFILE\Desktop\*" | ForEach-Object { Remove-Item $_ -ErrorAction Stop }
+                Get-ChildItem "C:\users\Public\Desktop\*.lnk" | ForEach-Object { Remove-Item $_ -ErrorAction Stop }
+                
+                # Delete the lnk files in the taskbar
+                $taskBarPath = "$env:USERPROFILE\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
+                $shortcuts = "Brave.lnk", "Firefox.lnk", "Microsoft Edge.lnk", "Microsoft Teams classic.lnk"
+                
+                $shortcuts | ForEach-Object {
+                    $fullPath = Join-Path $taskBarPath $_
+                    if (Test-Path $fullPath) {
+                        Remove-Item $fullPath -ErrorAction Stop
+                    }
+                    else {
+                        Write-Host "[INFO]: $_ file not found in the taskbar, skipped." -ForegroundColor Yellow
+                    }
+                }
+            }
+            catch {
+                Write-Host "[WARNING]: Error deleting unnecessary lnk files. $_" -ForegroundColor Red
+            }
+        }
+        
+        Deletelnks
 
         # Drivers
         Function Drivers {
@@ -432,7 +394,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         AudioDevice
 
         # MyConfigs
-        Function Set-Configs {
+        Function DownloadConfigs {
             Write-Host "Setting my configs..." -NoNewline
 
             # Helper function to create directories
@@ -456,7 +418,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 }
             }
             
-            # Stop all SteelSeries processes
+            # Stop all SteelSeries processes (required for steelseries config download)
             Get-Process | Where-Object { $_.Name -like "steel*" } | ForEach-Object { Stop-Process -Name $_.Name -Force }
 
             # Define config directories and files to download
@@ -501,7 +463,8 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     #"https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/ExplorerPatcher.reg",#not used yet
                     "https://github.com/caglaryalcin/my-configs/raw/main/hardware/nvidia/Base-Profile.nip",
                     "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/display/display-layout.reg",
-                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/terminal/VScode.storableColortheme.ps1xml"
+                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/terminal/VScode.storableColortheme.ps1xml",
+                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/steam/localconfig.vdf"
                 )
 
                 # Total Commander
@@ -536,24 +499,18 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 }
             }
 
-            # Run Nvidia Profile Inspector for importing the base profile
-            try {
-                $OriginalProgressPreference = $Global:ProgressPreference
-                $Global:ProgressPreference = 'SilentlyContinue'
-                Start-Process "C:\ProgramData\chocolatey\lib\nvidia-profile-inspector\tools\nvidiaProfileInspector.exe" -NoNewWindow -Wait | Out-Null *>$null
-                Start-Sleep 2
-                Remove-Item "$env:userprofile\Desktop\Base-Profile.nip" -Recurse -ErrorAction SilentlyContinue
-            }
-            catch {
-                Write-Host " [WARNING]: Failed to run Nvidia Profile Inspector. Error: $_" -ForegroundColor Red -BackgroundColor Black
-            }
-
-            # Download ublacklist config file to desktop
+            # Download ublacklist link as a file to Desktop
             "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/softwares/browser-conf/extensions/ublacklist.txt" | Out-File -FilePath "$env:userprofile\Desktop\ublacklist.txt"
+               
+            Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+        }
+                    
+        DownloadConfigs
 
+        # Set Steam Config
+        Function SteamConfig {
+            Write-Host "Setting Steam Config..." -NoNewline
             # Steam config
-            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/steam/localconfig.vdf" -Outfile "$env:userprofile\Desktop\localconfig.vdf"
-
             $destPath = "C:\Program Files (x86)\Steam\userdata\"
             $userFolder = "200058026"
             $configFolder = "config"
@@ -567,14 +524,21 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             $sourceFile = Join-Path $env:USERPROFILE "Desktop\localconfig.vdf"
             if (Test-Path $sourceFile) {
                 Move-Item -Path $sourceFile -Destination $configFolderPath -Force
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             else {
                 Write-Host "Source file not found: $sourceFile"
             }
 
             Set-Location -Path C:\
+        }
 
+        SteamConfig
+
+        # Set SteelSeries Config
+        Function SteelSeriesConfig {
             # Restore SteelSeries keyboard settings
+            Write-Host "Restoring SteelSeries keyboard settings..." -NoNewline
             try {
                 # Restore SteelSeries keyboard settings
                 $OriginalProgressPreference = $Global:ProgressPreference
@@ -585,6 +549,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             
                 # Remove the zip file
                 Remove-Item 'C:\programdata\SteelSeries\GG.zip' -Recurse -ErrorAction Stop
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
                 Write-Host "[WARNING]: $_" -ForegroundColor Red
@@ -594,54 +559,62 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             Start-Process -FilePath "C:\Program Files\SteelSeries\GG\SteelSeriesGG.exe" -ArgumentList '-dataPath="C:\ProgramData\SteelSeries\GG"', '-dbEnv=production'
 
             Start-Sleep 10
-
-            # Stop the SteelSeries Engine Client
+			
+			# Stop the SteelSeries Engine Client
             taskkill.exe /f /im SteelSeriesGGClient.exe *>$null
-            
-            # Create openrgb config folder
-            try {
-                $job = Start-Job -ScriptBlock { 
-                    & "C:\ProgramData\chocolatey\lib\openrgb\tools\OpenRGB Windows 64-bit\OpenRGB.exe" *>$null 2>&1
-                } -ErrorAction Stop
-            
-                Start-Sleep 10
+        }
 
-                taskkill.exe /f /im OpenRGB.exe *>$null
-            }
-            catch {
-                Write-Host "[WARNING]: Error creating OpenRGB config file. $_" -ForegroundColor Red
-            }
-            
-            # ExplorerPatcher //not used yet
-            # Exclude the WinGet directory from Windows Defender
-            <#
-            Add-MpPreference -ExclusionPath "$env:USERPROFILE\AppData\Local\Temp\WinGet\"
-            $OriginalProgressPreference = $Global:ProgressPreference
-            $Global:ProgressPreference = 'SilentlyContinue'
-            try {
-                $osName = (systeminfo.exe | Select-String "OS Name").ToString() 2>$null
-                if ($osName -like "*Windows 11*") {
-                    winget install valinet.ExplorerPatcher -e --silent --accept-source-agreements --accept-package-agreements --force *>$null
-                }
-                else {
-                    Write-Host "The OS is not Windows 11."
-                }
-            }
-            catch {
-                Write-Host "[WARNING]: ExplorerPatcher could not to be installed. $_"
-            }
-            #>
-            
-            # Adobe Creative Cloud
-            try {
-                winget install --id XPDLPKWG9SW2WD -e --silent --accept-source-agreements --accept-package-agreements --force *>$null
-                Start-Sleep 5
-                taskkill.exe /f /im "Creative Cloud.exe" *>$null
-            }
-            catch {
-                Write-Host "[WARNING]: Adobe Creative Cloud could not to be installed. $_" -ForegroundColor Red
-            }
+        SteelSeriesConfig
 
+        Function CornerOverflowIcons {
+            Write-Host "Setting Windows 11 Taskbar Corner Overflow Icons..." -NoNewline
+            # Set windows 11 taskbar corner overflow icons
+            try {
+                $registryPath = "HKCU:\Control Panel\NotifyIconSettings"
+
+                # Get all subkeys
+                $subKeys = Get-ChildItem -Path $registryPath
+
+                # Loop through each subkey
+                foreach ($key in $subKeys) {
+                    # Get the full path of the subkey
+                    $fullPath = $registryPath + "\" + $key.PSChildName
+                    # Set the IsPromoted value to 1
+                    Set-ItemProperty -Path $fullPath -Name "IsPromoted" -Value 1 -Type DWord
+
+                    Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+                }
+
+                # Restart explorer
+                taskkill /f /im explorer.exe *>$null
+            }
+            catch {
+                Write-Host "[WARNING]: Error while importing and setting taskbar icons. $_" -ForegroundColor Red
+            }
+        }
+
+        CornerOverflowIcons
+
+        Function NvidiaInspect {
+            Write-Host "Restore Nvidia Profile with Inspector..." -NoNewline
+            # Run Nvidia Profile Inspector for importing the base profile
+            try {
+                $OriginalProgressPreference = $Global:ProgressPreference
+                $Global:ProgressPreference = 'SilentlyContinue'
+                Start-Process "C:\ProgramData\chocolatey\lib\nvidia-profile-inspector\tools\nvidiaProfileInspector.exe" -NoNewWindow -Wait | Out-Null *>$null
+                Start-Sleep 2
+                Remove-Item "$env:userprofile\Desktop\Base-Profile.nip" -Recurse -ErrorAction SilentlyContinue
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+            }
+            catch {
+                Write-Host " [WARNING]: Failed to run Nvidia Profile Inspector. Error: $_" -ForegroundColor Red -BackgroundColor Black
+            }
+        }
+
+        NvidiaInspect
+
+        Function MonitorConfig {
+            Write-Host "Restore Monitor Settings..." -NoNewline
             # Monitor settings prompt
             try {
                 # import monitor conf reg file
@@ -652,27 +625,124 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 # Restart explorer
                 taskkill /f /im explorer.exe *>$null
                 Start-Process explorer.exe *>$null
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
                 Write-Host " [WARNING]: Failed to set monitor settings. Error: $_" -ForegroundColor Red -BackgroundColor Black
             }
-                    
+        }
+
+        MonitorConfig
+
+        Function CFCert {
             # Import Cloudflare certificate
             try {
+                Write-Host "Importing Cloudflare certificate..." -NoNewline
                 $certPath = "C:\Cloudflare_CA.crt"
                 Invoke-WebRequest -Uri "https://developers.cloudflare.com/cloudflare-one/static/documentation/connections/Cloudflare_CA.crt" -Outfile $certPath
                 Import-Certificate -FilePath $certPath -CertStoreLocation "cert:\LocalMachine\Root" | Out-Null
                 Remove-Item -Path $certPath -Force
+                Write-Host " [DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
                 Write-Host " [WARNING]: Failed to import Cloudflare certificate. Error: $_" -ForegroundColor Red -BackgroundColor Black
             }
-                    
-            Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
         }
-                    
-        Set-Configs
 
+        CFCert
+
+        # Set startup and vmware registry keys
+        Function SomeRegs {
+            Write-Host "Setting some registry keys..." -NoNewline
+            try {
+                # Add the some apps to startup
+                Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "FanControl" -Value "C:\fan_control\FanControl.exe" *>$null
+                Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "Cloudflare WARP" -Value "C:\Program Files\Cloudflare\Cloudflare WARP\Cloudflare WARP.exe"*>$null
+				# Set VMware Tray icon behavior
+                New-ItemProperty -Path "HKCU:\Software\VMware, Inc.\VMware Tray" -Name "TrayBehavior" -Value 2 -PropertyType DWORD -Force *>$null
+
+                Write-Host " [DONE]" -ForegroundColor Green -BackgroundColor Black
+            }
+            catch {
+                Write-Host "[WARNING]: Error copying FanControl to startup. $_" -ForegroundColor Red
+            }
+        }
+
+        SomeRegs
+
+        # Set night light
+        Function SetNightlight {
+            Write-Host "Enabling Night Mode..." -NoNewline
+            try {
+                $source = @"
+using System;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
+namespace KeyboardSend
+{
+    public class KeyboardSend
+    {
+        [DllImport("user32.dll")]
+        public static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
+
+        private const int KEYEVENTF_EXTENDEDKEY = 0;
+        private const int KEYEVENTF_KEYUP = 2;
+
+        public static void KeyDown(Keys vKey)
+        {
+            keybd_event((byte)vKey, 0, KEYEVENTF_EXTENDEDKEY, 0);
+        }
+
+        public static void KeyUp(Keys vKey)
+        {
+            keybd_event((byte)vKey, 0, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
+        }
+    }
+}
+"@
+                [System.Windows.Forms.SendKeys]::SendWait('^{ESC}')
+                Start-Sleep -Milliseconds 1500
+                [System.Windows.Forms.SendKeys]::SendWait("Night{ENTER}")
+                Start-Sleep 2
+                [System.Windows.Forms.SendKeys]::SendWait(" ")
+
+                1..16 | ForEach-Object {
+                    Start-Sleep -Milliseconds 5
+                    [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
+                }
+
+                taskkill /f /im SystemSettings.exe *>$null
+                Write-Host " [DONE]" -ForegroundColor Green -BackgroundColor Black
+            }
+            catch {
+                Write-Host " [WARNING]: There was an error enabling night mode.. Error: $_" -ForegroundColor Red
+            }
+        }
+
+        SetNightlight
+
+        # Set Wallpaper
+        Function SetWallpaper {
+            Write-Host "Setting Desktop Wallpaper..." -NoNewline
+            $url = "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/wallpaper/hello.png"
+            $filePath = "$HOME\Documents\hello.png"
+            $wc = New-Object System.Net.WebClient
+            try {
+                $wc.DownloadFile($url, $filePath)
+                Set-Itemproperty -path "HKCU:Control Panel\Desktop" -name WallPaper -value "$env:userprofile\Documents\hello.png"  | Out-Null
+                Start-Sleep 2
+                taskkill /f /im explorer.exe *>$null
+                Start-Process explorer.exe *>$null
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+            }
+            catch {
+                Write-Host "[WARNING]: Failed to set wallpaper: $_" -ForegroundColor Yellow
+            }
+        }
+        
+        SetWallpaper
+        
         # Restore Firefox settings
         Function installFirefoxAddIn() {
             Write-Host "Firefox settings are being restored..." -NoNewline
@@ -762,115 +832,26 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             }
         }
         
-        DisableChromeBackgroundRunning        
+        DisableChromeBackgroundRunning
         
-        # Set night light
-        Function SetNightlight {
-            Write-Host "Enabling Night Mode..." -NoNewline
+        # Install Adobe Creative Cloud
+        Function CreativeCloud {
+            Write-Host "Installing Adobe Creative Cloud..." -NoNewline
+            # Adobe Creative Cloud
             try {
-                $source = @"
-using System;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
-
-namespace KeyboardSend
-{
-    public class KeyboardSend
-    {
-        [DllImport("user32.dll")]
-        public static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
-
-        private const int KEYEVENTF_EXTENDEDKEY = 0;
-        private const int KEYEVENTF_KEYUP = 2;
-
-        public static void KeyDown(Keys vKey)
-        {
-            keybd_event((byte)vKey, 0, KEYEVENTF_EXTENDEDKEY, 0);
-        }
-
-        public static void KeyUp(Keys vKey)
-        {
-            keybd_event((byte)vKey, 0, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
-        }
-    }
-}
-"@
-                [System.Windows.Forms.SendKeys]::SendWait('^{ESC}') #windows key
-                Start-Sleep -Milliseconds 1500
-                [System.Windows.Forms.SendKeys]::SendWait("Night")
-
-                [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-
-                Start-Sleep 2
-
-                [System.Windows.Forms.SendKeys]::SendWait(" ")
-
-                Start-Sleep -Milliseconds 500
-
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 1
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 1
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 1
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 1
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 1
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 1
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 1
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 1
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 1
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 1
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 1
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 50
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 50
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 50
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-                Start-Sleep -Milliseconds 50
-                [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-
-                taskkill /f /im SystemSettings.exe *>$null
-                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black 
-            }
-            catch {
-                Write-Host " [WARNING]: There was an error enabling night mode.. Error: $_" -ForegroundColor Red
-            }
-        }
-
-        SetNightlight
-
-        # Set Wallpaper
-        Function SetWallpaper {
-            Write-Host "Setting Desktop Wallpaper..." -NoNewline
-            $url = "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/wallpaper/hello.png"
-            $filePath = "$HOME\Documents\hello.png"
-            $wc = New-Object System.Net.WebClient
-            try {
-                $wc.DownloadFile($url, $filePath)
-                Set-Itemproperty -path "HKCU:Control Panel\Desktop" -name WallPaper -value "$env:userprofile\Documents\hello.png"  | Out-Null
-                Start-Sleep 2
-                taskkill /f /im explorer.exe *>$null
-                Start-Process explorer.exe *>$null
+                winget install --id XPDLPKWG9SW2WD -e --silent --accept-source-agreements --accept-package-agreements --force *>$null
+                Start-Sleep 5
+                taskkill.exe /f /im "Creative Cloud.exe" *>$null
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host "[WARNING]: Failed to set wallpaper: $_" -ForegroundColor Yellow
+                Write-Host "[WARNING]: Adobe Creative Cloud could not to be installed. $_" -ForegroundColor Red
             }
         }
-        
-        SetWallpaper
 
-        # Adobe DNG Codec
+        CreativeCloud
+        
+        # Install Adobe DNG Codec
         Function DNGCodec {
             Write-Host "Installing DNG Codec..." -NoNewline
             $url = "https://download.adobe.com/pub/adobe/dng/win/DNGCodec_2_0_Installer.exe"
@@ -878,32 +859,17 @@ namespace KeyboardSend
             $programName = "*Adobe DNG Codec*"
         
             # Download and install DNG Codec
-            try {
-                $OriginalProgressPreference = $Global:ProgressPreference
-                $Global:ProgressPreference = 'SilentlyContinue'
-                Invoke-WebRequest -Uri $url -OutFile $filePath
-            }
-            catch {
-                Write-Host "[WARNING]: Failed to download Adobe DNG Codec file. $_" -ForegroundColor Red
-            }
-            
+            $OriginalProgressPreference = $Global:ProgressPreference
+            $Global:ProgressPreference = 'SilentlyContinue'
+            Invoke-WebRequest -Uri $url -OutFile $filePath
+
             # Install DNG Codec
-            try {
-                Start-Process -FilePath $filePath -ArgumentList "/S" -NoNewWindow -Wait -PassThru *>$null
-            }
-            catch {
-                Write-Host "[WARNING]: Failed to install Adobe DNG Codec. $_" -ForegroundColor Red
-            }
-        
+            Start-Process -FilePath $filePath -ArgumentList "/S" -NoNewWindow -Wait -PassThru *>$null
+
             # Delete the installer file
-            try {
-                Start-Sleep 1
-                Remove-Item -Path $filePath -Force -ErrorAction SilentlyContinue
-            }
-            catch {
-                Write-Host "[WARNING]: Failed to delete Adobe DNG Codec installer file. $_" -ForegroundColor Red
-            }
-        
+            Start-Sleep 1
+            Remove-Item -Path $filePath -Force -ErrorAction SilentlyContinue
+
             # Check if DNG Codec is installed
             # Set registry paths
             $registryPaths = @(
@@ -932,7 +898,7 @@ namespace KeyboardSend
         
         DNGCodec
 
-        # f5 inspect
+        # Install f5 inspect
         Function f5inspect {
             Write-Host "Installing f5 inspect..." -NoNewline
             $url = "https://ssl.intertech.com.tr/public/download/f5epi_setup.exe"
@@ -961,7 +927,7 @@ namespace KeyboardSend
         
         f5inspect
 
-        # Google Play Games Beta
+        # Install Google Play Games Beta
         Function GooglePlayGamesBeta {
             Write-Host "Installing Google Play Games Beta..." -NoNewline
             Write-Host "(Close the client after installation(including taskbar))" -ForegroundColor Red -BackgroundColor Black -NoNewline
