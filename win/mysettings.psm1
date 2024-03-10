@@ -47,7 +47,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 		
         # SetPins
         Function TaskbarPins {
-            Write-Host "Configure the pins of taskbar icons..."
+            Write-Host "Configure the pins of taskbar icons..." -NoNewline
             try {
                 # Create Icons folder
                 New-Item -Path 'C:\icons' -ItemType Directory *>$null
@@ -231,7 +231,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         # Drivers
         Function Drivers {
             # Chipset
-            Write-Host "`nInstalling Chipset Drivers..." -NoNewline
+            Write-Host "Installing Chipset Drivers..." -NoNewline
             try {
                 # Download the Chipset driver files
                 $OriginalProgressPreference = $Global:ProgressPreference
@@ -632,7 +632,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Invoke-WebRequest -Uri "https://developers.cloudflare.com/cloudflare-one/static/documentation/connections/Cloudflare_CA.crt" -Outfile $certPath
                 Import-Certificate -FilePath $certPath -CertStoreLocation "cert:\LocalMachine\Root" | Out-Null
                 Remove-Item -Path $certPath -Force
-                Write-Host " [DONE]" -ForegroundColor Green -BackgroundColor Black
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
                 Write-Host " [WARNING]: Failed to import Cloudflare certificate. Error: $_" -ForegroundColor Red -BackgroundColor Black
@@ -644,20 +644,48 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         # Set startup and vmware registry keys
         Function SomeRegs {
             Write-Host "Setting some registry keys..." -NoNewline
-            try {
-                # Add the some apps to startup
-                Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "FanControl" -Value "C:\fan_control\FanControl.exe" *>$null
-                Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "Cloudflare WARP" -Value "C:\Program Files\Cloudflare\Cloudflare WARP\Cloudflare WARP.exe"*>$null
-                # Set VMware Tray icon behavior
-                New-ItemProperty -Path "HKCU:\Software\VMware, Inc.\VMware Tray" -Name "TrayBehavior" -Value 2 -PropertyType DWORD -Force *>$null
-
-                Write-Host " [DONE]" -ForegroundColor Green -BackgroundColor Black
+        
+            $paths = @{
+                "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" = @{
+                    "FanControl"      = "C:\fan_control\FanControl.exe"
+                    "Cloudflare WARP" = "C:\Program Files\Cloudflare\Cloudflare WARP\Cloudflare WARP.exe"
+                }
+                "HKCU:\Software\VMware, Inc.\VMware Tray" = @{
+                    "TrayBehavior" = 2
+                }
             }
-            catch {
-                Write-Host "[WARNING]: Error copying FanControl to startup. $_" -ForegroundColor Red
+        
+            $allSuccessful = $true
+        
+            foreach ($path in $paths.Keys) {
+                foreach ($name in $paths[$path].Keys) {
+                    $value = $paths[$path][$name]
+                    try {
+                        if ($path -like "*\VMware Tray") {
+                            New-ItemProperty -Path $path -Name $name -Value $value -PropertyType DWORD -Force *>$null
+                        } else {
+                            Set-ItemProperty -Path $path -Name $name -Value $value *>$null
+                        }
+        
+                        # Test the registry key
+                        $testValue = Get-ItemPropertyValue -Path $path -Name $name
+                        if ($testValue -ne $value) {
+                            $allSuccessful = $false
+                        }
+                    } catch {
+                        Write-Host " [WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
+                        $allSuccessful = $false
+                    }
+                }
+            }
+        
+            if ($allSuccessful) {
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+            } else {
+                Write-Host " WARNING: Not all registry keys are set correctly." -ForegroundColor Yellow -BackgroundColor Black
             }
         }
-
+        
         SomeRegs
 
         # Set night light
@@ -694,7 +722,7 @@ namespace KeyboardSend
                 [System.Windows.Forms.SendKeys]::SendWait('^{ESC}')
                 Start-Sleep -Milliseconds 1500
                 [System.Windows.Forms.SendKeys]::SendWait("Night{ENTER}")
-                Start-Sleep 3.5
+                Start-Sleep 5
                 [System.Windows.Forms.SendKeys]::SendWait(" ")
 
                 1..16 | ForEach-Object {
@@ -703,7 +731,7 @@ namespace KeyboardSend
                 }
 
                 taskkill /f /im SystemSettings.exe *>$null
-                Write-Host " [DONE]" -ForegroundColor Green -BackgroundColor Black
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
                 Write-Host " [WARNING]: There was an error enabling night mode.. Error: $_" -ForegroundColor Red
@@ -826,7 +854,7 @@ namespace KeyboardSend
         
         # Install Adobe Creative Cloud
         Function CreativeCloud {
-            Write-Host "Installing Adobe Creative Cloud..." -NoNewline
+            #Write-Host "Installing Adobe Creative Cloud..." -NoNewline
             # Adobe Creative Cloud
             try {
                 $OriginalProgressPreference = $Global:ProgressPreference
