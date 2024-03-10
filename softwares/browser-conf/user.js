@@ -153,3 +153,6 @@ user_pref("browser.contentblocking.category", "standart");
 
 // disable translate pop-up
 user_pref("browser.translations.automaticallyPopup", false);
+
+// disable mailto
+user_pref("network.protocol-handler.external.mailto", false);

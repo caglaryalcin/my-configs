@@ -304,7 +304,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 
             # NVIDIA Driver installation
             $description = @"
-
 +---------------------------------------------+
 
 ✅ Disable Installer Telemetry & Advertising
@@ -368,8 +367,12 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 #>
 
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
-                Write-Host `n"+---------------------------------------------+"
+                $description2 = @"
 
++---------------------------------------------+
+
+"@
+                Write-Host $description2
             }
             catch {
                 Write-Host "[WARNING] Error installing Nvidia driver." -ForegroundColor Red -BackgroundColor Black
@@ -390,7 +393,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 
             # If the device is not found, output a warning
             if ($audioDevices.Count -eq 0) {
-                Write-Host " [WARNING]: Failed. $deviceName not found." -ForegroundColor Red
+                Write-Host "[WARNING]: Failed. $deviceName not found." -ForegroundColor Red
             }
             else {
                 #  Disable the audio device
@@ -415,7 +418,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     New-Item -ItemType Directory -Force -Path $path | Out-Null
                 }
                 catch {
-                    Write-Host " [WARNING]: Failed to create directory at $path. Error: $_" -ForegroundColor Red -BackgroundColor Black
+                    Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
                 }
             }            
 
@@ -425,7 +428,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     Invoke-WebRequest -Uri $uri -Outfile $outFile
                 }
                 catch {
-                    Write-Host " [WARNING]: Failed to download from: $uri. Error: $_" -ForegroundColor Red -BackgroundColor Black
+                    Write-Host "[WARNING]: Failed to download from: $uri. Error: $_" -ForegroundColor Red -BackgroundColor Black
                 }
             }
             
@@ -510,9 +513,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 }
             }
 
-            # Download ublacklist link as a file to Desktop
-            "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/softwares/browser-conf/extensions/ublacklist.txt" | Out-File -FilePath "$env:userprofile\Desktop\ublacklist.txt"
-               
             Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
         }
                     
@@ -618,7 +618,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host " [WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
+                Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
             }
         }
 
@@ -639,7 +639,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host " [WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
+                Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
             }
         }
 
@@ -656,7 +656,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host " [WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
+                Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
             }
         }
 
@@ -665,7 +665,12 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         # Set startup and vmware registry keys
         Function SomeRegs {
             Write-Host "Setting some registry keys..." -NoNewline
-        
+            
+            # create vmware workstation registry keys
+            Start-Process "C:\Program Files (x86)\VMware\VMware Workstation\vmware.exe"
+            Start-Sleep 1
+            taskkill /f /im "vmware.exe" *>$null
+
             $paths = @{
                 "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" = @{
                     "FanControl"      = "C:\fan_control\FanControl.exe"
@@ -694,7 +699,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                             $allSuccessful = $false
                         }
                     } catch {
-                        Write-Host " [WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
+                        Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
                         $allSuccessful = $false
                     }
                 }
@@ -703,7 +708,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             if ($allSuccessful) {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             } else {
-                Write-Host " WARNING: Not all registry keys are set correctly." -ForegroundColor Yellow -BackgroundColor Black
+                Write-Host "[WARNING] Not all registry keys are set correctly." -ForegroundColor Yellow -BackgroundColor Black
             }
         }
         
@@ -712,6 +717,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         # Set night light
         Function SetNightlight {
             Write-Host "Enabling Night Mode..." -NoNewline
+            Start-Sleep 5
             try {
                 $source = @"
 using System;
@@ -755,7 +761,7 @@ namespace KeyboardSend
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host " [WARNING]: $_" -ForegroundColor Red
+                Write-Host "[WARNING]: $_" -ForegroundColor Red
             }
         }
 
@@ -883,7 +889,6 @@ namespace KeyboardSend
                 winget install --id XPDLPKWG9SW2WD -e --silent --accept-source-agreements --accept-package-agreements --force *>$null
                 Start-Sleep 5
                 taskkill.exe /f /im "Creative Cloud.exe" *>$null
-                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
                 Write-Host "[WARNING] $_" -ForegroundColor Red
