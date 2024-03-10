@@ -47,153 +47,140 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 		
         # SetPins
         Function TaskbarPins {
-            # Create Icons folder
-            New-Item -Path 'C:\icons' -ItemType Directory *>$null
-
-            function CreateShortcut([string]$exePath, [string]$shortcutPath, [string]$workingDirectory = $null, [string]$arguments = $null) {
-                $WScriptShell = New-Object -ComObject WScript.Shell
-                $Shortcut = $WScriptShell.CreateShortcut($shortcutPath)
-                $Shortcut.TargetPath = $exePath
-                if ($workingDirectory) {
-                    $Shortcut.WorkingDirectory = $workingDirectory
-                }
-                if ($arguments) {
-                    $Shortcut.Arguments = $arguments
-                }
-                $Shortcut.Save()
-                Unblock-File -Path $shortcutPath *>$null
-            }
-
-            Function CreateShortcuts {
-                $shortcutPaths = @{
-                    "Google Chrome"           = @{
-                        "Path"             = "C:\Program Files\Google\Chrome\Application\chrome.exe";
-                        "WorkingDirectory" = "C:\Program Files\Google\Chrome\Application\";
-                    };
-                    "Brave"                   = @{
-                        "Path"             = "$env:USERPROFILE\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe";
-                        "WorkingDirectory" = "$env:USERPROFILE\AppData\Local\BraveSoftware\Brave-Browser\Application";
-                    };
-                    "Firefox"                 = @{
-                        "Path"             = "C:\Program Files\Mozilla Firefox\firefox.exe";
-                        "WorkingDirectory" = "C:\Program Files\Mozilla Firefox\";
-                    };
-                    "Steam"                   = @{
-                        "Path"             = "C:\Program Files (x86)\Steam\Steam.exe";
-                        "WorkingDirectory" = "C:\Program Files (x86)\Steam\";
-                    };
-                    "Epic Games Launcher"     = @{
-                        "Path"             = "C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe";
-                        "WorkingDirectory" = "C:\Program Files (x86)\Epic Games\";
-                    };
-                    "HWMonitor"               = @{
-                        "Path"             = "C:\Program Files\CPUID\HWMonitor\HWMonitor.exe";
-                        "WorkingDirectory" = "C:\Program Files\CPUID\HWMonitor\";
-                    };
-                    "CrystalDiskInfo"         = @{
-                        "Path"             = "C:\ProgramData\chocolatey\lib\crystaldiskinfo.portable\tools\DiskInfo64.exe";
-                        "WorkingDirectory" = "C:\ProgramData\chocolatey\lib\crystaldiskinfo.portable\tools\";
-                    };
-                    "VMware Workstation Pro"  = @{
-                        "Path"             = "C:\Program Files (x86)\VMware\VMware Workstation\vmware.exe";
-                        "WorkingDirectory" = "C:\Program Files (x86)\VMware\VMware Workstation\";
-                    };
-                    "Signal"                  = @{
-                        "Path"             = "$env:USERPROFILE\AppData\Local\Programs\signal-desktop\Signal.exe";
-                        "WorkingDirectory" = "$env:USERPROFILE\AppData\Local\Programs\signal-desktop\";
-                    };
-                    "Visual Studio Code"      = @{
-                        "Path"             = "C:\Program Files\Microsoft VS Code\Code.exe";
-                        "WorkingDirectory" = "C:\Program Files\Microsoft VS Code\";
-                    };
-                    "Notepad++"               = @{
-                        "Path"             = "C:\Program Files\Notepad++\notepad++.exe";
-                        "WorkingDirectory" = "C:\Program Files\Notepad++\";
-                    };
-                    "AnyDesk"                 = @{
-                        "Path"             = "C:\ProgramData\chocolatey\lib\anydesk.portable\tools\AnyDesk.exe";
-                        "WorkingDirectory" = "C:\ProgramData\chocolatey\lib\anydesk.portable\tools\";
-                    };
-                    "GitHub Desktop"          = @{
-                        "Path"             = "$env:USERPROFILE\AppData\Local\GitHubDesktop\GitHubDesktop.exe";
-                        "WorkingDirectory" = "$env:USERPROFILE\AppData\Local\GitHubDesktop\";
-                    };
-                    "TreeSizeFree"            = @{
-                        "Path"             = "C:\Program Files\JAM Software\TreeSize Free\TreeSizeFree.exe";
-                        "WorkingDirectory" = "C:\Program Files\JAM Software\TreeSize Free";
-                    };
-                    "Total Commander 64 bit"  = @{
-                        "Path"             = "C:\Program Files\totalcmd\TOTALCMD64.EXE";
-                        "WorkingDirectory" = "";
-                    };
-                    "WireShark"               = @{
-                        "Path"             = "C:\Program Files\Wireshark\Wireshark.exe";
-                        "WorkingDirectory" = "C:\Program Files\Wireshark\";
-                    };
-                    "Cryptomator"             = @{
-                        "Path"             = "C:\Program Files\Cryptomator\Cryptomator.exe";
-                        "WorkingDirectory" = "C:\Program Files\Cryptomator\";
-                    };
-                    "OpenRGB"                 = @{
-                        "Path"             = "C:\ProgramData\chocolatey\lib\openrgb\tools\OpenRGB Windows 64-bit\OpenRGB.exe";
-                        "WorkingDirectory" = "C:\ProgramData\chocolatey\lib\openrgb\tools\OpenRGB Windows 64-bit\";
-                    };
-                    "Microsoft Teams classic" = @{
-                        "Path"             = "$env:USERPROFILE\AppData\Local\Microsoft\Teams\Update.exe";
-                        "Arguments"        = "--processStart Teams.exe";
-                        "WorkingDirectory" = "$env:USERPROFILE\AppData\Local\Microsoft\Teams\";
-                    };
-                    "Google Play Games"       = @{
-                        "Path"             = "C:\Program Files\Google\Play Games\current\client\client.exe";
-                        "WorkingDirectory" = "C:\Program Files\Google\Play Games\current\client";
-                    };
-                }
-
-                foreach ($name in $shortcutPaths.Keys) {
-                    $path = $shortcutPaths[$name].Path
-                    $workingDirectory = $shortcutPaths[$name].WorkingDirectory
-                    $arguments = $shortcutPaths[$name].Arguments
-                    $shortcutFile = "C:\icons\$name.lnk"
-
-                    CreateShortcut -exePath $path -shortcutPath $shortcutFile -workingDirectory $workingDirectory -arguments $arguments
-                }
-            }
-
-            CreateShortcuts
-
-            # Remove registry path of all taskbar icons
+            Write-Host "Configure the pins of taskbar icons..."
             try {
+                # Create Icons folder
+                New-Item -Path 'C:\icons' -ItemType Directory *>$null
+
+                function CreateShortcut([string]$exePath, [string]$shortcutPath, [string]$workingDirectory = $null, [string]$arguments = $null) {
+                    $WScriptShell = New-Object -ComObject WScript.Shell
+                    $Shortcut = $WScriptShell.CreateShortcut($shortcutPath)
+                    $Shortcut.TargetPath = $exePath
+                    if ($workingDirectory) {
+                        $Shortcut.WorkingDirectory = $workingDirectory
+                    }
+                    if ($arguments) {
+                        $Shortcut.Arguments = $arguments
+                    }
+                    $Shortcut.Save()
+                    Unblock-File -Path $shortcutPath *>$null
+                }
+
+                Function CreateShortcuts {
+                    $shortcutPaths = @{
+                        "Google Chrome"           = @{
+                            "Path"             = "C:\Program Files\Google\Chrome\Application\chrome.exe";
+                            "WorkingDirectory" = "C:\Program Files\Google\Chrome\Application\";
+                        };
+                        "Brave"                   = @{
+                            "Path"             = "$env:USERPROFILE\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe";
+                            "WorkingDirectory" = "$env:USERPROFILE\AppData\Local\BraveSoftware\Brave-Browser\Application";
+                        };
+                        "Firefox"                 = @{
+                            "Path"             = "C:\Program Files\Mozilla Firefox\firefox.exe";
+                            "WorkingDirectory" = "C:\Program Files\Mozilla Firefox\";
+                        };
+                        "Steam"                   = @{
+                            "Path"             = "C:\Program Files (x86)\Steam\Steam.exe";
+                            "WorkingDirectory" = "C:\Program Files (x86)\Steam\";
+                        };
+                        "Epic Games Launcher"     = @{
+                            "Path"             = "C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe";
+                            "WorkingDirectory" = "C:\Program Files (x86)\Epic Games\";
+                        };
+                        "HWMonitor"               = @{
+                            "Path"             = "C:\Program Files\CPUID\HWMonitor\HWMonitor.exe";
+                            "WorkingDirectory" = "C:\Program Files\CPUID\HWMonitor\";
+                        };
+                        "CrystalDiskInfo"         = @{
+                            "Path"             = "C:\ProgramData\chocolatey\lib\crystaldiskinfo.portable\tools\DiskInfo64.exe";
+                            "WorkingDirectory" = "C:\ProgramData\chocolatey\lib\crystaldiskinfo.portable\tools\";
+                        };
+                        "VMware Workstation Pro"  = @{
+                            "Path"             = "C:\Program Files (x86)\VMware\VMware Workstation\vmware.exe";
+                            "WorkingDirectory" = "C:\Program Files (x86)\VMware\VMware Workstation\";
+                        };
+                        "Signal"                  = @{
+                            "Path"             = "$env:USERPROFILE\AppData\Local\Programs\signal-desktop\Signal.exe";
+                            "WorkingDirectory" = "$env:USERPROFILE\AppData\Local\Programs\signal-desktop\";
+                        };
+                        "Visual Studio Code"      = @{
+                            "Path"             = "C:\Program Files\Microsoft VS Code\Code.exe";
+                            "WorkingDirectory" = "C:\Program Files\Microsoft VS Code\";
+                        };
+                        "Notepad++"               = @{
+                            "Path"             = "C:\Program Files\Notepad++\notepad++.exe";
+                            "WorkingDirectory" = "C:\Program Files\Notepad++\";
+                        };
+                        "AnyDesk"                 = @{
+                            "Path"             = "C:\ProgramData\chocolatey\lib\anydesk.portable\tools\AnyDesk.exe";
+                            "WorkingDirectory" = "C:\ProgramData\chocolatey\lib\anydesk.portable\tools\";
+                        };
+                        "GitHub Desktop"          = @{
+                            "Path"             = "$env:USERPROFILE\AppData\Local\GitHubDesktop\GitHubDesktop.exe";
+                            "WorkingDirectory" = "$env:USERPROFILE\AppData\Local\GitHubDesktop\";
+                        };
+                        "TreeSizeFree"            = @{
+                            "Path"             = "C:\Program Files\JAM Software\TreeSize Free\TreeSizeFree.exe";
+                            "WorkingDirectory" = "C:\Program Files\JAM Software\TreeSize Free";
+                        };
+                        "Total Commander 64 bit"  = @{
+                            "Path"             = "C:\Program Files\totalcmd\TOTALCMD64.EXE";
+                            "WorkingDirectory" = "";
+                        };
+                        "WireShark"               = @{
+                            "Path"             = "C:\Program Files\Wireshark\Wireshark.exe";
+                            "WorkingDirectory" = "C:\Program Files\Wireshark\";
+                        };
+                        "Cryptomator"             = @{
+                            "Path"             = "C:\Program Files\Cryptomator\Cryptomator.exe";
+                            "WorkingDirectory" = "C:\Program Files\Cryptomator\";
+                        };
+                        "OpenRGB"                 = @{
+                            "Path"             = "C:\ProgramData\chocolatey\lib\openrgb\tools\OpenRGB Windows 64-bit\OpenRGB.exe";
+                            "WorkingDirectory" = "C:\ProgramData\chocolatey\lib\openrgb\tools\OpenRGB Windows 64-bit\";
+                        };
+                        "Microsoft Teams classic" = @{
+                            "Path"             = "$env:USERPROFILE\AppData\Local\Microsoft\Teams\Update.exe";
+                            "Arguments"        = "--processStart Teams.exe";
+                            "WorkingDirectory" = "$env:USERPROFILE\AppData\Local\Microsoft\Teams\";
+                        };
+                        "Google Play Games"       = @{
+                            "Path"             = "C:\Program Files\Google\Play Games\current\client\client.exe";
+                            "WorkingDirectory" = "C:\Program Files\Google\Play Games\current\client";
+                        };
+                    }
+
+                    foreach ($name in $shortcutPaths.Keys) {
+                        $path = $shortcutPaths[$name].Path
+                        $workingDirectory = $shortcutPaths[$name].WorkingDirectory
+                        $arguments = $shortcutPaths[$name].Arguments
+                        $shortcutFile = "C:\icons\$name.lnk"
+
+                        CreateShortcut -exePath $path -shortcutPath $shortcutFile -workingDirectory $workingDirectory -arguments $arguments
+                    }
+                }
+
+                CreateShortcuts
+
+                # Remove registry path of all taskbar icons
                 Remove-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband" -Recurse -Force -ErrorAction Stop
-            }
-            catch {
-                Write-Host "[WARNING]: Error removing the registry path of taskbar icons. $_" -ForegroundColor Red
-            }
             
-            # Set taskbar icons and pin to taskbar
-            try {
+                # Set taskbar icons and pin to taskbar
                 # Download the registry file
                 $progressPreference = 'SilentlyContinue'
                 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/taskbar/taskbar_pin.reg" -Outfile "C:\taskbar_pin.reg" -ErrorAction Stop
-                
+            
                 # Import the registry file
                 reg import "C:\taskbar_pin.reg" *>$null
-            
                 # Copy the icons to the taskbar
                 Copy-Item -Path "C:\icons\*" -Destination "$env:USERPROFILE\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\" -Force -ErrorAction Stop
-            
                 # Apply the registry file import again
                 reg import "C:\taskbar_pin.reg" *>$null
-            
                 # Restart explorer
                 taskkill /f /im explorer.exe *>$null
-                Start-Process explorer.exe *>$null 
-            }
-            catch {
-                Write-Host "[WARNING]: Error while importing and setting taskbar icons. $_" -ForegroundColor Red
-            }
 
-            # Delete registry file and icons folder
-            try {
+                # Delete registry file and icons folder
                 Remove-Item "C:\taskbar_pin.reg" -Recurse -ErrorAction Stop
                 Start-Sleep 1
 
@@ -201,9 +188,10 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Start-Sleep 2
 
                 Remove-Item "C:\icons\" -Recurse -ErrorAction Stop
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host "[WARNING]: Error deleting registry file and icons folder. $_" -ForegroundColor Red
+                Write-Host "[WARNING]: $_" -ForegroundColor Red
             }
             
         }
@@ -219,7 +207,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 
                 # Delete the lnk files in the taskbar
                 $taskBarPath = "$env:USERPROFILE\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
-                $shortcuts = "Brave.lnk", "Firefox.lnk", "Microsoft Edge.lnk", "Microsoft Teams classic.lnk"
+                $shortcuts = "Microsoft Edge.lnk", "Microsoft Teams classic.lnk"
                 
                 $shortcuts | ForEach-Object {
                     $fullPath = Join-Path $taskBarPath $_
@@ -230,6 +218,8 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                         Write-Host "[INFO]: $_ file not found in the taskbar, skipped." -ForegroundColor Yellow
                     }
                 }
+
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
                 Write-Host "[WARNING]: Error deleting unnecessary lnk files. $_" -ForegroundColor Red
@@ -560,7 +550,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 
             Start-Sleep 10
 			
-			# Stop the SteelSeries Engine Client
+            # Stop the SteelSeries Engine Client
             taskkill.exe /f /im SteelSeriesGGClient.exe *>$null
         }
 
@@ -581,12 +571,12 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     $fullPath = $registryPath + "\" + $key.PSChildName
                     # Set the IsPromoted value to 1
                     Set-ItemProperty -Path $fullPath -Name "IsPromoted" -Value 1 -Type DWord
-
-                    Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
                 }
 
                 # Restart explorer
                 taskkill /f /im explorer.exe *>$null
+
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
                 Write-Host "[WARNING]: Error while importing and setting taskbar icons. $_" -ForegroundColor Red
@@ -658,7 +648,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 # Add the some apps to startup
                 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "FanControl" -Value "C:\fan_control\FanControl.exe" *>$null
                 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "Cloudflare WARP" -Value "C:\Program Files\Cloudflare\Cloudflare WARP\Cloudflare WARP.exe"*>$null
-				# Set VMware Tray icon behavior
+                # Set VMware Tray icon behavior
                 New-ItemProperty -Path "HKCU:\Software\VMware, Inc.\VMware Tray" -Name "TrayBehavior" -Value 2 -PropertyType DWORD -Force *>$null
 
                 Write-Host " [DONE]" -ForegroundColor Green -BackgroundColor Black
@@ -704,7 +694,7 @@ namespace KeyboardSend
                 [System.Windows.Forms.SendKeys]::SendWait('^{ESC}')
                 Start-Sleep -Milliseconds 1500
                 [System.Windows.Forms.SendKeys]::SendWait("Night{ENTER}")
-                Start-Sleep 2
+                Start-Sleep 3.5
                 [System.Windows.Forms.SendKeys]::SendWait(" ")
 
                 1..16 | ForEach-Object {
@@ -839,6 +829,8 @@ namespace KeyboardSend
             Write-Host "Installing Adobe Creative Cloud..." -NoNewline
             # Adobe Creative Cloud
             try {
+                $OriginalProgressPreference = $Global:ProgressPreference
+                $Global:ProgressPreference = 'SilentlyContinue'
                 winget install --id XPDLPKWG9SW2WD -e --silent --accept-source-agreements --accept-package-agreements --force *>$null
                 Start-Sleep 5
                 taskkill.exe /f /im "Creative Cloud.exe" *>$null
