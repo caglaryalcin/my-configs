@@ -39,7 +39,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 taskkill /f /im FanControl.exe *>$null
             }
             catch {
-                Write-Host "[WARNING]:: There was an error installing FanControl. $_" -ForegroundColor Red -BackgroundColor Black
+                Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
             }
         }
         
@@ -191,7 +191,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host "[WARNING]: $_" -ForegroundColor Red
+                Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
             }
             
         }
@@ -222,7 +222,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host "[WARNING]: Error deleting unnecessary lnk files. $_" -ForegroundColor Red
+                Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
             }
         }
         
@@ -269,7 +269,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host "[WARNING]: Error installing Chipset drivers. $_" -ForegroundColor Red -BackgroundColor Black
+                Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
             }
 
             # LAN
@@ -299,10 +299,30 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host "[WARNING]: Error installing LAN driver. $_" -ForegroundColor Red -BackgroundColor Black
+                Write-Host "[WARNING] $_" -ForegroundColor Red -BackgroundColor Black
             }
 
             # NVIDIA Driver installation
+            $description = @"
+
++---------------------------------------------+
+
+✅ Disable Installer Telemetry & Advertising
+✅ Unattended Express Installation ⬜ Allow automatic reboot, if needed
+✅ Perform a Clean Installation
+----
+✅ Show Expert Tweaks
+✅ Disable Driver Telemetry
+✅ Enable Message Signaled Interrupts
+      Interrupt Policy (Default)
+      Interrupt Priority (Default)
+✅ Rebuild digital signature
+✅ Use method compatible with Easy-AC
+✅Automatically accept the "driver unsigned" warning
+
+"@
+            Write-Host `n$description
+
             Write-Host "Installing Nvidia Driver..." -NoNewline
             try {
                 # Run NVCleanInstaller and wait for it to finish
@@ -348,10 +368,11 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 #>
 
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+                Write-Host `n"+---------------------------------------------+"
+
             }
             catch {
-                # If an error occurred during installation, output a warning
-                Write-Host "[WARNING]:: Error installing Nvidia driver.." -ForegroundColor Red -BackgroundColor Black
+                Write-Host "[WARNING] Error installing Nvidia driver." -ForegroundColor Red -BackgroundColor Black
             }
         }
                 
@@ -394,7 +415,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     New-Item -ItemType Directory -Force -Path $path | Out-Null
                 }
                 catch {
-                    Write-Host " [WARNING]: Failed to create directory at path: $path. Error: $_" -ForegroundColor Red -BackgroundColor Black
+                    Write-Host " [WARNING]: Failed to create directory at $path. Error: $_" -ForegroundColor Red -BackgroundColor Black
                 }
             }            
 
@@ -542,7 +563,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host "[WARNING]: $_" -ForegroundColor Red
+                Write-Host "[WARNING] $_" -ForegroundColor Red
             }
 
             # Run the SteelSeries Engine
@@ -579,7 +600,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host "[WARNING]: Error while importing and setting taskbar icons. $_" -ForegroundColor Red
+                Write-Host "[WARNING] $_" -ForegroundColor Red
             }
         }
 
@@ -597,7 +618,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host " [WARNING]: Failed to run Nvidia Profile Inspector. Error: $_" -ForegroundColor Red -BackgroundColor Black
+                Write-Host " [WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
             }
         }
 
@@ -618,7 +639,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host " [WARNING]: Failed to set monitor settings. Error: $_" -ForegroundColor Red -BackgroundColor Black
+                Write-Host " [WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
             }
         }
 
@@ -635,7 +656,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host " [WARNING]: Failed to import Cloudflare certificate. Error: $_" -ForegroundColor Red -BackgroundColor Black
+                Write-Host " [WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
             }
         }
 
@@ -734,7 +755,7 @@ namespace KeyboardSend
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host " [WARNING]: There was an error enabling night mode.. Error: $_" -ForegroundColor Red
+                Write-Host " [WARNING]: $_" -ForegroundColor Red
             }
         }
 
@@ -755,7 +776,7 @@ namespace KeyboardSend
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host "[WARNING]: Failed to set wallpaper: $_" -ForegroundColor Yellow
+                Write-Host "[WARNING] $_" -ForegroundColor Yellow
             }
         }
         
@@ -823,7 +844,7 @@ namespace KeyboardSend
                 }
             }
             catch {
-                Write-Host "[WARNING]:  $_" -ForegroundColor Red
+                Write-Host "[WARNING] $_" -ForegroundColor Red
             }
 
             Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
@@ -865,7 +886,7 @@ namespace KeyboardSend
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host "[WARNING]: Adobe Creative Cloud could not to be installed. $_" -ForegroundColor Red
+                Write-Host "[WARNING] $_" -ForegroundColor Red
             }
         }
 
@@ -912,7 +933,7 @@ namespace KeyboardSend
             }
         
             if (-not $dngCodec) {
-                Write-Host "[WARNING]: Adobe DNG Codec not found after install check." -ForegroundColor Yellow
+                Write-Host "[WARNING] Adobe DNG Codec not found after install check." -ForegroundColor Yellow
             }
         }
         
@@ -938,7 +959,7 @@ namespace KeyboardSend
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
-                Write-Host "[WARNING]: Failed f5 installation process. $_" -ForegroundColor Red
+                Write-Host "[WARNING] $_" -ForegroundColor Red
             }
             finally {
                 $Global:ProgressPreference = $OriginalProgressPreference
@@ -971,7 +992,7 @@ namespace KeyboardSend
                 Invoke-WebRequest -Uri $url -OutFile $filePath
             }
             catch {
-                Write-Host "[WARNING]: Failed to download Google Play Games Beta file. $_" -ForegroundColor Red
+                Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
             }
             
             # Install Google Play Games Beta
@@ -979,7 +1000,7 @@ namespace KeyboardSend
                 Start-Process -FilePath $filePath -Wait *>$null
             }
             catch {
-                Write-Host "[WARNING]: Failed to install Google Play Games Beta. $_" -ForegroundColor Red
+                Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
             }
         
             # Delete Google Services and setup
