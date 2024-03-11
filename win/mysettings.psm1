@@ -747,9 +747,9 @@ namespace KeyboardSend
 }
 "@
                 [System.Windows.Forms.SendKeys]::SendWait('^{ESC}')
-                Start-Sleep -Milliseconds 1500
+                Start-Sleep 2
                 [System.Windows.Forms.SendKeys]::SendWait("Night{ENTER}")
-                Start-Sleep 5
+                Start-Sleep 3.5
                 [System.Windows.Forms.SendKeys]::SendWait(" ")
 
                 1..16 | ForEach-Object {
