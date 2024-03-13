@@ -215,7 +215,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                         Remove-Item $fullPath -ErrorAction Stop
                     }
                     else {
-                        Write-Host "[INFO]: $_ file not found in the taskbar, skipped." -ForegroundColor Yellow
+                        Write-Host "[INFO]: $_" -ForegroundColor Yellow
                     }
                 }
 
@@ -303,7 +303,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             }
 
             # NVIDIA Driver installation
-            $description = @"
+            $text = @"
 +---------------------------------------------+
 
 ✅ Disable Installer Telemetry & Advertising
@@ -320,7 +320,10 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 ✅Automatically accept the "driver unsigned" warning
 
 "@
-            Write-Host `n$description
+            $base64EncodedText = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($text))
+            $decodedBytes = [System.Convert]::FromBase64String($base64EncodedText)
+            $decodedText = [System.Text.Encoding]::UTF8.GetString($decodedBytes)
+            Write-Host "$decodedText"
 
             Write-Host "Installing Nvidia Driver..." -NoNewline
             try {
@@ -676,29 +679,36 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     "FanControl"      = "C:\fan_control\FanControl.exe"
                     "Cloudflare WARP" = "C:\Program Files\Cloudflare\Cloudflare WARP\Cloudflare WARP.exe"
                 }
-                "HKCU:\Software\VMware, Inc.\VMware Tray" = @{
+                "HKCU:\Software\VMware, Inc.\VMware Tray"             = @{
                     "TrayBehavior" = 2
                 }
             }
-        
+            
             $allSuccessful = $true
-        
+            
             foreach ($path in $paths.Keys) {
+                # Yolu kontrol et, yoksa oluştur
+                if (-not (Test-Path $path)) {
+                    New-Item -Path $path -Force | Out-Null
+                }
+            
                 foreach ($name in $paths[$path].Keys) {
                     $value = $paths[$path][$name]
                     try {
                         if ($path -like "*\VMware Tray") {
-                            New-ItemProperty -Path $path -Name $name -Value $value -PropertyType DWORD -Force *>$null
-                        } else {
-                            Set-ItemProperty -Path $path -Name $name -Value $value *>$null
+                            New-ItemProperty -Path $path -Name $name -Value $value -PropertyType DWORD -Force | Out-Null
                         }
-        
+                        else {
+                            Set-ItemProperty -Path $path -Name $name -Value $value | Out-Null
+                        }
+                
                         # Test the registry key
                         $testValue = Get-ItemPropertyValue -Path $path -Name $name
                         if ($testValue -ne $value) {
                             $allSuccessful = $false
                         }
-                    } catch {
+                    }
+                    catch {
                         Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
                         $allSuccessful = $false
                     }
@@ -707,8 +717,9 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         
             if ($allSuccessful) {
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
-            } else {
-                Write-Host "[WARNING] Not all registry keys are set correctly." -ForegroundColor Yellow -BackgroundColor Black
+            }
+            else {
+                Write-Host "[WARNING] $_" -ForegroundColor Yellow -BackgroundColor Black
             }
         }
         
@@ -1032,4 +1043,5 @@ elseif ($response -eq 'n' -or $response -eq 'N') {
 }
 else {
     Write-Host "Invalid input. Please enter 'y' for yes or 'n' for no."
+    Own
 }
