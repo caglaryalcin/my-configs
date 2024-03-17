@@ -214,9 +214,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     if (Test-Path $fullPath) {
                         Remove-Item $fullPath -ErrorAction Stop
                     }
-                    else {
-                        Write-Host "[INFO]: $_" -ForegroundColor Yellow
-                    }
                 }
 
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
@@ -582,31 +579,31 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 
         Function CornerOverflowIcons {
             Write-Host "Setting Windows 11 Taskbar Corner Overflow Icons..." -NoNewline
-            # Set windows 11 taskbar corner overflow icons
-            try {
-                $registryPath = "HKCU:\Control Panel\NotifyIconSettings"
 
-                # Get all subkeys
-                $subKeys = Get-ChildItem -Path $registryPath
-
-                # Loop through each subkey
-                foreach ($key in $subKeys) {
-                    # Get the full path of the subkey
-                    $fullPath = $registryPath + "\" + $key.PSChildName
-                    # Set the IsPromoted value to 1
-                    Set-ItemProperty -Path $fullPath -Name "IsPromoted" -Value 1 -Type DWord
+            # Get Windows version
+            $OSVersion = Get-CimInstance Win32_OperatingSystem
+            if ($OSVersion.Version -notlike "10*") {
+                try {
+                    $registryPath = "HKCU:\Control Panel\NotifyIconSettings"
+                    $subKeys = Get-ChildItem -Path $registryPath
+        
+                    foreach ($key in $subKeys) {
+                        $fullPath = $registryPath + "\" + $key.PSChildName
+                        Set-ItemProperty -Path $fullPath -Name "IsPromoted" -Value 1 -Type DWord
+                    }
+        
+                    taskkill /f /im explorer.exe *>$null
+                    Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
                 }
-
-                # Restart explorer
-                taskkill /f /im explorer.exe *>$null
-
-                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+                catch {
+                    Write-Host "[WARNING] $_" -ForegroundColor Red -BackgroundColor Black
+                }
             }
-            catch {
-                Write-Host "[WARNING] $_" -ForegroundColor Red
+            else {
+                Write-Host "[INFO] This script is intended for Windows 11 only." -ForegroundColor Yellow -BackgroundColor Black
             }
         }
-
+        
         CornerOverflowIcons
 
         Function NvidiaInspect {
@@ -727,55 +724,95 @@ if ($response -eq 'y' -or $response -eq 'Y') {
 
         # Set night light
         Function SetNightlight {
-            Write-Host "Enabling Night Mode..." -NoNewline
-            Start-Sleep 5
-            try {
-                $source = @"
-using System;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
-
-namespace KeyboardSend
-{
-    public class KeyboardSend
-    {
-        [DllImport("user32.dll")]
-        public static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
-
-        private const int KEYEVENTF_EXTENDEDKEY = 0;
-        private const int KEYEVENTF_KEYUP = 2;
-
-        public static void KeyDown(Keys vKey)
-        {
-            keybd_event((byte)vKey, 0, KEYEVENTF_EXTENDEDKEY, 0);
-        }
-
-        public static void KeyUp(Keys vKey)
-        {
-            keybd_event((byte)vKey, 0, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
-        }
-    }
-}
-"@
-                [System.Windows.Forms.SendKeys]::SendWait('^{ESC}')
-                Start-Sleep 2
-                [System.Windows.Forms.SendKeys]::SendWait("Night{ENTER}")
-                Start-Sleep 3.5
-                [System.Windows.Forms.SendKeys]::SendWait(" ")
-
-                1..16 | ForEach-Object {
-                    Start-Sleep -Milliseconds 5
-                    [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
+            $source = 
+            @"
+            using System;
+            using System.Runtime.InteropServices;
+            using System.Windows.Forms;
+            
+            namespace KeyboardSend
+            {
+                public class KeyboardSend
+                {
+                    [DllImport("user32.dll")]
+                    public static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
+            
+                    private const int KEYEVENTF_EXTENDEDKEY = 0;
+                    private const int KEYEVENTF_KEYUP = 2;
+            
+                    public static void KeyDown(Keys vKey)
+                    {
+                        keybd_event((byte)vKey, 0, KEYEVENTF_EXTENDEDKEY, 0);
+                    }
+            
+                    public static void KeyUp(Keys vKey)
+                    {
+                        keybd_event((byte)vKey, 0, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
+                    }
                 }
-
-                taskkill /f /im SystemSettings.exe *>$null
-                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
-            catch {
-                Write-Host "[WARNING]: $_" -ForegroundColor Red
+"@
+            Write-Host "Enabling Night Mode..." -NoNewline
+            Start-Sleep 3
+            $OSVersion = (Get-WmiObject Win32_OperatingSystem)
+            if ($OSVersion.Caption -Match "Windows 10") {
+                try {
+                    [System.Windows.Forms.SendKeys]::SendWait('^{ESC}')
+                    Start-Sleep 2
+                    [System.Windows.Forms.SendKeys]::SendWait("Night")
+                    Start-Sleep 1
+                    [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
+                    Start-Sleep 3
+            
+                    1..3 | ForEach-Object {
+                        Start-Sleep -Milliseconds 100
+                        [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
+                    }
+                    Start-Sleep -Milliseconds 500
+                    [System.Windows.Forms.SendKeys]::SendWait(" ")
+                    Start-Sleep -Milliseconds 100
+                    1..4 | ForEach-Object {
+                        Start-Sleep -Milliseconds 100
+                        [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
+                    }
+                            
+                    1..36 | ForEach-Object {
+                        Start-Sleep -Milliseconds 5
+                        [System.Windows.Forms.SendKeys]::SendWait("{LEFT}")
+                    }
+                    Start-Sleep 1
+                            
+                    taskkill /f /im SystemSettings.exe *>$null
+                    Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+                }
+                catch {
+                    Write-Host "[WARNING]: $_" -ForegroundColor Red
+                }
             }
+            else {
+                try {
+                    [System.Windows.Forms.SendKeys]::SendWait('^{ESC}')
+                    Start-Sleep 2
+                    [System.Windows.Forms.SendKeys]::SendWait("Night{ENTER}")
+                    Start-Sleep 3.5
+                    [System.Windows.Forms.SendKeys]::SendWait(" ")
+            
+                    1..16 | ForEach-Object {
+                        Start-Sleep -Milliseconds 5
+                        [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
+                    }
+            
+                    taskkill /f /im SystemSettings.exe *>$null
+                    Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+                }
+                catch {
+                    Write-Host "[WARNING]: $_" -ForegroundColor Red
+                }
+            }
+                
+                           
+                        
         }
-
         SetNightlight
 
         # Set Wallpaper
