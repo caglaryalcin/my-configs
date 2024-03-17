@@ -753,7 +753,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             }
 "@
             Write-Host "Enabling Night Mode..." -NoNewline
-            Start-Sleep 3
+            Start-Sleep 2
             $OSVersion = (Get-WmiObject Win32_OperatingSystem)
             if ($OSVersion.Caption -Match "Windows 10") {
                 try {
@@ -765,7 +765,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     Start-Sleep 3
             
                     1..3 | ForEach-Object {
-                        Start-Sleep -Milliseconds 100
+                        Start-Sleep -Milliseconds 50
                         [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
                     }
                     Start-Sleep -Milliseconds 500
@@ -777,10 +777,9 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     }
                             
                     1..36 | ForEach-Object {
-                        Start-Sleep -Milliseconds 5
+                        Start-Sleep -Milliseconds 1
                         [System.Windows.Forms.SendKeys]::SendWait("{LEFT}")
                     }
-                    Start-Sleep 1
                             
                     taskkill /f /im SystemSettings.exe *>$null
                     Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
