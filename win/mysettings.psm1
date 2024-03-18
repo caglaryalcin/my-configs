@@ -632,10 +632,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 reg import "$env:USERPROFILE\Desktop\display-layout.reg" *>$null
                 Start-Sleep 1
                 Remove-Item "$env:USERPROFILE\Desktop\display-layout.reg" -Recurse -ErrorAction SilentlyContinue
-            
-                # Restart explorer
-                taskkill /f /im explorer.exe *>$null
-                Start-Process explorer.exe *>$null
+
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
             }
             catch {
@@ -684,7 +681,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             $allSuccessful = $true
             
             foreach ($path in $paths.Keys) {
-                # Yolu kontrol et, yoksa oluştur
                 if (-not (Test-Path $path)) {
                     New-Item -Path $path -Force | Out-Null
                 }
@@ -812,6 +808,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                            
                         
         }
+
         SetNightlight
 
         # Set Wallpaper
