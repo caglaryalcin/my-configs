@@ -303,24 +303,22 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             $text = @"
 +---------------------------------------------+
 
-✅ Disable Installer Telemetry & Advertising
-✅ Unattended Express Installation ⬜ Allow automatic reboot, if needed
-✅ Perform a Clean Installation
+[X] Disable Installer Telemetry & Advertising
+[X] Unattended Express Installation [ ] Allow automatic reboot, if needed
+[X] Perform a Clean Installation
 ----
-✅ Show Expert Tweaks
-✅ Disable Driver Telemetry
-✅ Enable Message Signaled Interrupts
+[X] Show Expert Tweaks
+[X] Disable Driver Telemetry
+[X] Enable Message Signaled Interrupts
       Interrupt Policy (Default)
       Interrupt Priority (Default)
-✅ Rebuild digital signature
-✅ Use method compatible with Easy-AC
-✅Automatically accept the "driver unsigned" warning
+[X] Rebuild digital signature
+[X] Use method compatible with Easy-AC
+[X] Automatically accept the "driver unsigned" warning
 
 "@
-            $base64EncodedText = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($text))
-            $decodedBytes = [System.Convert]::FromBase64String($base64EncodedText)
-            $decodedText = [System.Text.Encoding]::UTF8.GetString($decodedBytes)
-            Write-Host "$decodedText"
+
+            Write-Host `n"$text"
 
             Write-Host "Installing Nvidia Driver..." -NoNewline
             try {
@@ -580,7 +578,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         Function CornerOverflowIcons {
             Write-Host "Setting Windows 11 Taskbar Corner Overflow Icons..." -NoNewline
 
-            # Get Windows version
             $OSVersion = Get-CimInstance Win32_OperatingSystem
             if ($OSVersion.Version -notlike "10*") {
                 try {
@@ -758,15 +755,16 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     [System.Windows.Forms.SendKeys]::SendWait("Night")
                     Start-Sleep 1
                     [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-                    Start-Sleep 3
+                    Start-Sleep 3.5
             
-                    1..3 | ForEach-Object {
-                        Start-Sleep -Milliseconds 50
+                    1..6 | ForEach-Object {
+                        Start-Sleep -Milliseconds 100
                         [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
                     }
-                    Start-Sleep -Milliseconds 500
+					
+                    Start-Sleep 1
                     [System.Windows.Forms.SendKeys]::SendWait(" ")
-                    Start-Sleep -Milliseconds 100
+                    Start-Sleep -Milliseconds 500
                     1..4 | ForEach-Object {
                         Start-Sleep -Milliseconds 100
                         [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
@@ -795,10 +793,10 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     1..16 | ForEach-Object {
                         Start-Sleep -Milliseconds 5
                         [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
+
+                        taskkill /f /im SystemSettings.exe *>$null
+                        Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
                     }
-            
-                    taskkill /f /im SystemSettings.exe *>$null
-                    Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
                 }
                 catch {
                     Write-Host "[WARNING]: $_" -ForegroundColor Red
