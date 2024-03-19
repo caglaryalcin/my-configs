@@ -765,7 +765,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     Start-Sleep 1
                     [System.Windows.Forms.SendKeys]::SendWait(" ")
                     Start-Sleep -Milliseconds 500
-                    1..4 | ForEach-Object {
+                    1..3 | ForEach-Object {
                         Start-Sleep -Milliseconds 100
                         [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
                     }
