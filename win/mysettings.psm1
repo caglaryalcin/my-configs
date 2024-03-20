@@ -792,18 +792,14 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     1..16 | ForEach-Object {
                         Start-Sleep -Milliseconds 5
                         [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-
-                        taskkill /f /im SystemSettings.exe *>$null
-                        Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
                     }
+                    taskkill /f /im SystemSettings.exe *>$null
+                    Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
                 }
                 catch {
                     Write-Host "[WARNING]: $_" -ForegroundColor Red
                 }
             }
-                
-                           
-                        
         }
 
         SetNightlight
