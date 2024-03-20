@@ -576,11 +576,10 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         SteelSeriesConfig
 
         Function CornerOverflowIcons {
-            Write-Host "Setting Windows 11 Taskbar Corner Overflow Icons..." -NoNewline
-
             $OSVersion = Get-CimInstance Win32_OperatingSystem
             if ($OSVersion.Version -notlike "10*") {
                 try {
+                    Write-Host "Setting Windows 11 Taskbar Corner Overflow Icons..." -NoNewline
                     $registryPath = "HKCU:\Control Panel\NotifyIconSettings"
                     $subKeys = Get-ChildItem -Path $registryPath
         
@@ -597,7 +596,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 }
             }
             else {
-                Write-Host "[INFO] This script is intended for Windows 11 only." -ForegroundColor Yellow -BackgroundColor Black
+                return
             }
         }
         
