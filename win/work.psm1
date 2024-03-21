@@ -65,5 +65,5 @@ while ($true) {
                         Start-Sleep -Milliseconds 100
                         [System.Windows.Forms.SendKeys]::SendWait("{BKSP}")
                     }
-    Start-Sleep 1  #after click
+    Start-Sleep 7  #after click
 }
