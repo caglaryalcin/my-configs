@@ -59,7 +59,7 @@ while ($true) {
 
     Start-Sleep -Milliseconds 250  #after circle
     LeftClick
-    [System.Windows.Forms.SendKeys]::SendWait("Hello!")
+    [System.Windows.Forms.SendKeys]::SendWait("AYSUT")
 
     1..6 | ForEach-Object {
                         Start-Sleep -Milliseconds 100
