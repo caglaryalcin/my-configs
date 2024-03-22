@@ -42,8 +42,8 @@ function LeftClick {
     [Utils.MouseOperations]::mouse_event($MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
 }
 
-$centerX = 960
-$centerY = 540
+$centerX = 600
+$centerY = 250
 $radius = 50
 $speed = 0.05
 
@@ -59,11 +59,15 @@ while ($true) {
 
     Start-Sleep -Milliseconds 250  #after circle
     LeftClick
-    [System.Windows.Forms.SendKeys]::SendWait("AYSUT")
+    [System.Windows.Forms.SendKeys]::SendWait("WDPRDS")
+    Start-Sleep -Milliseconds 250
+    [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
+    Start-Sleep 3
 
     1..6 | ForEach-Object {
                         Start-Sleep -Milliseconds 100
                         [System.Windows.Forms.SendKeys]::SendWait("{BKSP}")
                     }
     Start-Sleep 7  #after click
+    
 }
