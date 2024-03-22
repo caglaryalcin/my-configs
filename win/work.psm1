@@ -43,7 +43,7 @@ function LeftClick {
 }
 
 $centerX = 580 #left(-)-right(+)
-$centerY = 275 #up(-)down(+)
+$centerY = 245 #up(-)down(+)
 $radius = 50
 $speed = 0.05
 
