@@ -237,6 +237,7 @@
 /gazikent27\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /gecce\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /gelecekgundem\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
+/gencbayrak\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /gercekalanya\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /gercekgundem\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
 /gercekhaberci\.(com|org|com.tr|net|me|gov|gov.tr|org|org.tr|k12.tr|news|zip|ch|biz|gen|web|tv|de|info|site)/
