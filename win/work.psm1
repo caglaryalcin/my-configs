@@ -42,8 +42,8 @@ function LeftClick {
     [Utils.MouseOperations]::mouse_event($MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
 }
 
-$centerX = 600
-$centerY = 250
+$centerX = 580 #left(-)-right(+)
+$centerY = 275 #up(-)down(+)
 $radius = 50
 $speed = 0.05
 
