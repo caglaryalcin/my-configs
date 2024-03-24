@@ -786,7 +786,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     [System.Windows.Forms.SendKeys]::SendWait('^{ESC}')
                     Start-Sleep 2
                     [System.Windows.Forms.SendKeys]::SendWait("Night{ENTER}")
-                    Start-Sleep 3.5
+                    Start-Sleep 2.5
                     [System.Windows.Forms.SendKeys]::SendWait(" ")
             
                     1..16 | ForEach-Object {
@@ -915,6 +915,27 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         }
         
         DisableChromeBackgroundRunning
+
+        # Disable Brave background running
+        Function DisableBraveBackgroundRunning {
+            Write-Host "Disabling the 'Continue running background apps' setting in Brave..." -NoNewline
+            try {
+                $registryValue = 0
+                $registryKey = "HKLM:\SOFTWARE\Policies\BraveSoftware\Brave"
+        
+                if (-not (Test-Path $registryKey)) {
+                    New-Item -Path $registryKey -Force | Out-Null
+                }
+        
+                Set-ItemProperty -Path $registryKey -Name "BackgroundModeEnabled" -Value $registryValue -Type DWORD -Force *>$null
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+            }
+            catch {
+                Write-Host "An error occurred while disabling Brave background running: $_" -ForegroundColor Red
+            }
+        }
+        
+        DisableBraveBackgroundRunning        
         
         # Install Adobe Creative Cloud
         Function CreativeCloud {
@@ -1057,6 +1078,24 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         }
 
         GooglePlayGamesBeta
+
+        # Run twinkle tray
+        Function RunTwinkleTray {
+            $filepath = "$([Environment]::GetFolderPath('Desktop'))\twinkletray.ps1"
+            $twinkle = @"
+& "C:\Users\m4a1\AppData\Local\Programs\twinkle-tray\Twinkle Tray.exe"
+"@
+            Set-Content -Path $filepath -Value $twinkle
+    
+            Start-Job -ScriptBlock {
+                Invoke-Expression -Command (Get-Content -Path $using:filepath -Raw)
+            } *>$null
+
+            Start-Sleep 2
+            Remove-Item $filepath -Recurse -ErrorAction SilentlyContinue
+        }
+        
+        RunTwinkleTray
 
     }
 
