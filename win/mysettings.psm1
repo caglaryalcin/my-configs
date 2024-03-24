@@ -80,6 +80,10 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                             "Path"             = "C:\Program Files\Mozilla Firefox\firefox.exe";
                             "WorkingDirectory" = "C:\Program Files\Mozilla Firefox\";
                         };
+                        "Adobe Creative Cloud"                 = @{
+                            "Path"             = "C:\Program Files\Adobe\Adobe Creative Cloud\ACC\Creative Cloud.exe";
+                            "WorkingDirectory" = "C:\Program Files\Adobe\Adobe Creative Cloud\ACC\";
+                        };
                         "Steam"                   = @{
                             "Path"             = "C:\Program Files (x86)\Steam\Steam.exe";
                             "WorkingDirectory" = "C:\Program Files (x86)\Steam\";
