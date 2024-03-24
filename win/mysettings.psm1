@@ -476,7 +476,8 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     "https://github.com/caglaryalcin/my-configs/raw/main/hardware/nvidia/Base-Profile.nip",
                     "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/display/display-layout.reg",
                     "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/terminal/VScode.storableColortheme.ps1xml",
-                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/steam/localconfig.vdf"
+                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/steam/localconfig.vdf",
+                    "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/softwares/flameshot/flameshot.ini"
                 )
 
                 # Total Commander
@@ -543,6 +544,27 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         }
 
         SteamConfig
+
+         # Set Flameshot Config
+         Function FlameshotConfig {
+            Write-Host "Setting Flameshot Config..." -NoNewline
+            try {
+                $destPath = "$env:USERPROFILE\AppData\Roaming\flameshot"
+                
+                If (-not (Test-Path -Path $destPath)) {
+                    New-Item -Path $destPath -ItemType Directory *>$null
+                }
+        
+                Copy-Item -Path "$env:USERPROFILE\Desktop\flameshot.ini" -Destination "$destPath\flameshot.ini" -Force -ErrorAction Stop
+                Remove-Item "$env:userprofile\Desktop\flameshot.ini" -Recurse -ErrorAction SilentlyContinue
+                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+            }
+            catch {
+                Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
+            }
+        }
+        
+        FlameshotConfig
 
         # Set SteelSeries Config
         Function SteelSeriesConfig {
