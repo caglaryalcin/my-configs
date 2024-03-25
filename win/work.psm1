@@ -1,5 +1,5 @@
 $source = 
-            @"
+@"
             using System;
             using System.Runtime.InteropServices;
             using System.Windows.Forms;
@@ -49,7 +49,7 @@ $speed = 0.05
 
 while ($true) {
     $angle = 0
-    while ($angle -lt 2*[Math]::PI) {
+    while ($angle -lt 2 * [Math]::PI) {
         $x = [Math]::Sin($angle) * $radius + $centerX
         $y = [Math]::Cos($angle) * $radius + $centerY
         [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point($x, $y)
@@ -65,9 +65,9 @@ while ($true) {
     Start-Sleep 3
 
     1..6 | ForEach-Object {
-                        Start-Sleep -Milliseconds 100
-                        [System.Windows.Forms.SendKeys]::SendWait("{BKSP}")
-                    }
+        Start-Sleep -Milliseconds 100
+        [System.Windows.Forms.SendKeys]::SendWait("{BKSP}")
+    }
     Start-Sleep 7  #after click
     
 }
