@@ -157,5 +157,5 @@ user_pref("browser.translations.automaticallyPopup", false);
 user_pref("network.protocol-handler.external.mailto", false);
 
 // hardware acceleration
-user_pref("layers.acceleration.disabled", true);
-user_pref("layers.acceleration.force-enabled", false);
+user_pref("layers.acceleration.disabled", false);
+user_pref("layers.acceleration.force-enabled", true);
