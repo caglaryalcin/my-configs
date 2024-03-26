@@ -78,7 +78,6 @@ user_pref("browser.urlbar.maxRichResults", 1);
 
 //enable custom css
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-user_pref("layers.acceleration.force-enabled", false);
 user_pref("gfx.webrender.all", false);
 user_pref("svg.context-properties.content.enabled", false);
 
@@ -156,3 +155,7 @@ user_pref("browser.translations.automaticallyPopup", false);
 
 // disable mailto
 user_pref("network.protocol-handler.external.mailto", false);
+
+// hardware acceleration
+user_pref("layers.acceleration.disabled", true);
+user_pref("layers.acceleration.force-enabled", false);
