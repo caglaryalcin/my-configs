@@ -37,6 +37,7 @@ if (-not ([System.Management.Automation.PSTypeName]'Utils.MouseOperations').Type
 }
 
 
+## circle
 while ($true) {
     function LeftClick {
         $x = [System.Windows.Forms.Cursor]::Position.X
@@ -47,7 +48,7 @@ while ($true) {
         [Utils.MouseOperations]::mouse_event($MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
     }
 
-    $centerX = 580 #left(-)-right(+)
+$centerX = 580 #left(-)-right(+)
 $centerY = 245 #up(-)down(+)
 $radius = 50
 $speed = 0.05
@@ -60,8 +61,9 @@ while ($angle -lt 2 * [Math]::PI) {
     $angle += $speed
     Start-Sleep -Milliseconds 1
 }
+## circle
 
-Start-Sleep -Milliseconds 250  #after circle
+Start-Sleep 10  #expected to be canceled after circle
 LeftClick
 [System.Windows.Forms.SendKeys]::SendWait("WDPRDS")
 Start-Sleep -Milliseconds 250
