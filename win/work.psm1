@@ -63,7 +63,7 @@ while ($angle -lt 2 * [Math]::PI) {
 }
 ## circle
 
-Start-Sleep 10  #expected to be canceled after circle
+Start-Sleep 10 #expected to be canceled after circle
 LeftClick
 [System.Windows.Forms.SendKeys]::SendWait("WDPRDS")
 Start-Sleep -Milliseconds 250
