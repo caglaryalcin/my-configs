@@ -82,7 +82,7 @@ Function KeyboardConfig {
     Remove-Item -Path $sssourcepath -Force -Recurse
 }
 
-#KeyboardConfig
+KeyboardConfig
 
 Function NvidiaConfig {
     #"$env:userprofile\Documents\GitHub\my-configs\hardware\nvidia\Base-Profile.nip" #to be looked at if changed
@@ -122,7 +122,7 @@ Function CryptomatorConfig {
 
     $updatedJsonContent = $jsonContent -replace '"directories"\s*:\s*\[[^\]]*\]', '"directories" : [ ]'
 
-    Set-Content -Path $cryptsourcepath -Value $updatedJsonContent
+    Set-Content -Path $cryptsourcepath -Value $updatedJsonContent -NoNewline
 
     Copy-Item -Path $cryptsourcepath -Destination $cryptdestpath -Force -ErrorAction Stop
 }
