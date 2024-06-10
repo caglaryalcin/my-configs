@@ -5,7 +5,7 @@
   "autoCloseVaults" : false,
   "checkForUpdatesEnabled" : true,
   "debugMode" : false,
-  "theme" : "LIGHT",
+  "theme" : "DARK",
   "keychainProvider" : "org.cryptomator.windows.keychain.WindowsProtectedKeychainAccess",
   "mountService" : "org.cryptomator.frontend.fuse.mount.WinFspNetworkMountProvider",
   "numTrayNotifications" : 3,
@@ -17,7 +17,7 @@
   "useKeychain" : true,
   "windowHeight" : 440,
   "windowWidth" : 650,
-  "windowXPosition" : 822,
-  "windowYPosition" : 376,
+  "windowXPosition" : 701,
+  "windowYPosition" : 339,
   "lastUpdateCheck" : "2024-02-27"
 }
