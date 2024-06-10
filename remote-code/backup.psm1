@@ -118,10 +118,16 @@ Function CryptomatorConfig {
     $cryptsourcepath = "$env:userprofile\AppData\Roaming\Cryptomator\settings.json"
     $cryptdestpath = "$env:userprofile\Documents\GitHub\my-configs\softwares\cryptomator\settings.json"
 
+    $jsonContent = Get-Content -Path $cryptsourcepath -Raw
+
+    $updatedJsonContent = $jsonContent -replace '"directories"\s*:\s*\[[^\]]*\]', '"directories" : [ ]'
+
+    Set-Content -Path $cryptsourcepath -Value $updatedJsonContent
+
     Copy-Item -Path $cryptsourcepath -Destination $cryptdestpath -Force -ErrorAction Stop
 }
 
-#CryptomatorConfig
+CryptomatorConfig
 
 Function FlameshotConfig {
     $flamesourcepath = "$env:USERPROFILE\AppData\Roaming\flameshot\flameshot.ini"
@@ -173,12 +179,12 @@ Function TotalCommanderConfig {
     $totalsourcepath = "$env:userprofile\AppData\Roaming\GHISLER\wincmd.ini"
     $totaldestpath = "$env:userprofile\Documents\GitHub\my-configs\softwares\total-comm\wincmd.ini"
 
-    $iniIcerik = Get-Content -Path $totalsourcepath
-    $rightHistoryIndex = $iniIcerik.IndexOf("[RightHistory]")
+    $inicontent = Get-Content -Path $totalsourcepath
+    $rightHistoryIndex = $inicontent.IndexOf("[RightHistory]")
 
     if ($rightHistoryIndex -ne -1) {
-        $filteredIcerik = $iniIcerik[0..($rightHistoryIndex - 1)]
-        Set-Content -Path $totalsourcepath -Value $filteredIcerik
+        $filteredcontent = $inicontent[0..($rightHistoryIndex - 1)]
+        Set-Content -Path $totalsourcepath -Value $filteredcontent
     }
 
     Copy-Item -Path $totalsourcepath -Destination $totaldestpath -Force -ErrorAction Stop
