@@ -1,0 +1,279 @@
+{
+  "__VERSION__": "186",
+  "Main": {
+    "Controls": [
+      {
+        "Calibration": null,
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6793d/control/0",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 0,
+        "MinimumPercent": 0,
+        "Name": "Fan #1",
+        "NickName": "Egzoz",
+        "PairedFanSensor": {
+          "Identifier": "/lpc/nct6793d/fan/0",
+          "IsHidden": false,
+          "Name": "Fan #1",
+          "NickName": "Exhaust"
+        },
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 24,
+        "SelectedStop": 21
+      },
+      {
+        "Calibration": null,
+        "Enable": true,
+        "ForceApply": true,
+        "Identifier": "/lpc/nct6793d/control/1",
+        "IsHidden": true,
+        "ManualControl": true,
+        "ManualControlValue": 0,
+        "MinimumPercent": 0,
+        "Name": "Fan #2",
+        "NickName": "Fan #2",
+        "PairedFanSensor": null,
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      },
+      {
+        "Calibration": null,
+        "Enable": false,
+        "ForceApply": true,
+        "Identifier": "/lpc/nct6793d/control/2",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MinimumPercent": 0,
+        "Name": "Fan #3",
+        "NickName": "Ön Alt",
+        "PairedFanSensor": {
+          "Identifier": "/lpc/nct6793d/fan/2",
+          "IsHidden": false,
+          "Name": "Fan #3",
+          "NickName": "Front Bottom"
+        },
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 24,
+        "SelectedStop": 21
+      },
+      {
+        "Calibration": null,
+        "Enable": true,
+        "ForceApply": true,
+        "Identifier": "/lpc/nct6793d/control/3",
+        "IsHidden": true,
+        "ManualControl": true,
+        "ManualControlValue": 0,
+        "MinimumPercent": 0,
+        "Name": "Fan #4",
+        "NickName": "Fan #4",
+        "PairedFanSensor": null,
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      },
+      {
+        "Calibration": null,
+        "Enable": true,
+        "ForceApply": true,
+        "Identifier": "/lpc/nct6793d/control/4",
+        "IsHidden": true,
+        "ManualControl": true,
+        "ManualControlValue": 50,
+        "MinimumPercent": 0,
+        "Name": "Fan #5",
+        "NickName": "Fan #5",
+        "PairedFanSensor": null,
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      },
+      {
+        "Calibration": null,
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6793d/control/5",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MinimumPercent": 0,
+        "Name": "Fan #6",
+        "NickName": "Ön Üst",
+        "PairedFanSensor": {
+          "Identifier": "/lpc/nct6793d/fan/5",
+          "IsHidden": false,
+          "Name": "Fan #6",
+          "NickName": "Front Top"
+        },
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 39,
+        "SelectedStop": 18
+      },
+      {
+        "Calibration": null,
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "NVApiWrapper/0-TU102-A/control/1",
+        "IsHidden": false,
+        "ManualControl": true,
+        "ManualControlValue": 50,
+        "MinimumPercent": 0,
+        "Name": "Control 2 - NVIDIA GeForce RTX 2080 Ti",
+        "NickName": "GPU 2",
+        "PairedFanSensor": {
+          "Identifier": "NVApiWrapper/0-TU102-A/fan/1",
+          "IsHidden": false,
+          "Name": "Fan 2 - NVIDIA GeForce RTX 2080 Ti",
+          "NickName": "GPU 2"
+        },
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      },
+      {
+        "Calibration": null,
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "NVApiWrapper/0-TU102-A/control/0",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 0,
+        "MinimumPercent": 0,
+        "Name": "Control 1 - NVIDIA GeForce RTX 2080 Ti",
+        "NickName": "GPU 1-3",
+        "PairedFanSensor": {
+          "Identifier": "NVApiWrapper/0-TU102-A/fan/0",
+          "IsHidden": false,
+          "Name": "Fan 1 - NVIDIA GeForce RTX 2080 Ti",
+          "NickName": "GPU 1-3"
+        },
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      }
+    ],
+    "CustomSensors": [],
+    "FanCurves": [],
+    "FanSensors": [
+      {
+        "Identifier": "/lpc/nct6793d/fan/0",
+        "IsHidden": false,
+        "Name": "Fan #1",
+        "NickName": "Exhaust"
+      },
+      {
+        "Identifier": "/lpc/nct6793d/fan/1",
+        "IsHidden": true,
+        "Name": "Fan #2",
+        "NickName": "Fan #2"
+      },
+      {
+        "Identifier": "/lpc/nct6793d/fan/2",
+        "IsHidden": false,
+        "Name": "Fan #3",
+        "NickName": "Front Bottom"
+      },
+      {
+        "Identifier": "/lpc/nct6793d/fan/3",
+        "IsHidden": true,
+        "Name": "Fan #4",
+        "NickName": "Fan #4"
+      },
+      {
+        "Identifier": "/lpc/nct6793d/fan/4",
+        "IsHidden": true,
+        "Name": "Fan #5",
+        "NickName": "Fan #5"
+      },
+      {
+        "Identifier": "/lpc/nct6793d/fan/5",
+        "IsHidden": false,
+        "Name": "Fan #6",
+        "NickName": "Front Top"
+      },
+      {
+        "Identifier": "NVApiWrapper/0-TU102-A/fan/0",
+        "IsHidden": false,
+        "Name": "Fan 1 - NVIDIA GeForce RTX 2080 Ti",
+        "NickName": "GPU 1-3"
+      },
+      {
+        "Identifier": "NVApiWrapper/0-TU102-A/fan/1",
+        "IsHidden": false,
+        "Name": "Fan 2 - NVIDIA GeForce RTX 2080 Ti",
+        "NickName": "GPU 2"
+      }
+    ],
+    "HideCalibration": false,
+    "HideFanSpeedCards": false,
+    "HorizontalUIOrientation": false,
+    "PrimaryColor": "#FF378FB9",
+    "SecondaryColor": "#FFAEEA00",
+    "SelectedTheme": "Inherit",
+    "ShowHiddenCards": false,
+    "SyncThemeWithWindows": true,
+    "SyncTrayIconColorWithWindows": true,
+    "TemperatureSensors": [],
+    "TrayIconColor": "#FFFFFFFF",
+    "TrayIcons": [
+      {
+        "Color": null,
+        "SensorId": {
+          "Identifier": "/intelcpu/0/temperature/6",
+          "IsHidden": false,
+          "Name": "CPU Package",
+          "NickName": "CPU Package"
+        }
+      }
+    ]
+  },
+  "Sensors": {
+    "DisabledPlugins": [],
+    "DisableStorageSensors": true,
+    "LibreHardwareMonitorSettings": {
+      "Controller": false,
+      "CPU": true,
+      "EmbeddedEC": true,
+      "GPU": true,
+      "InpOut": false,
+      "Memory": false,
+      "Motherboard": true,
+      "PSU": false,
+      "Storage": false,
+      "ZeroRPMOverride": false
+    },
+    "NvAPIWrapperSettings": {
+      "Enabled": true,
+      "ZeroRPMOverride": false
+    },
+    "SensorCount": 38
+  }
+}
