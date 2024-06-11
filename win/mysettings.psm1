@@ -1169,7 +1169,9 @@ public class MonitorHelper {
         Function SetWallpaper {
             Write-Host "Setting Desktop Wallpaper..." -NoNewline
             $wallpaperPath = "$userprofile\Documents\hello.png"
+            $wc = New-Object System.Net.WebClient
             try {
+                $wc.DownloadFile($wallpaperurl, $wallpaperPath)
                 Set-ItemProperty -Path "HKCU:Control Panel\Desktop" -Name WallPaper -Value $wallpaperPath | Out-Null
                 Start-Sleep 2
 
@@ -1191,7 +1193,7 @@ public class MonitorHelper {
         }
 
         SetWallpaper
-        
+
         # Restore Firefox settings
         Function installFirefoxAddIn() {
             Write-Host "Firefox settings are being restored..." -NoNewline
@@ -1409,7 +1411,7 @@ public class MonitorHelper {
                     break
                 }
             }
-        
+
             if (-not $dngCodec) {
                 Write-Host "[WARNING] Adobe DNG Codec not found after install check." -ForegroundColor Yellow
             }
@@ -1426,7 +1428,7 @@ public class MonitorHelper {
             Start-Sleep 2
             [System.Windows.Forms.SendKeys]::SendWait(" ")
             
-            1..27 | ForEach-Object {
+            1..30 | ForEach-Object {
                 Start-Sleep -Milliseconds 5
                 [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
             }
@@ -1469,8 +1471,6 @@ public class MonitorHelper {
             [System.Windows.Forms.SendKeys]::SendWait(" ")
 
             Start-Sleep 1
-            [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-            Start-Sleep -Milliseconds 5
             [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
             Start-Sleep -Milliseconds 5
             [System.Windows.Forms.SendKeys]::SendWait(" ")
