@@ -18,7 +18,7 @@ Function SteamConfig {
     $steamsourcepath = Join-Path -Path (Get-Location) -ChildPath ".\config\localconfig.vdf"
     $steamdestpath = "$env:userprofile\Documents\GitHub\my-configs\games\steam\localconfig.vdf"
 
-    Copy-Item -Path $steamsourcepath -Destination $steamdestpath -Force -ErrorAction Stop
+    Copy-Item -Path $steamsourcepath -Destination $steamdestpath -Force
 
 }
 
@@ -31,7 +31,7 @@ Function LEDConfig {
     $files = Get-ChildItem -Path $ledsourcepath -File
 
     foreach ($file in $files) {
-        Copy-Item -Path $file.FullName -Destination $leddestpath -Force -ErrorAction Stop
+        Copy-Item -Path $file.FullName -Destination $leddestpath -Force
     }
 }
 
@@ -41,7 +41,7 @@ Function FanConfig {
     $fansourcepath = "C:\Program Files (x86)\FanControl\Configurations\*"
     $fandestpath = "$env:userprofile\Documents\GitHub\my-configs\hardware\fan\my_fan_config.json"
 
-    Copy-Item -Path $fansourcepath -Destination $fandestpath -Force -ErrorAction Stop
+    Copy-Item -Path $fansourcepath -Destination $fandestpath -Force
 }
 
 FanConfig
@@ -76,7 +76,7 @@ Function KeyboardConfig {
     Remove-Item -Path $GGpath -Force -Recurse
 
     # copy the zip file to the github
-    Copy-Item -Path $sssourcepath -Destination $ssdestpath -Force -ErrorAction Stop
+    Copy-Item -Path $sssourcepath -Destination $ssdestpath -Force
 
     # zip file is deleted
     Remove-Item -Path $sssourcepath -Force -Recurse
@@ -124,7 +124,7 @@ Function CryptomatorConfig {
 
     Set-Content -Path $cryptsourcepath -Value $updatedJsonContent -NoNewline
 
-    Copy-Item -Path $cryptsourcepath -Destination $cryptdestpath -Force -ErrorAction Stop
+    Copy-Item -Path $cryptsourcepath -Destination $cryptdestpath -Force
 }
 
 CryptomatorConfig
@@ -133,7 +133,7 @@ Function FlameshotConfig {
     $flamesourcepath = "$env:USERPROFILE\AppData\Roaming\flameshot\flameshot.ini"
     $flamedestpath = "$env:userprofile\Documents\GitHub\my-configs\softwares\flameshot\flameshot.ini"
 
-    Copy-Item -Path $flamesourcepath -Destination $flamedestpath -Force -ErrorAction Stop
+    Copy-Item -Path $flamesourcepath -Destination $flamedestpath -Force
 
 }
 
@@ -159,8 +159,8 @@ Function NotepadConfig {
 
     $filteredContent | Set-Content -Path $noteconfdestpath
 
-    Copy-Item -Path $notethemesourcepath -Destination $notethemedestpath -Force -ErrorAction Stop
-    Copy-Item -Path $noteconfsourcepath -Destination $noteconfdestpath -Force -ErrorAction Stop
+    Copy-Item -Path $notethemesourcepath -Destination $notethemedestpath -Force
+    Copy-Item -Path $noteconfsourcepath -Destination $noteconfdestpath -Force
 }
 
 #NotepadConfig
@@ -169,7 +169,7 @@ Function SpeedtestConfig {
     $speedsourcepath = "$env:userprofile\AppData\Roaming\Ookla\Speedtest CLI\speedtest-cli.ini"
     $speeddestpath = "$env:userprofile\Documents\GitHub\my-configs\softwares\speedtest\speedtest-cli.ini"
 
-    Copy-Item -Path $speedsourcepath -Destination $speeddestpath -Force -ErrorAction Stop
+    Copy-Item -Path $speedsourcepath -Destination $speeddestpath -Force
 
 }
 
@@ -187,7 +187,7 @@ Function TotalCommanderConfig {
         Set-Content -Path $totalsourcepath -Value $filteredcontent
     }
 
-    Copy-Item -Path $totalsourcepath -Destination $totaldestpath -Force -ErrorAction Stop
+    Copy-Item -Path $totalsourcepath -Destination $totaldestpath -Force
 }
 
 TotalCommanderConfig
@@ -196,7 +196,7 @@ Function TwinkleConfig {
     $twinklesourcepath = "$env:userprofile\AppData\Roaming\twinkle-tray\settings.json"
     $twinkledestpath = "$env:userprofile\Documents\GitHub\my-configs\softwares\twinkle-tray\settings.json"
 
-    Copy-Item -Path $twinklesourcepath -Destination $twinkledestpath -Force -ErrorAction Stop
+    Copy-Item -Path $twinklesourcepath -Destination $twinkledestpath -Force
 }
 
 TwinkleConfig
@@ -245,7 +245,7 @@ Function StickyNotesConfig {
 
     Start-Sleep 1
 
-    Copy-Item -Path $stickysourcepath -Destination $stickydestpath -Force -ErrorAction Stop
+    Copy-Item -Path $stickysourcepath -Destination $stickydestpath -Force
 }
 
 StickyNotesConfig
@@ -263,7 +263,7 @@ Function TaskmgrConfig {
     $taskmgrsourcepath = "$env:USERPROFILE\AppData\Local\Microsoft\Windows\TaskManager\settings.json"
     $taskmgrdestpath = "$env:userprofile\Documents\GitHub\my-configs\win\taskmgr\settings.json"
 
-    Copy-Item -Path $taskmgrsourcepath -Destination $taskmgrdestpath -Force -ErrorAction Stop
+    Copy-Item -Path $taskmgrsourcepath -Destination $taskmgrdestpath -Force
 }
 
 TaskmgrConfig
@@ -272,7 +272,7 @@ Function TerminalConfig {
     $terminalsourcepath = "$env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
     $terminaldestpath = "$env:userprofile\Documents\GitHub\my-configs\win\terminal\settings.json"
 
-    Copy-Item -Path $terminalsourcepath -Destination $terminaldestpath -Force -ErrorAction Stop
+    Copy-Item -Path $terminalsourcepath -Destination $terminaldestpath -Force
 }
 
 TerminalConfig
@@ -285,7 +285,7 @@ Function PhotosConfig {
 
     Start-Sleep 1
 
-    Copy-Item -Path $photossourcepath -Destination $photosdestpath -Force -ErrorAction Stop
+    Copy-Item -Path $photossourcepath -Destination $photosdestpath -Force
 }
 
 PhotosConfig
@@ -298,7 +298,7 @@ Function TeamsConfig {
 
     Start-Sleep 1
 
-    Copy-Item -Path $teamssourcepath -Destination $teamsdestpath -Force -ErrorAction Stop
+    Copy-Item -Path $teamssourcepath -Destination $teamsdestpath -Force
 }
 
 TeamsConfig
@@ -312,7 +312,7 @@ Function PowertoysConfig {
     foreach ($file in $files) {
         if ($file -is [System.IO.FileInfo]) {
             $destination = Join-Path -Path $powertoysdestpath -ChildPath $file.Name
-            Copy-Item -Path $file.FullName -Destination $destination -Force -ErrorAction Stop
+            Copy-Item -Path $file.FullName -Destination $destination -Force
         }
     }
 }
@@ -337,8 +337,8 @@ Function CS2Config {
 
     $cs2videosourcepath = (Get-Location).Path
 
-    Copy-Item -Path $cs2cfgsourcepath -Destination $cs2cfgdestpath -Force -ErrorAction Stop
-    Copy-Item -Path $cs2videosourcepath\cs2_video.txt -Destination $cs2videodestpath -Force -ErrorAction Stop
+    Copy-Item -Path $cs2cfgsourcepath -Destination $cs2cfgdestpath -Force
+    Copy-Item -Path $cs2videosourcepath\cs2_video.txt -Destination $cs2videodestpath -Force
 
     Set-Location c:\
 }
@@ -376,3 +376,5 @@ Start-Sleep 1
 }
 
 [System.Windows.Forms.SendKeys]::SendWait("backups made")
+
+Write-Host `n"[Don't forget to upload your browser plugins!]" -ForegroundColor Green
