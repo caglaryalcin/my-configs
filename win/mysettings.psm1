@@ -1546,28 +1546,6 @@ public class MonitorHelper {
         
         RunTwinkleTray
 
-        Function PasswordNeverExpires {
-            Write-Host "Setting password never expires for local admins..." -NoNewline
-            $localAdmins = Get-LocalGroupMember -Group "Administrators" | Where-Object { $_.ObjectClass -eq 'User' }
-
-            foreach ($admin in $localAdmins) {
-                $username = $admin.Name.Split("\")[1]
-    
-                try {
-                    Set-LocalUser -Name $username -PasswordNeverExpires $true
-                    
-                }
-                catch {
-                    Write-Host "[WARNING] Failed to set password never expires for $username $_" -ForegroundColor Red -BackgroundColor Black
-                }
-            }
-
-            Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
-
-        }
-
-        PasswordNeverExpires
-
         Function Restart {
             Write-Host "`nDo you " -NoNewline
             Write-Host "want restart?" -NoNewline -ForegroundColor Red -BackgroundColor Black
