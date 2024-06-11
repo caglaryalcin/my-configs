@@ -153,7 +153,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 }
                 
                 # Github Desktop folder name
-                $githubfoldername = Get-ChildItem -Path "$env:USERPROFILE\AppData\Local\GitHubDesktop\" -Directory | Where-Object { $_.Name -ne "packages" } | Select-Object -ExpandProperty Name
+                $githubfoldername = Get-ChildItem -Path "$env:USERPROFILE\AppData\Local\GitHubDesktop\" -Directory | Where-Object { $_.Name -like "app*" -and $_.Name -ne "packages" } | Select-Object -ExpandProperty Name
 
                 Function CreateShortcuts {
                     $defaultPaths = @{
@@ -587,7 +587,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             $darkreaderContent = @'
 {
     "schemeVersion": 2,
-    "enabled": false,
+    "enabled": true,
     "fetchNews": false,
     "theme": {
         "mode": 1,
@@ -1168,19 +1168,28 @@ public class MonitorHelper {
 
         Function SetWallpaper {
             Write-Host "Setting Desktop Wallpaper..." -NoNewline
-            $wallpaperPath = "$HOME\Documents\hello.png"
-            $wc = New-Object System.Net.WebClient
+            $wallpaperPath = "$userprofile\Documents\hello.png"
             try {
-                $wc.DownloadFile($wallpaperurl, $wallpaperPath)
-                Set-Itemproperty -path "HKCU:Control Panel\Desktop" -name WallPaper -value "$env:userprofile\Documents\hello.png"  | Out-Null
+                Set-ItemProperty -Path "HKCU:Control Panel\Desktop" -Name WallPaper -Value $wallpaperPath | Out-Null
                 Start-Sleep 2
+
+                $code = @"
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+"@
+                $User32 = Add-Type -MemberDefinition $code -Name "User32" -Namespace Win32Functions -PassThru
+                $null = $User32::SystemParametersInfo(20, 0, $wallpaperPath, 0x01 -bor 0x02)
+
                 Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+
+                taskkill /f /im explorer.exe *>$null
+                Start-Process "explorer.exe" -ErrorAction Stop
             }
             catch {
                 Write-Host "[WARNING] $_" -ForegroundColor Yellow
             }
         }
-        
+
         SetWallpaper
         
         # Restore Firefox settings
@@ -1455,8 +1464,6 @@ public class MonitorHelper {
 
             Start-Sleep 1.5
 
-            [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-            Start-Sleep 1
             [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
             Start-Sleep -Milliseconds 5
             [System.Windows.Forms.SendKeys]::SendWait(" ")
