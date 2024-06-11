@@ -1104,6 +1104,10 @@ public class MonitorHelper {
             Write-Host "Setting some registry keys..." -NoNewline
             
             # create vmware workstation registry keys
+            Silent
+            $key = Get-ItemProperty -Path "HKLM:\SOFTWARE\WOW6432Node\VMware, Inc.\VMware Workstation\Dormant\License.ws.17.0.e5.202208" -ErrorAction Stop
+            Set-ItemProperty -Path $key.PSPath -Name "Serial" -Type String -Value 4A4RR-813DK-M81A9-4U35H-06KND *>$null
+            
             $path = "C:\Program Files (x86)\VMware\VMware Workstation\"
             if (Test-Path $path) {
                 Start-Process "$path\vmware.exe" *>$null
@@ -1428,7 +1432,7 @@ public class MonitorHelper {
             Start-Sleep 2
             [System.Windows.Forms.SendKeys]::SendWait(" ")
             
-            1..30 | ForEach-Object {
+            1..37 | ForEach-Object {
                 Start-Sleep -Milliseconds 5
                 [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
             }
@@ -1464,13 +1468,15 @@ public class MonitorHelper {
 
             [KeyboardInput]::SendWinN()
 
-            Start-Sleep 1.5
+            Start-Sleep 1
 
             [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
             Start-Sleep -Milliseconds 5
             [System.Windows.Forms.SendKeys]::SendWait(" ")
 
             Start-Sleep 1
+            [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
+            Start-Sleep -Milliseconds 5
             [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
             Start-Sleep -Milliseconds 5
             [System.Windows.Forms.SendKeys]::SendWait(" ")
