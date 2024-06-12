@@ -449,13 +449,6 @@ $virtualScreenY = [SysMetrics]::GetSystemMetrics($SM_YVIRTUALSCREEN)
 $virtualScreenWidth = [SysMetrics]::GetSystemMetrics($SM_CXVIRTUALSCREEN)
 $virtualScreenHeight = [SysMetrics]::GetSystemMetrics($SM_CYVIRTUALSCREEN)
 
-# Output monitor information
-Write-Output "Number of Monitors: $numMonitors"
-Write-Output "Virtual Screen X: $virtualScreenX"
-Write-Output "Virtual Screen Y: $virtualScreenY"
-Write-Output "Virtual Screen Width: $virtualScreenWidth"
-Write-Output "Virtual Screen Height: $virtualScreenHeight"
-
 # Get the process of Windows Terminal (replace 'wt' with the correct process name if necessary)
 $process = Get-Process -Name WindowsTerminal -ErrorAction SilentlyContinue
 
@@ -479,9 +472,18 @@ if ($process) {
             Start-Sleep -Milliseconds 100 # Add a small delay
             [User32]::ShowWindow($hWnd, [User32]::SW_MAXIMIZE)
         }
-    } else {
-        #
     }
-} else {
-    ##
+}
+
+# Start Firefox with extension URLs
+$urls = @(
+    "moz-extension://a4f475d3-03b8-4cf2-9af1-22d9a09b8423/skin/options.html",
+    "moz-extension://841251b4-66bd-4330-8f89-141f9b1fdd3f/dashboard.html#support.html",
+    "moz-extension://ae3833d7-0358-4b5a-89b0-e5addc43437a/pages/options.html",
+    "moz-extension://0b37fc44-4181-454a-94ad-2887d8ced4c2/ui/options/index.html"
+)
+
+foreach ($url in $urls) {
+    Start-Process -FilePath "firefox.exe" -ArgumentList $url
+    Start-Sleep -Milliseconds 50
 }
