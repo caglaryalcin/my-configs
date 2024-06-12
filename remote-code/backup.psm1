@@ -377,4 +377,13 @@ Start-Sleep 1
 
 [System.Windows.Forms.SendKeys]::SendWait("backups made")
 
-Write-Host `n"[Don't forget to upload your browser plugins!]" -ForegroundColor Green
+$description = @"
++--------------------------------------------------------------+
+|                                                              |
+|   IMPORTANT: Don't forget to upload your browser plugins!    |
+|                                                              |
++--------------------------------------------------------------+
+"@
+
+Write-Host `n"$description" -BackgroundColor Black -ForegroundColor Red
+Write-Host ""
