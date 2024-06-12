@@ -377,6 +377,8 @@ Start-Sleep -Milliseconds 500
 
 [System.Windows.Forms.SendKeys]::SendWait("backups made")
 
+clear
+
 $description = @"
 +--------------------------------------------------------------+
 |                                                              |
@@ -495,3 +497,5 @@ for ($i = 0; $i -lt $urls.Length; $i++) {
     Start-Process -FilePath "firefox.exe" -ArgumentList $url
     Start-Sleep -Milliseconds 50
 }
+
+Write-Host ""
