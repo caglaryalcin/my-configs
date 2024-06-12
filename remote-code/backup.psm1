@@ -387,7 +387,6 @@ $description = @"
 Write-Host `n"$description" -BackgroundColor Black -ForegroundColor Red
 Write-Host ""
 
-
 # Move Windows Terminal to Second Monitor and Maximize It
 if (-not ([System.Management.Automation.PSTypeName]'User32').Type) {
     Add-Type @"
@@ -419,7 +418,7 @@ public class User32 {
         public int Bottom;
     }
 }
-"@
+"@ | Out-Null
 }
 
 # Add the necessary sysmetrics functions
@@ -432,7 +431,7 @@ public class SysMetrics {
     [DllImport("user32.dll", SetLastError = true)]
     public static extern int GetSystemMetrics(int nIndex);
 }
-"@
+"@ | Out-Null
 }
 
 # Define system metrics
@@ -465,12 +464,12 @@ if ($process) {
             $secondMonitorHeight = $virtualScreenHeight
 
             # Move the window to the second monitor
-            [User32]::MoveWindow($hWnd, $secondMonitorX, $secondMonitorY, $secondMonitorWidth, $secondMonitorHeight, $true)
+            [User32]::MoveWindow($hWnd, $secondMonitorX, $secondMonitorY, $secondMonitorWidth, $secondMonitorHeight, $true) | Out-Null
             
             # Maximize the window
-            [User32]::SetForegroundWindow($hWnd)
+            [User32]::SetForegroundWindow($hWnd) | Out-Null
             Start-Sleep -Milliseconds 100 # Add a small delay
-            [User32]::ShowWindow($hWnd, [User32]::SW_MAXIMIZE)
+            [User32]::ShowWindow($hWnd, [User32]::SW_MAXIMIZE) | Out-Null
         }
     }
 }
@@ -482,8 +481,17 @@ $urls = @(
     "moz-extension://ae3833d7-0358-4b5a-89b0-e5addc43437a/pages/options.html",
     "moz-extension://0b37fc44-4181-454a-94ad-2887d8ced4c2/ui/options/index.html"
 )
+$extensions = @(
+    "uBlock Origin",
+    "Privacy Badger",
+    "Dark Reader",
+    "uBlacklist"
+)
 
-foreach ($url in $urls) {
+for ($i = 0; $i -lt $urls.Length; $i++) {
+    $url = $urls[$i]
+    $extension = $extensions[$i]
+    Write-Host "Opened: $extension"
     Start-Process -FilePath "firefox.exe" -ArgumentList $url
     Start-Sleep -Milliseconds 50
 }
