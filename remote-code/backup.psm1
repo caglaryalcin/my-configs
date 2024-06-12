@@ -368,7 +368,7 @@ Start-Sleep -Milliseconds 50
 Start-Sleep -Milliseconds 50
 [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
 
-Start-Sleep 1
+Start-Sleep -Milliseconds 500
 
 1..7 | ForEach-Object {
     Start-Sleep -Milliseconds 1
