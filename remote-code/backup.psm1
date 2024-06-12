@@ -386,3 +386,102 @@ $description = @"
 "@
 Write-Host `n"$description" -BackgroundColor Black -ForegroundColor Red
 Write-Host ""
+
+
+# Move Windows Terminal to Second Monitor and Maximize It
+if (-not ([System.Management.Automation.PSTypeName]'User32').Type) {
+    Add-Type @"
+using System;
+using System.Runtime.InteropServices;
+
+public class User32 {
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern IntPtr GetForegroundWindow();
+
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern bool SetForegroundWindow(IntPtr hWnd);
+
+    public const int SW_MAXIMIZE = 3;
+
+    public struct RECT {
+        public int Left;
+        public int Top;
+        public int Right;
+        public int Bottom;
+    }
+}
+"@
+}
+
+# Add the necessary sysmetrics functions
+if (-not ([System.Management.Automation.PSTypeName]'SysMetrics').Type) {
+    Add-Type @"
+using System;
+using System.Runtime.InteropServices;
+
+public class SysMetrics {
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern int GetSystemMetrics(int nIndex);
+}
+"@
+}
+
+# Define system metrics
+$SM_CMONITORS = 80
+$SM_XVIRTUALSCREEN = 76
+$SM_YVIRTUALSCREEN = 77
+$SM_CXVIRTUALSCREEN = 78
+$SM_CYVIRTUALSCREEN = 79
+
+# Get monitor information
+$numMonitors = [SysMetrics]::GetSystemMetrics($SM_CMONITORS)
+$virtualScreenX = [SysMetrics]::GetSystemMetrics($SM_XVIRTUALSCREEN)
+$virtualScreenY = [SysMetrics]::GetSystemMetrics($SM_YVIRTUALSCREEN)
+$virtualScreenWidth = [SysMetrics]::GetSystemMetrics($SM_CXVIRTUALSCREEN)
+$virtualScreenHeight = [SysMetrics]::GetSystemMetrics($SM_CYVIRTUALSCREEN)
+
+# Output monitor information
+Write-Output "Number of Monitors: $numMonitors"
+Write-Output "Virtual Screen X: $virtualScreenX"
+Write-Output "Virtual Screen Y: $virtualScreenY"
+Write-Output "Virtual Screen Width: $virtualScreenWidth"
+Write-Output "Virtual Screen Height: $virtualScreenHeight"
+
+# Get the process of Windows Terminal (replace 'wt' with the correct process name if necessary)
+$process = Get-Process -Name WindowsTerminal -ErrorAction SilentlyContinue
+
+if ($process) {
+    $hWnd = $process.MainWindowHandle
+
+    if ($hWnd -ne [IntPtr]::Zero) {
+        # If there are two monitors, move the window to the second monitor and maximize it
+        if ($numMonitors -ge 2) {
+            # Determine the coordinates of the top left corner of the second monitor
+            $secondMonitorX = $virtualScreenX + $virtualScreenWidth / 2
+            $secondMonitorY = $virtualScreenY
+            $secondMonitorWidth = $virtualScreenWidth / 2
+            $secondMonitorHeight = $virtualScreenHeight
+
+            # Move the window to the second monitor
+            [User32]::MoveWindow($hWnd, $secondMonitorX, $secondMonitorY, $secondMonitorWidth, $secondMonitorHeight, $true)
+            
+            # Maximize the window
+            [User32]::SetForegroundWindow($hWnd)
+            Start-Sleep -Milliseconds 100 # Add a small delay
+            [User32]::ShowWindow($hWnd, [User32]::SW_MAXIMIZE)
+        }
+    } else {
+        #
+    }
+} else {
+    ##
+}
