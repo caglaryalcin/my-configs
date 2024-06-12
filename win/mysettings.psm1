@@ -200,7 +200,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                             "Path"             = "C:\Program Files\CPUID\HWMonitor\HWMonitor.exe";
                             "WorkingDirectory" = "C:\Program Files\CPUID\HWMonitor\";
                         };
-                        "VMware Workstation Pro" = @{
+                        "VMware Workstation" = @{
                             "Path"             = "C:\Program Files (x86)\VMware\VMware Workstation\vmware.exe";
                             "WorkingDirectory" = "C:\Program Files (x86)\VMware\VMware Workstation\";
                         };
