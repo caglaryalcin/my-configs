@@ -822,7 +822,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             if (Test-Path $path) {
                 Start-Process "$path\vmware.exe" *>$null
                 Start-Sleep 10
-                taskkill.exe /f /im vmware.exe *>$null
+                taskkill.exe /im vmware.exe *>$null
                 $vmwareInstalled = $true
             }
             else {
