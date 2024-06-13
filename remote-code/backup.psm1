@@ -413,7 +413,7 @@ for ($i = 0; $i -lt $urls.Length; $i++) {
 
 Write-Host ""
 
-Start-Sleep 2
+Start-Sleep 1
 
 # Move Windows Terminal to Second Monitor and Maximize It
 # Load necessary assemblies
