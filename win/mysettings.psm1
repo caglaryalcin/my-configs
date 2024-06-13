@@ -200,7 +200,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                             "Path"             = "C:\Program Files\CPUID\HWMonitor\HWMonitor.exe";
                             "WorkingDirectory" = "C:\Program Files\CPUID\HWMonitor\";
                         };
-                        "VMware Workstation" = @{
+                        "VMware Workstation"     = @{
                             "Path"             = "C:\Program Files (x86)\VMware\VMware Workstation\vmware.exe";
                             "WorkingDirectory" = "C:\Program Files (x86)\VMware\VMware Workstation\";
                         };
@@ -510,6 +510,11 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     "$photosconfurl"
                 )
 
+                # wallpaper
+                "$env:USERPROFILE\Documents\"                                                                   = @(
+                    "$wallpaperurl"
+                )
+
                 # teams
                 "$env:USERPROFILE\AppData\Local\Packages\MSTeams_8wekyb3d8bbwe\Settings\"                       = @(
                     "$teamsurl"
@@ -816,7 +821,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             
             if (Test-Path $path) {
                 Start-Process "$path\vmware.exe" *>$null
-                Start-Sleep 1
+                Start-Sleep 10
                 taskkill.exe /f /im vmware.exe *>$null
                 $vmwareInstalled = $true
             }
@@ -1170,34 +1175,37 @@ public class MonitorHelper {
         
         SomeRegs        
 
-        Function SetWallpaper {
+        function SetWallpaper {
             Write-Host "Setting Desktop Wallpaper..." -NoNewline
-            $wallpaperPath = "$userprofile\Documents\hello.png"
-            $wc = New-Object System.Net.WebClient
             try {
-                $wc.DownloadFile($wallpaperurl, $wallpaperPath)
-                Set-ItemProperty -Path "HKCU:Control Panel\Desktop" -Name WallPaper -Value $wallpaperPath | Out-Null
-                Start-Sleep 2
-
-                $code = @"
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+                $wallpaperPath = "$env:USERPROFILE\Documents\hello.png"
+                if (Test-Path $wallpaperPath) {
+                    Set-ItemProperty -Path "HKCU:Control Panel\Desktop" -Name WallPaper -Value $wallpaperPath | Out-Null
+                    Start-Sleep 2
+        
+                    $code = @"
+                    [DllImport("user32.dll", CharSet = CharSet.Auto)]
+                    public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
 "@
-                $User32 = Add-Type -MemberDefinition $code -Name "User32" -Namespace Win32Functions -PassThru
-                $null = $User32::SystemParametersInfo(20, 0, $wallpaperPath, 0x01 -bor 0x02)
-
-                Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
-
-                taskkill /f /im explorer.exe *>$null
-                Start-Process "explorer.exe" -ErrorAction Stop
+                    $User32 = Add-Type -MemberDefinition $code -Name "User32" -Namespace Win32Functions -PassThru
+                    $null = $User32::SystemParametersInfo(20, 0, $wallpaperPath, 0x01 -bor 0x02)
+        
+                    Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
+        
+                    taskkill /f /im explorer.exe *>$null
+                    Start-Process "explorer.exe" -ErrorAction Stop
+                }
+                else {
+                    Write-Host "[WARNING] Wallpaper file not found at $wallpaperPath" -ForegroundColor Yellow
+                }
             }
             catch {
                 Write-Host "[WARNING] $_" -ForegroundColor Yellow
             }
         }
-
+        
         SetWallpaper
-
+        
         # Restore Firefox settings
         Function installFirefoxAddIn() {
             Write-Host "Firefox settings are being restored..." -NoNewline
@@ -1429,7 +1437,7 @@ public class MonitorHelper {
             [System.Windows.Forms.SendKeys]::SendWait('^{ESC}')
             Start-Sleep 2
             [System.Windows.Forms.SendKeys]::SendWait("Night{ENTER}")
-            Start-Sleep 2
+            Start-Sleep 2.5
             [System.Windows.Forms.SendKeys]::SendWait(" ")
             
             1..37 | ForEach-Object {
@@ -1468,7 +1476,7 @@ public class MonitorHelper {
 
             [KeyboardInput]::SendWinN()
 
-            Start-Sleep 1
+            Start-Sleep 1.5
 
             [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
             Start-Sleep -Milliseconds 5
