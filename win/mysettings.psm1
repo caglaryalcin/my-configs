@@ -1210,7 +1210,7 @@ public class MonitorHelper {
         Function installFirefoxAddIn() {
             Write-Host "Firefox settings are being restored..." -NoNewline
 
-            # Create Firefox profile directory
+            # Set default browser
             Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe" -NoNewWindow
             Start-Sleep 3.5
 
@@ -1437,7 +1437,7 @@ public class MonitorHelper {
             [System.Windows.Forms.SendKeys]::SendWait('^{ESC}')
             Start-Sleep 2
             [System.Windows.Forms.SendKeys]::SendWait("Night{ENTER}")
-            Start-Sleep 2.5
+            Start-Sleep 2
             [System.Windows.Forms.SendKeys]::SendWait(" ")
             
             1..37 | ForEach-Object {
