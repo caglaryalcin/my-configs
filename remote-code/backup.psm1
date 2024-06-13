@@ -408,7 +408,7 @@ for ($i = 0; $i -lt $urls.Length; $i++) {
     $extension = $extensions[$i]
     Write-Host "Opened: $extension"
     Start-Process -FilePath "firefox.exe" -ArgumentList $url
-    Start-Sleep -Milliseconds 50
+    Start-Sleep -Milliseconds 500
 }
 
 Write-Host ""
