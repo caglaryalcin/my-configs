@@ -390,90 +390,81 @@ Write-Host `n"$description" -BackgroundColor Black -ForegroundColor Red
 Write-Host ""
 
 # Move Windows Terminal to Second Monitor and Maximize It
-if (-not ([System.Management.Automation.PSTypeName]'User32').Type) {
-    Add-Type @"
+# Load necessary assemblies
+Add-Type @"
 using System;
 using System.Runtime.InteropServices;
-
-public class User32 {
+public class WindowHandler {
     [DllImport("user32.dll", SetLastError = true)]
-    public static extern IntPtr GetForegroundWindow();
-
-    [DllImport("user32.dll", SetLastError = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
-
     [DllImport("user32.dll", SetLastError = true)]
-    public static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
-
-    [DllImport("user32.dll", SetLastError = true)]
-    public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-
-    [DllImport("user32.dll", SetLastError = true)]
-    public static extern bool SetForegroundWindow(IntPtr hWnd);
-
-    public const int SW_MAXIMIZE = 3;
-
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
     public struct RECT {
         public int Left;
         public int Top;
         public int Right;
         public int Bottom;
     }
+    public static IntPtr HWND_TOP = (IntPtr)0;
+    public static uint SWP_SHOWWINDOW = 0x0040;
 }
-"@ | Out-Null
+"@
+
+function Set-Window {
+    param(
+        [Parameter(Mandatory = $true)]
+        [System.IntPtr]$hWnd,
+        [Parameter(Mandatory = $true)]
+        [int]$X,
+        [Parameter(Mandatory = $true)]
+        [int]$Y,
+        [Parameter(Mandatory = $true)]
+        [int]$Width,
+        [Parameter(Mandatory = $true)]
+        [int]$Height
+    )
+
+    [WindowHandler]::SetWindowPos($hWnd, [WindowHandler]::HWND_TOP, $X, $Y, $Width, $Height, [WindowHandler]::SWP_SHOWWINDOW) | Out-Null
 }
 
-# Add the necessary sysmetrics functions
-if (-not ([System.Management.Automation.PSTypeName]'SysMetrics').Type) {
-    Add-Type @"
-using System;
-using System.Runtime.InteropServices;
+function Get-WindowHandle {
+    param(
+        [string]$processName
+    )
 
-public class SysMetrics {
-    [DllImport("user32.dll", SetLastError = true)]
-    public static extern int GetSystemMetrics(int nIndex);
-}
-"@ | Out-Null
-}
-
-# Define system metrics
-$SM_CMONITORS = 80
-$SM_XVIRTUALSCREEN = 76
-$SM_YVIRTUALSCREEN = 77
-$SM_CXVIRTUALSCREEN = 78
-$SM_CYVIRTUALSCREEN = 79
-
-# Get monitor information
-$numMonitors = [SysMetrics]::GetSystemMetrics($SM_CMONITORS)
-$virtualScreenX = [SysMetrics]::GetSystemMetrics($SM_XVIRTUALSCREEN)
-$virtualScreenY = [SysMetrics]::GetSystemMetrics($SM_YVIRTUALSCREEN)
-$virtualScreenWidth = [SysMetrics]::GetSystemMetrics($SM_CXVIRTUALSCREEN)
-$virtualScreenHeight = [SysMetrics]::GetSystemMetrics($SM_CYVIRTUALSCREEN)
-
-# Get the process of Windows Terminal (replace 'wt' with the correct process name if necessary)
-$process = Get-Process -Name WindowsTerminal -ErrorAction SilentlyContinue
-
-if ($process) {
-    $hWnd = $process.MainWindowHandle
-
-    if ($hWnd -ne [IntPtr]::Zero) {
-        # If there are two monitors, move the window to the second monitor and maximize it
-        if ($numMonitors -ge 2) {
-            # Determine the coordinates of the top left corner of the second monitor
-            $secondMonitorX = $virtualScreenX + $virtualScreenWidth / 2
-            $secondMonitorY = $virtualScreenY
-            $secondMonitorWidth = $virtualScreenWidth / 2
-            $secondMonitorHeight = $virtualScreenHeight
-
-            # Move the window to the second monitor
-            [User32]::MoveWindow($hWnd, $secondMonitorX, $secondMonitorY, $secondMonitorWidth, $secondMonitorHeight, $true) | Out-Null
-            
-            # Maximize the window
-            [User32]::SetForegroundWindow($hWnd) | Out-Null
-            Start-Sleep -Milliseconds 100 # Add a small delay
-            [User32]::ShowWindow($hWnd, [User32]::SW_MAXIMIZE) | Out-Null
+    $processes = Get-Process -Name $processName -ErrorAction SilentlyContinue
+    if ($processes) {
+        foreach ($process in $processes) {
+            if ($process.MainWindowHandle -ne [System.IntPtr]::Zero) {
+                return $process.MainWindowHandle
+            }
         }
     }
+    return [System.IntPtr]::Zero
+}
+
+# Define screen and window sizes
+Add-Type -AssemblyName System.Windows.Forms
+$primaryScreen = [System.Windows.Forms.Screen]::AllScreens[0]
+$secondaryScreen = [System.Windows.Forms.Screen]::AllScreens[1]
+
+$screenWidth = $secondaryScreen.Bounds.Width
+$screenHeight = $secondaryScreen.Bounds.Height
+$halfScreenWidth = [math]::Ceiling($screenWidth / 2)
+
+# Get Firefox and Terminal window handles
+$firefoxHandle = Get-WindowHandle -processName "firefox"
+$terminalHandle = Get-WindowHandle -processName "WindowsTerminal" # Adjust this line if you're using a different terminal
+
+# Move and resize windows
+if ($firefoxHandle -ne [System.IntPtr]::Zero) {
+    Set-Window -hWnd $firefoxHandle -X $secondaryScreen.Bounds.Left -Y 0 -Width $halfScreenWidth -Height $screenHeight
+}
+
+if ($terminalHandle -ne [System.IntPtr]::Zero) {
+    Set-Window -hWnd $terminalHandle -X ($secondaryScreen.Bounds.Left + $halfScreenWidth) -Y 0 -Width $halfScreenWidth -Height $screenHeight
 }
 
 # Start Firefox with extension URLs
