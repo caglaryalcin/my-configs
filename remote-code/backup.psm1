@@ -389,6 +389,30 @@ $description = @"
 Write-Host `n"$description" -BackgroundColor Black -ForegroundColor Red
 Write-Host ""
 
+# Start Firefox with extension URLs
+$urls = @(
+    "moz-extension://a4f475d3-03b8-4cf2-9af1-22d9a09b8423/skin/options.html",
+    "moz-extension://841251b4-66bd-4330-8f89-141f9b1fdd3f/dashboard.html#support.html",
+    "moz-extension://ae3833d7-0358-4b5a-89b0-e5addc43437a/pages/options.html",
+    "moz-extension://0b37fc44-4181-454a-94ad-2887d8ced4c2/ui/options/index.html"
+)
+$extensions = @(
+    "uBlock Origin",
+    "Privacy Badger",
+    "Dark Reader",
+    "uBlacklist"
+)
+
+for ($i = 0; $i -lt $urls.Length; $i++) {
+    $url = $urls[$i]
+    $extension = $extensions[$i]
+    Write-Host "Opened: $extension"
+    Start-Process -FilePath "firefox.exe" -ArgumentList $url
+    Start-Sleep -Milliseconds 50
+}
+
+Write-Host ""
+
 # Move Windows Terminal to Second Monitor and Maximize It
 # Load necessary assemblies
 Add-Type @"
@@ -466,27 +490,3 @@ if ($firefoxHandle -ne [System.IntPtr]::Zero) {
 if ($terminalHandle -ne [System.IntPtr]::Zero) {
     Set-Window -hWnd $terminalHandle -X ($secondaryScreen.Bounds.Left + $halfScreenWidth) -Y 0 -Width $halfScreenWidth -Height $screenHeight
 }
-
-# Start Firefox with extension URLs
-$urls = @(
-    "moz-extension://a4f475d3-03b8-4cf2-9af1-22d9a09b8423/skin/options.html",
-    "moz-extension://841251b4-66bd-4330-8f89-141f9b1fdd3f/dashboard.html#support.html",
-    "moz-extension://ae3833d7-0358-4b5a-89b0-e5addc43437a/pages/options.html",
-    "moz-extension://0b37fc44-4181-454a-94ad-2887d8ced4c2/ui/options/index.html"
-)
-$extensions = @(
-    "uBlock Origin",
-    "Privacy Badger",
-    "Dark Reader",
-    "uBlacklist"
-)
-
-for ($i = 0; $i -lt $urls.Length; $i++) {
-    $url = $urls[$i]
-    $extension = $extensions[$i]
-    Write-Host "Opened: $extension"
-    Start-Process -FilePath "firefox.exe" -ArgumentList $url
-    Start-Sleep -Milliseconds 50
-}
-
-Write-Host ""
