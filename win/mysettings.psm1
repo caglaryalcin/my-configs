@@ -41,6 +41,9 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         $usercontentcss = "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/softwares/browser-conf/appearance/userContent.css"
         $userchromecss = "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/softwares/browser-conf/appearance/userChrome.css"
 
+        # browser extensions
+        $darkreaderurl = "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/softwares/browser-conf/extensions/darkreader.json"
+
         # OS
         $taskbarpin = "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/taskbar/taskbar_pin.reg"
         $stickynotesurl = "https://github.com/caglaryalcin/my-configs/raw/main/win/stickynotes/settings.dat"
@@ -524,11 +527,12 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 "$env:userprofile\Desktop"                                                                      = @(
                     "$displaylayouturl", # being deleted
                     "$windowslayouturl", # being deleted
-                    "$vsthemeurl",
                     "$steamconfurl", # test path exists
                     "$flameconfurl", # test path exists
                     "$powertoysconfurl", # test path exists
-                    "$idmconfigurl"
+                    "$idmconfigurl",
+                    "$vsthemeurl",
+                    "$darkreaderurl"
                 )
 
                 # nvidia config
@@ -587,99 +591,6 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                     SafeInvokeWebRequest -uri $url -outFile $outFile
                 }
             }
-
-            # Download the Dark Reader config
-            $darkreaderContent = @'
-{
-    "schemeVersion": 2,
-    "enabled": true,
-    "fetchNews": false,
-    "theme": {
-        "mode": 1,
-        "brightness": 100,
-        "contrast": 100,
-        "grayscale": 0,
-        "sepia": 0,
-        "useFont": false,
-        "fontFamily": "Segoe UI",
-        "textStroke": 0,
-        "engine": "dynamicTheme",
-        "stylesheet": "",
-        "darkSchemeBackgroundColor": "#181a1b",
-        "darkSchemeTextColor": "#e8e6e3",
-        "lightSchemeBackgroundColor": "#dcdad7",
-        "lightSchemeTextColor": "#181a1b",
-        "scrollbarColor": "auto",
-        "selectionColor": "auto",
-        "styleSystemControls": false,
-        "lightColorScheme": "Default",
-        "darkColorScheme": "Default",
-        "immediateModify": false
-    },
-    "presets": [],
-    "customThemes": [],
-    "enabledByDefault": true,
-    "enabledFor": [],
-    "disabledFor": [
-        "www.inoreader.com",
-        "app.tuta.com",
-        "sso.garmin.com",
-        "mail.google.com",
-        "chat.openai.com",
-        "www.turkcell.com.tr",
-        "premium.hepsiburada.com",
-        "www.hepsiburada.com",
-        "connect.garmin.com",
-        "ststore.com.tr",
-        "photos.caglaryalcin.com",
-        "panel.ademdereli.net",
-        "10.0.0.200:2234",
-        "www.kutupayisi.com",
-        "www.apple.com",
-        "billing.stripe.com",
-        "chatgpt.com",
-        "pay.openai.com",
-        "www.akakce.com",
-        "ai.google",
-        "agar.io",
-        "meet.google.com",
-        "simplelogin.io",
-        "caglaryalcin.com",
-        "winstall.app",
-        "x.com",
-        "aosogrenci.anadolu.edu.tr"
-    ],
-    "changeBrowserTheme": false,
-    "syncsettings": true,
-    "syncSitesFixes": false,
-    "automation": {
-        "enabled": false,
-        "mode": "system",
-        "behavior": "OnOff"
-    },
-    "time": {
-        "activation": "18:00",
-        "deactivation": "9:00"
-    },
-    "location": {
-        "latitude": null,
-        "longitude": null
-    },
-    "previewNewDesign": true,
-    "enableForPDF": true,
-    "enableForProtectedPages": false,
-    "enableContextMenus": false,
-    "detectDarkTheme": true,
-    "readNews": [
-        "thanks-2023"
-    ],
-    "displayedNews": [
-        "thanks-2023"
-    ]
-}
-'@
-
-            $darkreaderContent | Out-File -FilePath $env:userprofile\Desktop\darkreader.json -Encoding UTF8
 
             Write-Host "[DONE]" -ForegroundColor Green -BackgroundColor Black
         }
