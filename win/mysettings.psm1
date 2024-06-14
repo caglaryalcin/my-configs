@@ -878,7 +878,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             }
         }
         
-        VMwareConfig        
+        VMwareConfig
 
         Function IDMConfig {
             param (
