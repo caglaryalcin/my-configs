@@ -1435,7 +1435,7 @@ public class MonitorHelper {
             [System.Windows.Forms.SendKeys]::SendWait('^{ESC}')
             Start-Sleep 2
             [System.Windows.Forms.SendKeys]::SendWait("Night{ENTER}")
-            Start-Sleep 2
+            Start-Sleep 3
             [System.Windows.Forms.SendKeys]::SendWait(" ")
             
             1..37 | ForEach-Object {
@@ -1475,7 +1475,8 @@ public class MonitorHelper {
             [KeyboardInput]::SendWinN()
 
             Start-Sleep 1.5
-
+            [System.Windows.Forms.SendKeys]::SendWait(" ")
+            Start-Sleep -Milliseconds 5
             [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
             Start-Sleep -Milliseconds 5
             [System.Windows.Forms.SendKeys]::SendWait(" ")
