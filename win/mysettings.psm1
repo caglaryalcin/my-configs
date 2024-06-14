@@ -818,18 +818,26 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             Write-Host "Restoring VMware configs..." -NoNewline
             $path = "C:\Program Files (x86)\VMware\VMware Workstation\"
             $vmwareInstalled = $false
-            
+
             if (Test-Path $path) {
                 Start-Process "$path\vmware.exe" *>$null
-                Start-Sleep 10
-                taskkill.exe /im vmware.exe *>$null
-                $vmwareInstalled = $true
+                Start-Sleep 1.5
+    
+                # Ensure that vmware.exe is running before attempting to kill it
+                $process = Get-Process -Name "vmware" -ErrorAction SilentlyContinue
+                if ($process) {
+                    taskkill.exe /im vmware.exe *>$null
+                    $vmwareInstalled = $true
+                }
+                else {
+                    # Handle case where vmware.exe did not start
+                    Write-Output "Failed to start vmware.exe."
+                }
             }
             else {
-                Write-Host "[WARNING]" -ForegroundColor Yellow -BackgroundColor Black -NoNewline
-                Write-Host " Vmware v7 not installed" -ForegroundColor Yellow
+                Write-Output "Vmware v7 not installed"
             }
-        
+
             $vmpath = "$env:USERPROFILE\Documents\Virtual Machines"
         
             if (-not (Test-Path -Path $vmpath -PathType Container)) {
