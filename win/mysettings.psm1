@@ -838,6 +838,8 @@ if ($response -eq 'y' -or $response -eq 'Y') {
                 Write-Output "Vmware v7 not installed"
             }
 
+            Start-Sleep 1
+
             $vmpath = "$env:USERPROFILE\Documents\Virtual Machines"
         
             if (-not (Test-Path -Path $vmpath -PathType Container)) {
