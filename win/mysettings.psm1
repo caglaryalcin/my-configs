@@ -820,19 +820,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             $vmwareInstalled = $false
 
             if (Test-Path $path) {
-                Start-Process "$path\vmware.exe" *>$null
-                Start-Sleep 1.5
-    
-                # Ensure that vmware.exe is running before attempting to kill it
-                $process = Get-Process -Name "vmware" -ErrorAction SilentlyContinue
-                if ($process) {
-                    taskkill.exe /im vmware.exe *>$null
-                    $vmwareInstalled = $true
-                }
-                else {
-                    # Handle case where vmware.exe did not start
-                    Write-Output "Failed to start vmware.exe."
-                }
+                $vmwareInstalled = $true
             }
             else {
                 Write-Output "Vmware v7 not installed"
@@ -849,7 +837,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             Invoke-WebRequest -Uri $vmconfurl -OutFile "$env:USERPROFILE\Desktop\vm-conf.zip"
             Invoke-WebRequest -Uri $vmurl -OutFile "$env:USERPROFILE\Desktop\w11-x64.zip"
         
-            Expand-Archive -Path "$env:USERPROFILE\Desktop\vm-conf.zip" -DestinationPath "$env:APPDATA\Roaming\VMware\" -Force -ErrorAction Stop
+            Expand-Archive -Path "$env:USERPROFILE\Desktop\vm-conf.zip" -DestinationPath "$env:APPDATA\VMware\" -Force -ErrorAction Stop
             Expand-Archive -Path "$env:USERPROFILE\Desktop\w11-x64.zip" -DestinationPath "$vmpath" -Force -ErrorAction Stop
         
             Remove-Item -Path "$env:USERPROFILE\Desktop\vm-conf.zip" -Force -Recurse
