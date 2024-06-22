@@ -391,10 +391,9 @@ Write-Host ""
 
 # Start Firefox with extension URLs
 $urls = @(
-    "moz-extension://a4f475d3-03b8-4cf2-9af1-22d9a09b8423/skin/options.html",
+    "moz-extension://841251b4-66bd-4330-8f89-141f9b1fdd3f/dashboard.html#1p-filters.html",
     "moz-extension://841251b4-66bd-4330-8f89-141f9b1fdd3f/dashboard.html#support.html",
-    "moz-extension://ae3833d7-0358-4b5a-89b0-e5addc43437a/pages/options.html",
-    "moz-extension://0b37fc44-4181-454a-94ad-2887d8ced4c2/ui/options/index.html"
+    "moz-extension://ae3833d7-0358-4b5a-89b0-e5addc43437a/pages/options.html"
 )
 $extensions = @(
     "uBlock Origin",
