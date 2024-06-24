@@ -180,12 +180,25 @@ Function TotalCommanderConfig {
     $totaldestpath = "$env:userprofile\Documents\GitHub\my-configs\softwares\total-comm\wincmd.ini"
 
     $inicontent = Get-Content -Path $totalsourcepath
-    $rightHistoryIndex = $inicontent.IndexOf("[RightHistory]")
+    $newcontent = @()
+    $skipSection = $false
 
-    if ($rightHistoryIndex -ne -1) {
-        $filteredcontent = $inicontent[0..($rightHistoryIndex - 1)]
-        Set-Content -Path $totalsourcepath -Value $filteredcontent
+    foreach ($line in $inicontent) {
+        if ($line -match "^\[left\]" -or $line -match "^\[right\]") {
+            $skipSection = $true
+            continue
+        }
+
+        if ($line -match "^\[.*\]" -and $skipSection) {
+            $skipSection = $false
+        }
+
+        if (-not $skipSection) {
+            $newcontent += $line
+        }
     }
+
+    $newcontent | Set-Content -Path $totalsourcepath
 
     Copy-Item -Path $totalsourcepath -Destination $totaldestpath -Force
 }
