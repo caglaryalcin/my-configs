@@ -1,6 +1,6 @@
 {
     "schemeVersion": 2,
-    "enabled": true,
+    "enabled": false,
     "fetchNews": false,
     "theme": {
         "mode": 1,
@@ -41,7 +41,6 @@
         "ststore.com.tr",
         "photos.caglaryalcin.com",
         "panel.ademdereli.net",
-        "10.0.0.200:2234",
         "www.kutupayisi.com",
         "www.apple.com",
         "billing.stripe.com",
@@ -55,10 +54,21 @@
         "caglaryalcin.com",
         "winstall.app",
         "x.com",
-        "aosogrenci.anadolu.edu.tr"
+        "aosogrenci.anadolu.edu.tr",
+        "10.0.0.200:8200",
+        "account.proton.me",
+        "bitwarden.caglaryalcin.com",
+        "ebys.edirne.bel.tr",
+        "www.fakewhats.com",
+        "rss-bridge.github.io",
+        "www.amazon.com.tr",
+        "vault.bitwarden.com",
+        "www.google.com",
+        "www.decathlon.com.tr",
+        "yusufipek.me"
     ],
     "changeBrowserTheme": false,
-    "syncsettings": true,
+    "syncSettings": true,
     "syncSitesFixes": false,
     "automation": {
         "enabled": false,
@@ -81,6 +91,7 @@
     "readNews": [
         "thanks-2023"
     ],
+    "syncsettings": true,
     "displayedNews": [
         "thanks-2023"
     ]
