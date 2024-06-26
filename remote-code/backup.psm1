@@ -161,6 +161,14 @@ Function NotepadConfig {
 
     Copy-Item -Path $notethemesourcepath -Destination $notethemedestpath -Force
     Copy-Item -Path $noteconfsourcepath -Destination $noteconfdestpath -Force
+
+    # If there is an unsaved tab in notepad++, it will open
+    $backupPath = "$env:USERPROFILE\AppData\Roaming\Notepad++\backup"
+
+    Get-ChildItem -Path $backupPath | Where-Object { $_.Length -gt 0 } | ForEach-Object {
+        Start-Process -FilePath "notepad++.exe" -ArgumentList "`"$($_.FullName)`""
+    }
+
 }
 
 #NotepadConfig
@@ -393,11 +401,12 @@ Start-Sleep -Milliseconds 500
 clear
 
 $description = @"
-+--------------------------------------------------------------+
-|                                                              |
-|   IMPORTANT: Don't forget to upload your browser plugins!    |
-|                                                              |
-+--------------------------------------------------------------+
++-------------------------------------------------------------------+
+|                                                                   |
+|   IMPORTANT: Don't forget to upload your browser plugins!         |
+|   IMPORTANT: Don't forget to check Notepad++ for unsaved tabs!    |
+|                                                                   |
++-------------------------------------------------------------------+
 "@
 Write-Host `n"$description" -BackgroundColor Black -ForegroundColor Red
 Write-Host ""
