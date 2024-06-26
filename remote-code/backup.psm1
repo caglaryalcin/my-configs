@@ -179,12 +179,12 @@ Function TotalCommanderConfig {
     $totalsourcepath = "$env:userprofile\AppData\Roaming\GHISLER\wincmd.ini"
     $totaldestpath = "$env:userprofile\Documents\GitHub\my-configs\softwares\total-comm\wincmd.ini"
 
-    $inicontent = Get-Content -Path $totalsourcepath
+    $inicontent = Get-Content -Path $totalsourcepath -Encoding Default
     $newcontent = @()
     $skipSection = $false
 
     foreach ($line in $inicontent) {
-        if ($line -match "^\[left\]" -or $line -match "^\[right\]") {
+        if ($line -match "^\[LeftHistory\]" -or $line -match "^\[RightHistory\]") {
             $skipSection = $true
             continue
         }
@@ -198,7 +198,7 @@ Function TotalCommanderConfig {
         }
     }
 
-    $newcontent | Set-Content -Path $totalsourcepath
+    $newcontent | Set-Content -Path $totalsourcepath -Encoding Default
 
     Copy-Item -Path $totalsourcepath -Destination $totaldestpath -Force
 }
