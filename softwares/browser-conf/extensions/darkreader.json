@@ -1,6 +1,6 @@
 {
     "schemeVersion": 2,
-    "enabled": false,
+    "enabled": true,
     "fetchNews": false,
     "theme": {
         "mode": 1,
@@ -61,11 +61,12 @@
         "ebys.edirne.bel.tr",
         "www.fakewhats.com",
         "rss-bridge.github.io",
-        "www.amazon.com.tr",
         "vault.bitwarden.com",
         "www.google.com",
         "www.decathlon.com.tr",
-        "yusufipek.me"
+        "yusufipek.me",
+        "10.0.0.200:2283",
+        "demo.immich.app"
     ],
     "changeBrowserTheme": false,
     "syncSettings": true,
