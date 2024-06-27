@@ -708,7 +708,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
             Start-Sleep 10
 			
             # Stop the SteelSeries Engine Client
-            taskkill.exe /f /im SteelSeriesGGClient.exe *>$null
+            Get-Process | Where-Object { $_.Name -like "steel*" } | ForEach-Object { Stop-Process -Name $_.Name -Force } *>$null
         }
 
         SteelSeriesConfig
