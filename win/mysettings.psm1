@@ -29,7 +29,7 @@ if ($response -eq 'y' -or $response -eq 'Y') {
         $landriver = "https://dlcdnets.asus.com/pub/ASUS/mb/04LAN/DRV_LAN_Intel_I219_UWD_TP_W10_64_V1219137_20210830R.zip"
 
         # Display
-        $nvidia = "https://drive.usercontent.google.com/download?id=1rK2B80uck38ivmPpdzS6U7bx52Dp_49k&authuser=0&confirm=t&uuid=586fc18c-0d71-47c2-93e0-bc9142274310&at=APZUnTVvBM9KyVwuj3KgYrFY5u_w%3A1713637143195"
+        $nvidia = "https://drive.usercontent.google.com/download?id=1ZcDFV3I4qA4fItgDFx5rg74VI-WzLWCF&export=download&authuser=0&confirm=t&uuid=19346121-f57f-49e8-961b-46349a0b4877&at=APZUnTVOzIeBu89wOsxeOTC3BTOL"
         $nvidiaconfigurl = "https://github.com/caglaryalcin/my-configs/raw/main/hardware/nvidia/Base-Profile.nip"
         $nvidiainspector = "https://github.com/Orbmu2k/nvidiaProfileInspector/releases/download/2.4.0.4/nvidiaProfileInspector.zip"
         $displaylayouturl = "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/win/display/display-layout.reg"
