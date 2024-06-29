@@ -10,7 +10,7 @@ function DownloadAndExtract {
     Invoke-WebRequest -Uri $nvidiainspector -Outfile $nvidiazippath
 
     # Create the folder for Nvidia Profile Inspector
-    New-Item -Path $nvidiainspectorpath -ItemType Directory -Force
+    New-Item -Path $nvidiainspectorpath -ItemType Directory -Force *>$null
 
     # Extract the Nvidia Profile Inspector
     & 'C:\Program Files\7-Zip\7z.exe' x $nvidiazippath -o"$nvidiainspectorpath" *>$null
