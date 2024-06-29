@@ -46,3 +46,5 @@ ImportBaseProfile
 
 # Kill any running instance of Nvidia Profile Inspector
 KillNvidiaProfileInspector
+
+Set-Location "C:\"

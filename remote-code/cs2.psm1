@@ -52,7 +52,8 @@ while ($true) {
 
         # Kill any running instance of Nvidia Profile Inspector
         KillNvidiaProfileInspector
-
+        
+        Set-Location "C:\"
 
         # CS2 Configs
         Invoke-WebRequest -Uri "https://raw.githubusercontent.com/caglaryalcin/my-configs/main/games/cs2/autoexec.cfg" -Outfile "$env:userprofile\Desktop\cs.cfg"
