@@ -37,7 +37,7 @@ function KillNvidiaProfileInspector {
 # Check if the Nvidia Profile Inspector folder exists
 if (Test-Path -Path $nvidiainspectorpath -PathType Container) {
     # Folder exists, delete it and its contents
-    Remove-Item -Path $nvidiainspectorpath -Recurse -Force
+    Remove-Item -Path $nvidiainspectorpath -Recurse -Force *>$null
 }
 
 # Download, extract, and import base profile
