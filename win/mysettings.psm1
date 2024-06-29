@@ -1019,7 +1019,7 @@ public class MonitorHelper {
             
             # create vmware workstation registry keys
             Silent
-            $key = Get-ItemProperty -Path "HKLM:\SOFTWARE\WOW6432Node\VMware, Inc.\VMware Workstation\Dormant\License.ws.17.0.e5.202208" -ErrorAction Stop
+            $key = Get-ItemProperty -Path "HKLM:\SOFTWARE\WOW6432Node\VMware, Inc.\VMware Workstation\Dormant\License.ws.17.0.e5.202208" *>$null
             Set-ItemProperty -Path $key.PSPath -Name "Serial" -Type String -Value 4A4RR-813DK-M81A9-4U35H-06KND *>$null
             
             $path = "C:\Program Files (x86)\VMware\VMware Workstation\"
@@ -1031,6 +1031,7 @@ public class MonitorHelper {
             else {
                 Write-Host "[WARNING]" -ForegroundColor Yellow -BackgroundColor Black -NoNewline
                 Write-Host " Vmware v7 not installed" -ForegroundColor Yellow
+                return
             }
         
             $paths = @{
@@ -1068,6 +1069,7 @@ public class MonitorHelper {
                     }
                     catch {
                         Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
+                        return
                     }
                 }
             }
