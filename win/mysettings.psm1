@@ -1068,7 +1068,6 @@ public class MonitorHelper {
                     }
                     catch {
                         Write-Host "[WARNING]: $_" -ForegroundColor Red -BackgroundColor Black
-                        return
                     }
                 }
             }
