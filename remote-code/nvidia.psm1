@@ -21,7 +21,7 @@ else {
 if (-not (Test-Path -Path $nvidiaconfigpath -PathType Container)) {
     Invoke-WebRequest -Uri $nvidiaconfigurl -Outfile $nvidiaconfigpath
     Set-Location "C:\Program Files\nvidiaProfileInspector"
-    .\nvidiaProfileInspector.exe -silentImport Base-Profile.nip
+    .\nvidiaProfileInspector.exe -silentImport .\Base-Profile.nip
     Start-Sleep 1
 }
 else {
