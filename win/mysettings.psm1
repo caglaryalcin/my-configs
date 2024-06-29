@@ -1031,7 +1031,6 @@ public class MonitorHelper {
             else {
                 Write-Host "[WARNING]" -ForegroundColor Yellow -BackgroundColor Black -NoNewline
                 Write-Host " Vmware v7 not installed" -ForegroundColor Yellow
-                return
             }
         
             $paths = @{
@@ -1082,7 +1081,7 @@ public class MonitorHelper {
             }
         }
         
-        SomeRegs        
+        SomeRegs
 
         function SetWallpaper {
             Write-Host "Setting Desktop Wallpaper..." -NoNewline
