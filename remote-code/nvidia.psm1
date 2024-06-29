@@ -5,6 +5,12 @@ $nvidiainspectorpath = "C:\Program Files\nvidiaProfileInspector"
 $nvidiaconfigpath = "C:\Program Files\nvidiaProfileInspector\Base-Profile.nip"
 $nvidiaconfigurl = "https://github.com/caglaryalcin/my-configs/raw/main/hardware/nvidia/Base-Profile.nip"
 
+# Check if the Nvidia Profile Inspector folder exists
+if (Test-Path -Path $nvidiainspectorpath -PathType Container) {
+    # Folder exists, delete it and its contents
+    Remove-Item -Path $nvidiainspectorpath -Recurse -Force *>$null
+}
+
 function DownloadAndExtract {
     # Download the Nvidia Profile Inspector
     Invoke-WebRequest -Uri $nvidiainspector -Outfile $nvidiazippath
@@ -32,12 +38,6 @@ function ImportBaseProfile {
 function KillNvidiaProfileInspector {
     # Kill the Nvidia Profile Inspector process if running
     taskkill.exe /f /im nvidiaProfileInspector.exe *>$null
-}
-
-# Check if the Nvidia Profile Inspector folder exists
-if (Test-Path -Path $nvidiainspectorpath -PathType Container) {
-    # Folder exists, delete it and its contents
-    Remove-Item -Path $nvidiainspectorpath -Recurse -Force *>$null
 }
 
 # Download, extract, and import base profile
