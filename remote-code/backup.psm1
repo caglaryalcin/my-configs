@@ -192,12 +192,12 @@ Function TotalCommanderConfig {
     $skipSection = $false
 
     foreach ($line in $inicontent) {
-        if ($line -match "^\[LeftHistory\]" -or $line -match "^\[RightHistory\]") {
+        if ($line -imatch "^\[left.*\]" -or $line -imatch "^\[right.*\]") {
             $skipSection = $true
             continue
         }
 
-        if ($line -match "^\[.*\]" -and $skipSection) {
+        if ($line -imatch "^\[.*\]" -and $skipSection) {
             $skipSection = $false
         }
 
