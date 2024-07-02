@@ -7,3 +7,7 @@
 #PlacesToolbarItems .openintabs-menuitem,
 #placesContext>menuitem[id="placesContext_openContainer:tabs"],
 #placesContext>menuitem[id="placesContext_openContainer:tabs"]:not([hidden])+menuitem+#placesContext_openSeparator {visibility:collapse!important}
+
+#personal-bookmarks .bookmark-item {
+    padding: 6px 4px !important; /* rightpx: bookmarks leftpx:folders */
+}
